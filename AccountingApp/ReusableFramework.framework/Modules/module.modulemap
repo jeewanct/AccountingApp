@@ -1,0 +1,11 @@
+framework module ReusableFramework {
+  umbrella header "ReusableFramework.h"
+
+  export *
+  module * { export * }
+}
+
+module ReusableFramework.Swift {
+    header "ReusableFramework-Swift.h"
+    requires objc
+}

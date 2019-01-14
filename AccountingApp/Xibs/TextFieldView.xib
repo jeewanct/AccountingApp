@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Quicksand-Regular.ttf">
+            <string>Quicksand-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="TextFieldView" id="Vdd-2p-4kI" customClass="TextFieldView" customModule="AccountingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="672" height="68"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="18J-SG-CFj">
+                    <rect key="frame" x="0.0" y="59" width="672" height="1"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="3gV-Bq-5hH"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXZ-lZ-tNK">
+                    <rect key="frame" x="0.0" y="6.5" width="35.5" height="17.5"/>
+                    <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="14"/>
+                    <color key="textColor" red="0.44705882349999998" green="0.56862745100000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ex - Electricity Bill" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kSQ-wU-waW">
+                    <rect key="frame" x="0.0" y="28" width="672" height="31"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Wlf-Ks-6IT" firstAttribute="trailing" secondItem="18J-SG-CFj" secondAttribute="trailing" id="2eZ-zN-wOc"/>
+                <constraint firstItem="18J-SG-CFj" firstAttribute="bottom" secondItem="Wlf-Ks-6IT" secondAttribute="bottom" constant="-8" id="3pp-W4-mY7"/>
+                <constraint firstItem="18J-SG-CFj" firstAttribute="leading" secondItem="Wlf-Ks-6IT" secondAttribute="leading" id="4xC-LG-t2q"/>
+                <constraint firstItem="kSQ-wU-waW" firstAttribute="top" secondItem="EXZ-lZ-tNK" secondAttribute="bottom" constant="4" id="CGF-tJ-dfA"/>
+                <constraint firstItem="kSQ-wU-waW" firstAttribute="leading" secondItem="Wlf-Ks-6IT" secondAttribute="leading" id="KRv-Wt-f1e"/>
+                <constraint firstItem="18J-SG-CFj" firstAttribute="top" secondItem="kSQ-wU-waW" secondAttribute="bottom" id="QJf-CT-cJm"/>
+                <constraint firstItem="EXZ-lZ-tNK" firstAttribute="top" secondItem="Wlf-Ks-6IT" secondAttribute="top" constant="6.5" id="trG-Iz-Ktx"/>
+                <constraint firstItem="EXZ-lZ-tNK" firstAttribute="leading" secondItem="Wlf-Ks-6IT" secondAttribute="leading" id="z4t-ls-hFf"/>
+                <constraint firstItem="Wlf-Ks-6IT" firstAttribute="trailing" secondItem="kSQ-wU-waW" secondAttribute="trailing" id="zhH-C6-V5g"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Wlf-Ks-6IT"/>
+            <connections>
+                <outlet property="infoLabel" destination="EXZ-lZ-tNK" id="FCz-TH-tWC"/>
+                <outlet property="inputTextField" destination="kSQ-wU-waW" id="0yF-Ol-dV2"/>
+            </connections>
+            <point key="canvasLocation" x="16" y="-223.98800599700152"/>
+        </view>
+    </objects>
+</document>

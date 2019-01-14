@@ -7,14 +7,112 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1359B7E4FC338F6E43254847 /* Pods_AccountingAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA94C64004EB2C52A49FD53 /* Pods_AccountingAppUITests.framework */; };
+		DB22675921DE635A001F6D01 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB22675821DE635A001F6D01 /* GroupController.swift */; };
+		DB22675B21DE6442001F6D01 /* NoConnectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB22675A21DE6442001F6D01 /* NoConnectionView.xib */; };
+		DB22675D21DE6966001F6D01 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB22675C21DE6966001F6D01 /* NoConnectionView.swift */; };
+		DB22675F21DE7312001F6D01 /* GroupHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB22675E21DE7312001F6D01 /* GroupHeader.xib */; };
 		DB39C9F621CB7DC9003A1303 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39C9F521CB7DC9003A1303 /* AppDelegate.swift */; };
-		DB39C9F821CB7DC9003A1303 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39C9F721CB7DC9003A1303 /* ViewController.swift */; };
 		DB39C9FB21CB7DC9003A1303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB39C9F921CB7DC9003A1303 /* Main.storyboard */; };
 		DB39C9FE21CB7DC9003A1303 /* AccountingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB39C9FC21CB7DC9003A1303 /* AccountingApp.xcdatamodeld */; };
 		DB39CA0021CB7DCD003A1303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB39C9FF21CB7DCD003A1303 /* Assets.xcassets */; };
 		DB39CA0321CB7DCD003A1303 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB39CA0121CB7DCD003A1303 /* LaunchScreen.storyboard */; };
 		DB39CA0E21CB7DCD003A1303 /* AccountingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA0D21CB7DCD003A1303 /* AccountingAppTests.swift */; };
 		DB39CA1921CB7DCD003A1303 /* AccountingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA1821CB7DCD003A1303 /* AccountingAppUITests.swift */; };
+		DB39CA2E21CB7E2C003A1303 /* AccountingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA2D21CB7E2C003A1303 /* AccountingProtocols.swift */; };
+		DB39CA3421CB821C003A1303 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB39CA3021CB821B003A1303 /* Quicksand-Regular.ttf */; };
+		DB39CA3521CB821C003A1303 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB39CA3121CB821B003A1303 /* Quicksand-Bold.ttf */; };
+		DB39CA3621CB821C003A1303 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB39CA3221CB821B003A1303 /* Quicksand-Medium.ttf */; };
+		DB39CA3721CB821C003A1303 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB39CA3321CB821C003A1303 /* Quicksand-Light.ttf */; };
+		DB39CA3921CB8389003A1303 /* ProjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA3821CB8389003A1303 /* ProjectsController.swift */; };
+		DB39CA3B21CB8396003A1303 /* ReportsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA3A21CB8396003A1303 /* ReportsController.swift */; };
+		DB39CA3D21CB839F003A1303 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA3C21CB839F003A1303 /* CameraController.swift */; };
+		DB39CA3F21CB83A9003A1303 /* InvoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA3E21CB83A9003A1303 /* InvoiceController.swift */; };
+		DB39CA4121CB83B6003A1303 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA4021CB83B6003A1303 /* ProfileController.swift */; };
+		DB39CA4321CB83C2003A1303 /* ProjectsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA4221CB83C2003A1303 /* ProjectsPresenter.swift */; };
+		DB39CA4521CB83CE003A1303 /* ReportsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA4421CB83CE003A1303 /* ReportsPresenter.swift */; };
+		DB39CA4721CB83D7003A1303 /* CameraPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA4621CB83D7003A1303 /* CameraPresenter.swift */; };
+		DB39CA4921CB83E7003A1303 /* InvoicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA4821CB83E7003A1303 /* InvoicePresenter.swift */; };
+		DB39CA4B21CB83F8003A1303 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA4A21CB83F8003A1303 /* ProfilePresenter.swift */; };
+		DB39CA4D21CB8403003A1303 /* ProjectInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA4C21CB8403003A1303 /* ProjectInteractor.swift */; };
+		DB39CA4F21CB840F003A1303 /* ReportsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA4E21CB840E003A1303 /* ReportsInteractor.swift */; };
+		DB39CA5121CB841F003A1303 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA5021CB841F003A1303 /* ProfileInteractor.swift */; };
+		DB39CA5321CB842B003A1303 /* CameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA5221CB842B003A1303 /* CameraInteractor.swift */; };
+		DB39CA5521CB8438003A1303 /* InvoiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA5421CB8438003A1303 /* InvoiceInteractor.swift */; };
+		DB39CA5721CB8445003A1303 /* ProjectRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA5621CB8445003A1303 /* ProjectRoute.swift */; };
+		DB39CA5921CB8451003A1303 /* ReportsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA5821CB8451003A1303 /* ReportsRoute.swift */; };
+		DB39CA5B21CB845A003A1303 /* ProfileRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA5A21CB845A003A1303 /* ProfileRoute.swift */; };
+		DB39CA5D21CB8466003A1303 /* CameraRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA5C21CB8466003A1303 /* CameraRoute.swift */; };
+		DB39CA5F21CB8472003A1303 /* InvoiceRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA5E21CB8472003A1303 /* InvoiceRoute.swift */; };
+		DB39CA6321CB8999003A1303 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA6221CB8999003A1303 /* HomeController.swift */; };
+		DB39CA6821CB8CFF003A1303 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB39CA6721CB8CFF003A1303 /* ProfileCell.xib */; };
+		DB39CA6A21CB8D1A003A1303 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA6921CB8D1A003A1303 /* ProfileCell.swift */; };
+		DB39CA6D21CB91B8003A1303 /* ProfileConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA6C21CB91B8003A1303 /* ProfileConstants.swift */; };
+		DB39CA7021CB9532003A1303 /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA6E21CB9531003A1303 /* Profile+CoreDataClass.swift */; };
+		DB39CA7121CB9532003A1303 /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA6F21CB9532003A1303 /* Profile+CoreDataProperties.swift */; };
+		DB39CA7321CB9580003A1303 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA7221CB9580003A1303 /* LoginController.swift */; };
+		DB39CA7521CB95C1003A1303 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA7421CB95C1003A1303 /* LoginPresenter.swift */; };
+		DB39CA7721CB95CE003A1303 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA7621CB95CE003A1303 /* LoginInteractor.swift */; };
+		DB39CA7921CB95D8003A1303 /* LoginRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA7821CB95D8003A1303 /* LoginRoutes.swift */; };
+		DB39CA7B21CB9D33003A1303 /* LoginApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA7A21CB9D33003A1303 /* LoginApis.swift */; };
+		DB39CA7D21CB9DA6003A1303 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA7C21CB9DA6003A1303 /* GlobalConstants.swift */; };
+		DB39CA7F21CBA145003A1303 /* ForgotPassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA7E21CBA145003A1303 /* ForgotPassController.swift */; };
+		DB39CA8121CBA181003A1303 /* ForgotPassPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA8021CBA181003A1303 /* ForgotPassPresenter.swift */; };
+		DB39CA8321CBA191003A1303 /* ForgotPassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA8221CBA191003A1303 /* ForgotPassInteractor.swift */; };
+		DB39CA8521CBA19F003A1303 /* ForgotPassRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA8421CBA19F003A1303 /* ForgotPassRoute.swift */; };
+		DB39CA8821CBA4E0003A1303 /* AccountingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA8721CBA4E0003A1303 /* AccountingExtensions.swift */; };
+		DB39CA8B21CBA62A003A1303 /* AccountingEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA8A21CBA62A003A1303 /* AccountingEnums.swift */; };
+		DB39CA8D21CBA768003A1303 /* ForgotPassEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA8C21CBA768003A1303 /* ForgotPassEntity.swift */; };
+		DB39CA9921CBC293003A1303 /* LoginResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA9821CBC293003A1303 /* LoginResponseEntity.swift */; };
+		DB39CA9B21CBD96D003A1303 /* InvoiceApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA9A21CBD96D003A1303 /* InvoiceApis.swift */; };
+		DB39CA9D21CBDB58003A1303 /* InvoiceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CA9C21CBDB58003A1303 /* InvoiceTableCell.swift */; };
+		DB39CA9F21CBDB67003A1303 /* InvoiceTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB39CA9E21CBDB67003A1303 /* InvoiceTableCell.xib */; };
+		DB39CAA221CBDBF2003A1303 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAA121CBDBF2003A1303 /* CardView.swift */; };
+		DB39CAA421CBDEDC003A1303 /* InvoiceCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAA321CBDEDC003A1303 /* InvoiceCollectionCell.swift */; };
+		DB39CAA621CBE270003A1303 /* UserInfoValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAA521CBE270003A1303 /* UserInfoValue.swift */; };
+		DB39CAA821CBE5AC003A1303 /* InvoiceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAA721CBE5AC003A1303 /* InvoiceEntity.swift */; };
+		DB39CAB021CBF3EC003A1303 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAAF21CBF3EC003A1303 /* Helper.swift */; };
+		DB39CAB521CBF7BE003A1303 /* Invoices+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAB121CBF7BE003A1303 /* Invoices+CoreDataClass.swift */; };
+		DB39CAB621CBF7BE003A1303 /* Invoices+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAB221CBF7BE003A1303 /* Invoices+CoreDataProperties.swift */; };
+		DB39CAB721CBF7BE003A1303 /* InvoiceDetails+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAB321CBF7BE003A1303 /* InvoiceDetails+CoreDataClass.swift */; };
+		DB39CAB821CBF7BE003A1303 /* InvoiceDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAB421CBF7BE003A1303 /* InvoiceDetails+CoreDataProperties.swift */; };
+		DB639A1D21E0C086009F7C94 /* Pods_AccountingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF384BA81FF0E2EED436F83 /* Pods_AccountingApp.framework */; };
+		DB7BFF1921CCDF2700C10B8E /* CollectionCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF1821CCDF2700C10B8E /* CollectionCellWithImage.swift */; };
+		DB7BFF1B21CCDF3200C10B8E /* CollectionCellWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB7BFF1A21CCDF3200C10B8E /* CollectionCellWithImage.xib */; };
+		DB7BFF1D21CCE7E100C10B8E /* TableCellTwoLabels.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB7BFF1C21CCE7E100C10B8E /* TableCellTwoLabels.xib */; };
+		DB7BFF1F21CCE7F100C10B8E /* TableCellTwoLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF1E21CCE7F100C10B8E /* TableCellTwoLabels.swift */; };
+		DB7BFF2121CCE9A200C10B8E /* InvoiceDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2021CCE9A200C10B8E /* InvoiceDetailsController.swift */; };
+		DB7BFF2321CCEB7A00C10B8E /* InvoiceDetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2221CCEB7A00C10B8E /* InvoiceDetailCollectionCell.swift */; };
+		DB7BFF2521CD234D00C10B8E /* ProjectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2421CD234D00C10B8E /* ProjectsCell.swift */; };
+		DB7BFF2721CD235D00C10B8E /* ProjectDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2621CD235C00C10B8E /* ProjectDateCell.swift */; };
+		DB7BFF2921CD236D00C10B8E /* ProjectTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2821CD236D00C10B8E /* ProjectTaskCell.swift */; };
+		DB7BFF2B21CD272500C10B8E /* ProjectDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2A21CD272500C10B8E /* ProjectDetailCell.swift */; };
+		DB7BFF2D21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2C21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift */; };
+		DB976FE421E6D47A00A7E312 /* ImagePreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FE321E6D47A00A7E312 /* ImagePreviewController.swift */; };
+		DB976FE621E6D4DA00A7E312 /* ImagePreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FE521E6D4DA00A7E312 /* ImagePreviewCell.swift */; };
+		DB976FE821E6D4EB00A7E312 /* ImagePreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB976FE721E6D4EB00A7E312 /* ImagePreviewCell.xib */; };
+		DB976FEA21E7820000A7E312 /* GroupHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FE921E7820000A7E312 /* GroupHeader.swift */; };
+		DB976FEC21E786C100A7E312 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FEB21E786C100A7E312 /* GroupCell.swift */; };
+		DB976FEE21E786E400A7E312 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB976FED21E786E400A7E312 /* GroupCell.xib */; };
+		DB976FF021EC34EC00A7E312 /* GroupMessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FEF21EC34EC00A7E312 /* GroupMessagesController.swift */; };
+		DB976FF221EC37D000A7E312 /* GroupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FF121EC37D000A7E312 /* GroupPresenter.swift */; };
+		DB976FF421EC37DE00A7E312 /* GroupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FF321EC37DE00A7E312 /* GroupInteractor.swift */; };
+		DB976FF621EC37EA00A7E312 /* GroupRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FF521EC37EA00A7E312 /* GroupRoutes.swift */; };
+		DB976FF821EC3CE600A7E312 /* CameraReviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FF721EC3CE600A7E312 /* CameraReviewPresenter.swift */; };
+		DB976FFA21EC3D0900A7E312 /* CameraReviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FF921EC3D0900A7E312 /* CameraReviewInteractor.swift */; };
+		DB976FFC21EC3D2C00A7E312 /* CameraReviewRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FFB21EC3D2C00A7E312 /* CameraReviewRoutes.swift */; };
+		DBC5A36D21E3AA4F00D615BF /* ReusableFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC5A36B21E3AA4400D615BF /* ReusableFramework.framework */; };
+		DBC5A36E21E3AA4F00D615BF /* ReusableFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBC5A36B21E3AA4400D615BF /* ReusableFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DBC5A37021E3C54600D615BF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5A36F21E3C54600D615BF /* Camera.swift */; };
+		DBC5A37221E4FB7000D615BF /* CameraControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5A37121E4FB7000D615BF /* CameraControllerCell.swift */; };
+		DBC5A37421E50B0700D615BF /* ButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC5A37321E50B0700D615BF /* ButtonView.xib */; };
+		DBC5A37621E510FF00D615BF /* TextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC5A37521E510FF00D615BF /* TextFieldView.xib */; };
+		DBC5A37821E5124100D615BF /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5A37721E5124100D615BF /* TextFieldView.swift */; };
+		DBC5A37A21E5127800D615BF /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5A37921E5127800D615BF /* ButtonView.swift */; };
+		DBC5A37C21E512CB00D615BF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5A37B21E512CB00D615BF /* Extension.swift */; };
+		DBC5A37E21E5147400D615BF /* CameraReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5A37D21E5147400D615BF /* CameraReviewController.swift */; };
+		DBC5A38021E6501300D615BF /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5A37F21E6501300D615BF /* UIConstants.swift */; };
+		F92D578FA7D6E39524194EBF /* Pods_AccountingAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C2246EB06FCE677C5222D6 /* Pods_AccountingAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +132,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DB79E15421E0C6BA000E5EFE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DBC5A36E21E3AA4F00D615BF /* ReusableFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0DA94C64004EB2C52A49FD53 /* Pods_AccountingAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccountingAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EF384BA81FF0E2EED436F83 /* Pods_AccountingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccountingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DAE48B4A652EB10D8EA61F0 /* Pods-AccountingAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountingAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccountingAppUITests/Pods-AccountingAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B314A52CA1A78FBE6FC56912 /* Pods-AccountingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccountingApp/Pods-AccountingApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B7D103A3B6331221956FDC0A /* Pods-AccountingAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountingAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccountingAppTests/Pods-AccountingAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		C07C596F6B3E1FDBC4A46BAB /* Pods-AccountingAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountingAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccountingAppUITests/Pods-AccountingAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CA0F7D8BA13F94F59A7CBCDD /* Pods-AccountingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountingApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccountingApp/Pods-AccountingApp.release.xcconfig"; sourceTree = "<group>"; };
+		DB22675821DE635A001F6D01 /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
+		DB22675A21DE6442001F6D01 /* NoConnectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoConnectionView.xib; sourceTree = "<group>"; };
+		DB22675C21DE6966001F6D01 /* NoConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
+		DB22675E21DE7312001F6D01 /* GroupHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupHeader.xib; sourceTree = "<group>"; };
 		DB39C9F221CB7DC9003A1303 /* AccountingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB39C9F521CB7DC9003A1303 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB39C9F721CB7DC9003A1303 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB39C9FA21CB7DC9003A1303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB39C9FD21CB7DC9003A1303 /* AccountingApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AccountingApp.xcdatamodel; sourceTree = "<group>"; };
 		DB39C9FF21CB7DCD003A1303 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +171,100 @@
 		DB39CA1421CB7DCD003A1303 /* AccountingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccountingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB39CA1821CB7DCD003A1303 /* AccountingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountingAppUITests.swift; sourceTree = "<group>"; };
 		DB39CA1A21CB7DCD003A1303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB39CA2D21CB7E2C003A1303 /* AccountingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountingProtocols.swift; sourceTree = "<group>"; };
+		DB39CA3021CB821B003A1303 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		DB39CA3121CB821B003A1303 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		DB39CA3221CB821B003A1303 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
+		DB39CA3321CB821C003A1303 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
+		DB39CA3821CB8389003A1303 /* ProjectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsController.swift; sourceTree = "<group>"; };
+		DB39CA3A21CB8396003A1303 /* ReportsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsController.swift; sourceTree = "<group>"; };
+		DB39CA3C21CB839F003A1303 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		DB39CA3E21CB83A9003A1303 /* InvoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceController.swift; sourceTree = "<group>"; };
+		DB39CA4021CB83B6003A1303 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		DB39CA4221CB83C2003A1303 /* ProjectsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsPresenter.swift; sourceTree = "<group>"; };
+		DB39CA4421CB83CE003A1303 /* ReportsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsPresenter.swift; sourceTree = "<group>"; };
+		DB39CA4621CB83D7003A1303 /* CameraPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPresenter.swift; sourceTree = "<group>"; };
+		DB39CA4821CB83E7003A1303 /* InvoicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePresenter.swift; sourceTree = "<group>"; };
+		DB39CA4A21CB83F8003A1303 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		DB39CA4C21CB8403003A1303 /* ProjectInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInteractor.swift; sourceTree = "<group>"; };
+		DB39CA4E21CB840E003A1303 /* ReportsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsInteractor.swift; sourceTree = "<group>"; };
+		DB39CA5021CB841F003A1303 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		DB39CA5221CB842B003A1303 /* CameraInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraInteractor.swift; sourceTree = "<group>"; };
+		DB39CA5421CB8438003A1303 /* InvoiceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceInteractor.swift; sourceTree = "<group>"; };
+		DB39CA5621CB8445003A1303 /* ProjectRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRoute.swift; sourceTree = "<group>"; };
+		DB39CA5821CB8451003A1303 /* ReportsRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsRoute.swift; sourceTree = "<group>"; };
+		DB39CA5A21CB845A003A1303 /* ProfileRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoute.swift; sourceTree = "<group>"; };
+		DB39CA5C21CB8466003A1303 /* CameraRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRoute.swift; sourceTree = "<group>"; };
+		DB39CA5E21CB8472003A1303 /* InvoiceRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceRoute.swift; sourceTree = "<group>"; };
+		DB39CA6221CB8999003A1303 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		DB39CA6721CB8CFF003A1303 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		DB39CA6921CB8D1A003A1303 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		DB39CA6C21CB91B8003A1303 /* ProfileConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConstants.swift; sourceTree = "<group>"; };
+		DB39CA6E21CB9531003A1303 /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DB39CA6F21CB9532003A1303 /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DB39CA7221CB9580003A1303 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		DB39CA7421CB95C1003A1303 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		DB39CA7621CB95CE003A1303 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		DB39CA7821CB95D8003A1303 /* LoginRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRoutes.swift; sourceTree = "<group>"; };
+		DB39CA7A21CB9D33003A1303 /* LoginApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApis.swift; sourceTree = "<group>"; };
+		DB39CA7C21CB9DA6003A1303 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		DB39CA7E21CBA145003A1303 /* ForgotPassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassController.swift; sourceTree = "<group>"; };
+		DB39CA8021CBA181003A1303 /* ForgotPassPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassPresenter.swift; sourceTree = "<group>"; };
+		DB39CA8221CBA191003A1303 /* ForgotPassInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassInteractor.swift; sourceTree = "<group>"; };
+		DB39CA8421CBA19F003A1303 /* ForgotPassRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassRoute.swift; sourceTree = "<group>"; };
+		DB39CA8721CBA4E0003A1303 /* AccountingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountingExtensions.swift; sourceTree = "<group>"; };
+		DB39CA8A21CBA62A003A1303 /* AccountingEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountingEnums.swift; sourceTree = "<group>"; };
+		DB39CA8C21CBA768003A1303 /* ForgotPassEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassEntity.swift; sourceTree = "<group>"; };
+		DB39CA9821CBC293003A1303 /* LoginResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseEntity.swift; sourceTree = "<group>"; };
+		DB39CA9A21CBD96D003A1303 /* InvoiceApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceApis.swift; sourceTree = "<group>"; };
+		DB39CA9C21CBDB58003A1303 /* InvoiceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTableCell.swift; sourceTree = "<group>"; };
+		DB39CA9E21CBDB67003A1303 /* InvoiceTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceTableCell.xib; sourceTree = "<group>"; };
+		DB39CAA121CBDBF2003A1303 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		DB39CAA321CBDEDC003A1303 /* InvoiceCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCollectionCell.swift; sourceTree = "<group>"; };
+		DB39CAA521CBE270003A1303 /* UserInfoValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoValue.swift; sourceTree = "<group>"; };
+		DB39CAA721CBE5AC003A1303 /* InvoiceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceEntity.swift; sourceTree = "<group>"; };
+		DB39CAAF21CBF3EC003A1303 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		DB39CAB121CBF7BE003A1303 /* Invoices+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoices+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DB39CAB221CBF7BE003A1303 /* Invoices+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoices+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DB39CAB321CBF7BE003A1303 /* InvoiceDetails+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvoiceDetails+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DB39CAB421CBF7BE003A1303 /* InvoiceDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvoiceDetails+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DB639A2321E0C4DF009F7C94 /* Pods_ReusableFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ReusableFramework.framework; path = /Users/jeevantiwari/Desktop/AccountingApp/AccountingApp/Pods_ReusableFramework.framework; sourceTree = "<absolute>"; };
+		DB7BFF1821CCDF2700C10B8E /* CollectionCellWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellWithImage.swift; sourceTree = "<group>"; };
+		DB7BFF1A21CCDF3200C10B8E /* CollectionCellWithImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCellWithImage.xib; sourceTree = "<group>"; };
+		DB7BFF1C21CCE7E100C10B8E /* TableCellTwoLabels.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCellTwoLabels.xib; sourceTree = "<group>"; };
+		DB7BFF1E21CCE7F100C10B8E /* TableCellTwoLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellTwoLabels.swift; sourceTree = "<group>"; };
+		DB7BFF2021CCE9A200C10B8E /* InvoiceDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailsController.swift; sourceTree = "<group>"; };
+		DB7BFF2221CCEB7A00C10B8E /* InvoiceDetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailCollectionCell.swift; sourceTree = "<group>"; };
+		DB7BFF2421CD234D00C10B8E /* ProjectsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCell.swift; sourceTree = "<group>"; };
+		DB7BFF2621CD235C00C10B8E /* ProjectDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDateCell.swift; sourceTree = "<group>"; };
+		DB7BFF2821CD236D00C10B8E /* ProjectTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTaskCell.swift; sourceTree = "<group>"; };
+		DB7BFF2A21CD272500C10B8E /* ProjectDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailCell.swift; sourceTree = "<group>"; };
+		DB7BFF2C21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDateCollectionCell.swift; sourceTree = "<group>"; };
+		DB976FE321E6D47A00A7E312 /* ImagePreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewController.swift; sourceTree = "<group>"; };
+		DB976FE521E6D4DA00A7E312 /* ImagePreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewCell.swift; sourceTree = "<group>"; };
+		DB976FE721E6D4EB00A7E312 /* ImagePreviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePreviewCell.xib; sourceTree = "<group>"; };
+		DB976FE921E7820000A7E312 /* GroupHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupHeader.swift; sourceTree = "<group>"; };
+		DB976FEB21E786C100A7E312 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		DB976FED21E786E400A7E312 /* GroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
+		DB976FEF21EC34EC00A7E312 /* GroupMessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessagesController.swift; sourceTree = "<group>"; };
+		DB976FF121EC37D000A7E312 /* GroupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPresenter.swift; sourceTree = "<group>"; };
+		DB976FF321EC37DE00A7E312 /* GroupInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInteractor.swift; sourceTree = "<group>"; };
+		DB976FF521EC37EA00A7E312 /* GroupRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRoutes.swift; sourceTree = "<group>"; };
+		DB976FF721EC3CE600A7E312 /* CameraReviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraReviewPresenter.swift; sourceTree = "<group>"; };
+		DB976FF921EC3D0900A7E312 /* CameraReviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraReviewInteractor.swift; sourceTree = "<group>"; };
+		DB976FFB21EC3D2C00A7E312 /* CameraReviewRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraReviewRoutes.swift; sourceTree = "<group>"; };
+		DBC5A36B21E3AA4400D615BF /* ReusableFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReusableFramework.framework; sourceTree = "<group>"; };
+		DBC5A36F21E3C54600D615BF /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		DBC5A37121E4FB7000D615BF /* CameraControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControllerCell.swift; sourceTree = "<group>"; };
+		DBC5A37321E50B0700D615BF /* ButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonView.xib; sourceTree = "<group>"; };
+		DBC5A37521E510FF00D615BF /* TextFieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldView.xib; sourceTree = "<group>"; };
+		DBC5A37721E5124100D615BF /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		DBC5A37921E5127800D615BF /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		DBC5A37B21E512CB00D615BF /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		DBC5A37D21E5147400D615BF /* CameraReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraReviewController.swift; sourceTree = "<group>"; };
+		DBC5A37F21E6501300D615BF /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		F5C2246EB06FCE677C5222D6 /* Pods_AccountingAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccountingAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA4566F59DD1835BDD76B556 /* Pods-AccountingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountingAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccountingAppTests/Pods-AccountingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +272,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC5A36D21E3AA4F00D615BF /* ReusableFramework.framework in Frameworks */,
+				DB639A1D21E0C086009F7C94 /* Pods_AccountingApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +281,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F92D578FA7D6E39524194EBF /* Pods_AccountingAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +289,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1359B7E4FC338F6E43254847 /* Pods_AccountingAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34E2BEE72BF31DD7A32FBCED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B314A52CA1A78FBE6FC56912 /* Pods-AccountingApp.debug.xcconfig */,
+				CA0F7D8BA13F94F59A7CBCDD /* Pods-AccountingApp.release.xcconfig */,
+				FA4566F59DD1835BDD76B556 /* Pods-AccountingAppTests.debug.xcconfig */,
+				B7D103A3B6331221956FDC0A /* Pods-AccountingAppTests.release.xcconfig */,
+				8DAE48B4A652EB10D8EA61F0 /* Pods-AccountingAppUITests.debug.xcconfig */,
+				C07C596F6B3E1FDBC4A46BAB /* Pods-AccountingAppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DB39C9E921CB7DC9003A1303 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +316,9 @@
 				DB39CA0C21CB7DCD003A1303 /* AccountingAppTests */,
 				DB39CA1721CB7DCD003A1303 /* AccountingAppUITests */,
 				DB39C9F321CB7DC9003A1303 /* Products */,
+				34E2BEE72BF31DD7A32FBCED /* Pods */,
+				FBCAA8CC8D9996FE85369B4F /* Frameworks */,
+				DB79E15121E0C690000E5EFE /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +335,22 @@
 		DB39C9F421CB7DC9003A1303 /* AccountingApp */ = {
 			isa = PBXGroup;
 			children = (
+				DBC5A36B21E3AA4400D615BF /* ReusableFramework.framework */,
+				DB39CAA021CBDBDF003A1303 /* Additional */,
+				DB39CA9521CBB48B003A1303 /* Networking */,
+				DB39CA8921CBA619003A1303 /* Enums */,
+				DB39CA8621CBA4C7003A1303 /* Extensions */,
+				DB39CA6B21CB919F003A1303 /* Constants */,
+				DB39CA2F21CB8201003A1303 /* Fonts */,
+				DB39CA6621CB8CE3003A1303 /* Xibs */,
+				DB39CA2621CB7DD2003A1303 /* Modules */,
 				DB39C9F521CB7DC9003A1303 /* AppDelegate.swift */,
-				DB39C9F721CB7DC9003A1303 /* ViewController.swift */,
 				DB39C9F921CB7DC9003A1303 /* Main.storyboard */,
 				DB39C9FF21CB7DCD003A1303 /* Assets.xcassets */,
 				DB39CA0121CB7DCD003A1303 /* LaunchScreen.storyboard */,
 				DB39CA0421CB7DCD003A1303 /* Info.plist */,
 				DB39C9FC21CB7DC9003A1303 /* AccountingApp.xcdatamodeld */,
+				DB39CA6221CB8999003A1303 /* HomeController.swift */,
 			);
 			path = AccountingApp;
 			sourceTree = "<group>";
@@ -128,6 +373,221 @@
 			path = AccountingAppUITests;
 			sourceTree = "<group>";
 		};
+		DB39CA2621CB7DD2003A1303 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CA2C21CB7DEB003A1303 /* Protocols */,
+				DB39CA2B21CB7DE9003A1303 /* Entity */,
+				DB39CA2A21CB7DE7003A1303 /* Routes */,
+				DB39CA2921CB7DE4003A1303 /* Interactor */,
+				DB39CA2821CB7DE2003A1303 /* Presenter */,
+				DB39CA2721CB7DDE003A1303 /* Views */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		DB39CA2721CB7DDE003A1303 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CA3821CB8389003A1303 /* ProjectsController.swift */,
+				DB39CA3A21CB8396003A1303 /* ReportsController.swift */,
+				DB39CA3C21CB839F003A1303 /* CameraController.swift */,
+				DB39CA3E21CB83A9003A1303 /* InvoiceController.swift */,
+				DB39CA4021CB83B6003A1303 /* ProfileController.swift */,
+				DB39CA7221CB9580003A1303 /* LoginController.swift */,
+				DB39CA7E21CBA145003A1303 /* ForgotPassController.swift */,
+				DB7BFF2021CCE9A200C10B8E /* InvoiceDetailsController.swift */,
+				DB22675821DE635A001F6D01 /* GroupController.swift */,
+				DBC5A37D21E5147400D615BF /* CameraReviewController.swift */,
+				DB976FE321E6D47A00A7E312 /* ImagePreviewController.swift */,
+				DB976FEF21EC34EC00A7E312 /* GroupMessagesController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DB39CA2821CB7DE2003A1303 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CA4221CB83C2003A1303 /* ProjectsPresenter.swift */,
+				DB39CA4421CB83CE003A1303 /* ReportsPresenter.swift */,
+				DB39CA4621CB83D7003A1303 /* CameraPresenter.swift */,
+				DB39CA4821CB83E7003A1303 /* InvoicePresenter.swift */,
+				DB39CA4A21CB83F8003A1303 /* ProfilePresenter.swift */,
+				DB39CA7421CB95C1003A1303 /* LoginPresenter.swift */,
+				DB39CA8021CBA181003A1303 /* ForgotPassPresenter.swift */,
+				DB976FF121EC37D000A7E312 /* GroupPresenter.swift */,
+				DB976FF721EC3CE600A7E312 /* CameraReviewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DB39CA2921CB7DE4003A1303 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CA4C21CB8403003A1303 /* ProjectInteractor.swift */,
+				DB39CA4E21CB840E003A1303 /* ReportsInteractor.swift */,
+				DB39CA5021CB841F003A1303 /* ProfileInteractor.swift */,
+				DB39CA5221CB842B003A1303 /* CameraInteractor.swift */,
+				DB39CA5421CB8438003A1303 /* InvoiceInteractor.swift */,
+				DB39CA7621CB95CE003A1303 /* LoginInteractor.swift */,
+				DB39CA8221CBA191003A1303 /* ForgotPassInteractor.swift */,
+				DB976FF321EC37DE00A7E312 /* GroupInteractor.swift */,
+				DB976FF921EC3D0900A7E312 /* CameraReviewInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		DB39CA2A21CB7DE7003A1303 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CA5621CB8445003A1303 /* ProjectRoute.swift */,
+				DB39CA5821CB8451003A1303 /* ReportsRoute.swift */,
+				DB39CA5A21CB845A003A1303 /* ProfileRoute.swift */,
+				DB39CA5C21CB8466003A1303 /* CameraRoute.swift */,
+				DB39CA5E21CB8472003A1303 /* InvoiceRoute.swift */,
+				DB39CA7821CB95D8003A1303 /* LoginRoutes.swift */,
+				DB39CA8421CBA19F003A1303 /* ForgotPassRoute.swift */,
+				DB976FF521EC37EA00A7E312 /* GroupRoutes.swift */,
+				DB976FFB21EC3D2C00A7E312 /* CameraReviewRoutes.swift */,
+			);
+			path = Routes;
+			sourceTree = "<group>";
+		};
+		DB39CA2B21CB7DE9003A1303 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CAB121CBF7BE003A1303 /* Invoices+CoreDataClass.swift */,
+				DB39CAB221CBF7BE003A1303 /* Invoices+CoreDataProperties.swift */,
+				DB39CAB321CBF7BE003A1303 /* InvoiceDetails+CoreDataClass.swift */,
+				DB39CAB421CBF7BE003A1303 /* InvoiceDetails+CoreDataProperties.swift */,
+				DB39CA6F21CB9532003A1303 /* Profile+CoreDataProperties.swift */,
+				DB39CA6E21CB9531003A1303 /* Profile+CoreDataClass.swift */,
+				DB39CA8C21CBA768003A1303 /* ForgotPassEntity.swift */,
+				DB39CA9821CBC293003A1303 /* LoginResponseEntity.swift */,
+				DB39CAA721CBE5AC003A1303 /* InvoiceEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		DB39CA2C21CB7DEB003A1303 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CA2D21CB7E2C003A1303 /* AccountingProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DB39CA2F21CB8201003A1303 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CA3121CB821B003A1303 /* Quicksand-Bold.ttf */,
+				DB39CA3321CB821C003A1303 /* Quicksand-Light.ttf */,
+				DB39CA3221CB821B003A1303 /* Quicksand-Medium.ttf */,
+				DB39CA3021CB821B003A1303 /* Quicksand-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DB39CA6621CB8CE3003A1303 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CA6721CB8CFF003A1303 /* ProfileCell.xib */,
+				DB39CA6921CB8D1A003A1303 /* ProfileCell.swift */,
+				DB39CA9C21CBDB58003A1303 /* InvoiceTableCell.swift */,
+				DB39CA9E21CBDB67003A1303 /* InvoiceTableCell.xib */,
+				DB39CAA321CBDEDC003A1303 /* InvoiceCollectionCell.swift */,
+				DB7BFF1821CCDF2700C10B8E /* CollectionCellWithImage.swift */,
+				DB7BFF1A21CCDF3200C10B8E /* CollectionCellWithImage.xib */,
+				DB7BFF1C21CCE7E100C10B8E /* TableCellTwoLabels.xib */,
+				DB7BFF1E21CCE7F100C10B8E /* TableCellTwoLabels.swift */,
+				DB7BFF2221CCEB7A00C10B8E /* InvoiceDetailCollectionCell.swift */,
+				DB7BFF2421CD234D00C10B8E /* ProjectsCell.swift */,
+				DB7BFF2621CD235C00C10B8E /* ProjectDateCell.swift */,
+				DB7BFF2821CD236D00C10B8E /* ProjectTaskCell.swift */,
+				DB7BFF2A21CD272500C10B8E /* ProjectDetailCell.swift */,
+				DB7BFF2C21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift */,
+				DB22675A21DE6442001F6D01 /* NoConnectionView.xib */,
+				DB22675C21DE6966001F6D01 /* NoConnectionView.swift */,
+				DB22675E21DE7312001F6D01 /* GroupHeader.xib */,
+				DBC5A37121E4FB7000D615BF /* CameraControllerCell.swift */,
+				DBC5A37321E50B0700D615BF /* ButtonView.xib */,
+				DBC5A37521E510FF00D615BF /* TextFieldView.xib */,
+				DBC5A37721E5124100D615BF /* TextFieldView.swift */,
+				DBC5A37921E5127800D615BF /* ButtonView.swift */,
+				DB976FE521E6D4DA00A7E312 /* ImagePreviewCell.swift */,
+				DB976FE721E6D4EB00A7E312 /* ImagePreviewCell.xib */,
+				DB976FE921E7820000A7E312 /* GroupHeader.swift */,
+				DB976FEB21E786C100A7E312 /* GroupCell.swift */,
+				DB976FED21E786E400A7E312 /* GroupCell.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		DB39CA6B21CB919F003A1303 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CA6C21CB91B8003A1303 /* ProfileConstants.swift */,
+				DB39CA7A21CB9D33003A1303 /* LoginApis.swift */,
+				DB39CA7C21CB9DA6003A1303 /* GlobalConstants.swift */,
+				DB39CA9A21CBD96D003A1303 /* InvoiceApis.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		DB39CA8621CBA4C7003A1303 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CA8721CBA4E0003A1303 /* AccountingExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DB39CA8921CBA619003A1303 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CA8A21CBA62A003A1303 /* AccountingEnums.swift */,
+				DBC5A37F21E6501300D615BF /* UIConstants.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		DB39CA9521CBB48B003A1303 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		DB39CAA021CBDBDF003A1303 /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CAA121CBDBF2003A1303 /* CardView.swift */,
+				DB39CAA521CBE270003A1303 /* UserInfoValue.swift */,
+				DB39CAAF21CBF3EC003A1303 /* Helper.swift */,
+				DBC5A36F21E3C54600D615BF /* Camera.swift */,
+				DBC5A37B21E512CB00D615BF /* Extension.swift */,
+			);
+			path = Additional;
+			sourceTree = "<group>";
+		};
+		DB79E15121E0C690000E5EFE /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				DB639A2321E0C4DF009F7C94 /* Pods_ReusableFramework.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		FBCAA8CC8D9996FE85369B4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5EF384BA81FF0E2EED436F83 /* Pods_AccountingApp.framework */,
+				F5C2246EB06FCE677C5222D6 /* Pods_AccountingAppTests.framework */,
+				0DA94C64004EB2C52A49FD53 /* Pods_AccountingAppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +595,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB39CA1D21CB7DCD003A1303 /* Build configuration list for PBXNativeTarget "AccountingApp" */;
 			buildPhases = (
+				B743214FED2B58CA452358CB /* [CP] Check Pods Manifest.lock */,
 				DB39C9EE21CB7DC9003A1303 /* Sources */,
 				DB39C9EF21CB7DC9003A1303 /* Frameworks */,
 				DB39C9F021CB7DC9003A1303 /* Resources */,
+				5A89676651FCD63DCDFA8D33 /* [CP] Embed Pods Frameworks */,
+				DB79E15421E0C6BA000E5EFE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +615,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB39CA2021CB7DCD003A1303 /* Build configuration list for PBXNativeTarget "AccountingAppTests" */;
 			buildPhases = (
+				D6225D2736B3329CABDFC3CA /* [CP] Check Pods Manifest.lock */,
 				DB39CA0521CB7DCD003A1303 /* Sources */,
 				DB39CA0621CB7DCD003A1303 /* Frameworks */,
 				DB39CA0721CB7DCD003A1303 /* Resources */,
@@ -170,6 +634,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB39CA2321CB7DCD003A1303 /* Build configuration list for PBXNativeTarget "AccountingAppUITests" */;
 			buildPhases = (
+				4849C9A7599159759E6E28FF /* [CP] Check Pods Manifest.lock */,
 				DB39CA1021CB7DCD003A1303 /* Sources */,
 				DB39CA1121CB7DCD003A1303 /* Frameworks */,
 				DB39CA1221CB7DCD003A1303 /* Resources */,
@@ -232,9 +697,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC5A37621E510FF00D615BF /* TextFieldView.xib in Resources */,
 				DB39CA0321CB7DCD003A1303 /* LaunchScreen.storyboard in Resources */,
+				DB22675B21DE6442001F6D01 /* NoConnectionView.xib in Resources */,
+				DB7BFF1B21CCDF3200C10B8E /* CollectionCellWithImage.xib in Resources */,
+				DB39CA9F21CBDB67003A1303 /* InvoiceTableCell.xib in Resources */,
+				DB22675F21DE7312001F6D01 /* GroupHeader.xib in Resources */,
+				DB7BFF1D21CCE7E100C10B8E /* TableCellTwoLabels.xib in Resources */,
+				DB976FEE21E786E400A7E312 /* GroupCell.xib in Resources */,
+				DB39CA6821CB8CFF003A1303 /* ProfileCell.xib in Resources */,
 				DB39CA0021CB7DCD003A1303 /* Assets.xcassets in Resources */,
+				DBC5A37421E50B0700D615BF /* ButtonView.xib in Resources */,
+				DB976FE821E6D4EB00A7E312 /* ImagePreviewCell.xib in Resources */,
 				DB39C9FB21CB7DC9003A1303 /* Main.storyboard in Resources */,
+				DB39CA3721CB821C003A1303 /* Quicksand-Light.ttf in Resources */,
+				DB39CA3421CB821C003A1303 /* Quicksand-Regular.ttf in Resources */,
+				DB39CA3521CB821C003A1303 /* Quicksand-Bold.ttf in Resources */,
+				DB39CA3621CB821C003A1303 /* Quicksand-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,14 +733,194 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4849C9A7599159759E6E28FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AccountingAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A89676651FCD63DCDFA8D33 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AccountingApp/Pods-AccountingApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BiometricAuthentication/BiometricAuthentication.framework",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/OpalImagePicker/OpalImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
+				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/UPCarouselFlowLayout/UPCarouselFlowLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BiometricAuthentication.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpalImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UPCarouselFlowLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AccountingApp/Pods-AccountingApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B743214FED2B58CA452358CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AccountingApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6225D2736B3329CABDFC3CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AccountingAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DB39C9EE21CB7DC9003A1303 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC5A37C21E512CB00D615BF /* Extension.swift in Sources */,
+				DB7BFF2321CCEB7A00C10B8E /* InvoiceDetailCollectionCell.swift in Sources */,
+				DB39CAA221CBDBF2003A1303 /* CardView.swift in Sources */,
+				DBC5A37821E5124100D615BF /* TextFieldView.swift in Sources */,
+				DB39CA8121CBA181003A1303 /* ForgotPassPresenter.swift in Sources */,
+				DB7BFF2D21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift in Sources */,
+				DB39CA3921CB8389003A1303 /* ProjectsController.swift in Sources */,
+				DB976FF021EC34EC00A7E312 /* GroupMessagesController.swift in Sources */,
+				DB39CA4521CB83CE003A1303 /* ReportsPresenter.swift in Sources */,
+				DB976FE421E6D47A00A7E312 /* ImagePreviewController.swift in Sources */,
+				DB39CA5121CB841F003A1303 /* ProfileInteractor.swift in Sources */,
+				DB39CA5921CB8451003A1303 /* ReportsRoute.swift in Sources */,
+				DBC5A37E21E5147400D615BF /* CameraReviewController.swift in Sources */,
+				DB976FF621EC37EA00A7E312 /* GroupRoutes.swift in Sources */,
+				DB39CAB721CBF7BE003A1303 /* InvoiceDetails+CoreDataClass.swift in Sources */,
+				DB39CA7D21CB9DA6003A1303 /* GlobalConstants.swift in Sources */,
+				DB39CA9B21CBD96D003A1303 /* InvoiceApis.swift in Sources */,
+				DB39CAB021CBF3EC003A1303 /* Helper.swift in Sources */,
+				DB976FFC21EC3D2C00A7E312 /* CameraReviewRoutes.swift in Sources */,
+				DB7BFF1921CCDF2700C10B8E /* CollectionCellWithImage.swift in Sources */,
+				DB39CA8D21CBA768003A1303 /* ForgotPassEntity.swift in Sources */,
+				DB976FE621E6D4DA00A7E312 /* ImagePreviewCell.swift in Sources */,
+				DB39CA3B21CB8396003A1303 /* ReportsController.swift in Sources */,
+				DB39CA7B21CB9D33003A1303 /* LoginApis.swift in Sources */,
+				DB39CA3D21CB839F003A1303 /* CameraController.swift in Sources */,
+				DB39CA5321CB842B003A1303 /* CameraInteractor.swift in Sources */,
+				DB39CA9921CBC293003A1303 /* LoginResponseEntity.swift in Sources */,
+				DB976FF221EC37D000A7E312 /* GroupPresenter.swift in Sources */,
+				DB39CA8821CBA4E0003A1303 /* AccountingExtensions.swift in Sources */,
+				DB39CA7921CB95D8003A1303 /* LoginRoutes.swift in Sources */,
+				DB39CA8521CBA19F003A1303 /* ForgotPassRoute.swift in Sources */,
+				DB39CA3F21CB83A9003A1303 /* InvoiceController.swift in Sources */,
+				DB39CA4321CB83C2003A1303 /* ProjectsPresenter.swift in Sources */,
+				DB39CA5F21CB8472003A1303 /* InvoiceRoute.swift in Sources */,
+				DB39CA6D21CB91B8003A1303 /* ProfileConstants.swift in Sources */,
+				DB39CA7021CB9532003A1303 /* Profile+CoreDataClass.swift in Sources */,
+				DB39CA7321CB9580003A1303 /* LoginController.swift in Sources */,
+				DBC5A38021E6501300D615BF /* UIConstants.swift in Sources */,
+				DB39CA8B21CBA62A003A1303 /* AccountingEnums.swift in Sources */,
+				DB39CAA421CBDEDC003A1303 /* InvoiceCollectionCell.swift in Sources */,
+				DB7BFF2121CCE9A200C10B8E /* InvoiceDetailsController.swift in Sources */,
+				DB39CAA821CBE5AC003A1303 /* InvoiceEntity.swift in Sources */,
+				DB39CA2E21CB7E2C003A1303 /* AccountingProtocols.swift in Sources */,
+				DB22675D21DE6966001F6D01 /* NoConnectionView.swift in Sources */,
+				DB39CA9D21CBDB58003A1303 /* InvoiceTableCell.swift in Sources */,
 				DB39C9FE21CB7DC9003A1303 /* AccountingApp.xcdatamodeld in Sources */,
-				DB39C9F821CB7DC9003A1303 /* ViewController.swift in Sources */,
+				DBC5A37021E3C54600D615BF /* Camera.swift in Sources */,
+				DBC5A37A21E5127800D615BF /* ButtonView.swift in Sources */,
+				DB7BFF2B21CD272500C10B8E /* ProjectDetailCell.swift in Sources */,
+				DB7BFF1F21CCE7F100C10B8E /* TableCellTwoLabels.swift in Sources */,
+				DB976FFA21EC3D0900A7E312 /* CameraReviewInteractor.swift in Sources */,
+				DB39CA4D21CB8403003A1303 /* ProjectInteractor.swift in Sources */,
+				DB39CA6A21CB8D1A003A1303 /* ProfileCell.swift in Sources */,
+				DB976FEA21E7820000A7E312 /* GroupHeader.swift in Sources */,
+				DB39CA4121CB83B6003A1303 /* ProfileController.swift in Sources */,
+				DBC5A37221E4FB7000D615BF /* CameraControllerCell.swift in Sources */,
+				DB39CA4721CB83D7003A1303 /* CameraPresenter.swift in Sources */,
+				DB39CA4B21CB83F8003A1303 /* ProfilePresenter.swift in Sources */,
+				DB7BFF2721CD235D00C10B8E /* ProjectDateCell.swift in Sources */,
+				DB976FF821EC3CE600A7E312 /* CameraReviewPresenter.swift in Sources */,
+				DB39CA5521CB8438003A1303 /* InvoiceInteractor.swift in Sources */,
+				DB39CA4F21CB840F003A1303 /* ReportsInteractor.swift in Sources */,
+				DB39CA5D21CB8466003A1303 /* CameraRoute.swift in Sources */,
+				DB39CAB621CBF7BE003A1303 /* Invoices+CoreDataProperties.swift in Sources */,
+				DB976FF421EC37DE00A7E312 /* GroupInteractor.swift in Sources */,
+				DB39CA6321CB8999003A1303 /* HomeController.swift in Sources */,
+				DB39CAA621CBE270003A1303 /* UserInfoValue.swift in Sources */,
+				DB976FEC21E786C100A7E312 /* GroupCell.swift in Sources */,
+				DB39CA7521CB95C1003A1303 /* LoginPresenter.swift in Sources */,
+				DB39CA7121CB9532003A1303 /* Profile+CoreDataProperties.swift in Sources */,
+				DB39CA5B21CB845A003A1303 /* ProfileRoute.swift in Sources */,
+				DB22675921DE635A001F6D01 /* GroupController.swift in Sources */,
+				DB39CAB821CBF7BE003A1303 /* InvoiceDetails+CoreDataProperties.swift in Sources */,
+				DB7BFF2521CD234D00C10B8E /* ProjectsCell.swift in Sources */,
+				DB39CA4921CB83E7003A1303 /* InvoicePresenter.swift in Sources */,
+				DB39CA7F21CBA145003A1303 /* ForgotPassController.swift in Sources */,
+				DB7BFF2921CD236D00C10B8E /* ProjectTaskCell.swift in Sources */,
+				DB39CAB521CBF7BE003A1303 /* Invoices+CoreDataClass.swift in Sources */,
+				DB39CA7721CB95CE003A1303 /* LoginInteractor.swift in Sources */,
+				DB39CA8321CBA191003A1303 /* ForgotPassInteractor.swift in Sources */,
 				DB39C9F621CB7DC9003A1303 /* AppDelegate.swift in Sources */,
+				DB39CA5721CB8445003A1303 /* ProjectRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,44 +1093,69 @@
 		};
 		DB39CA1E21CB7DCD003A1303 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B314A52CA1A78FBE6FC56912 /* Pods-AccountingApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 59GX6F36RM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AccountingApp",
+					"$(PROJECT_DIR)/ReusableFramework",
+				);
 				INFOPLIST_FILE = AccountingApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.accounting.AccountingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64e armv7 armv7s x84_64 i386 arm64";
 			};
 			name = Debug;
 		};
 		DB39CA1F21CB7DCD003A1303 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA0F7D8BA13F94F59A7CBCDD /* Pods-AccountingApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 59GX6F36RM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AccountingApp",
+					"$(PROJECT_DIR)/ReusableFramework",
+				);
 				INFOPLIST_FILE = AccountingApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.accounting.AccountingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64e armv7 armv7s x84_64 i386 arm64";
 			};
 			name = Release;
 		};
 		DB39CA2121CB7DCD003A1303 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA4566F59DD1835BDD76B556 /* Pods-AccountingAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AccountingApp",
+				);
 				INFOPLIST_FILE = AccountingAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -488,10 +1172,15 @@
 		};
 		DB39CA2221CB7DCD003A1303 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7D103A3B6331221956FDC0A /* Pods-AccountingAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AccountingApp",
+				);
 				INFOPLIST_FILE = AccountingAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -508,9 +1197,14 @@
 		};
 		DB39CA2421CB7DCD003A1303 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DAE48B4A652EB10D8EA61F0 /* Pods-AccountingAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AccountingApp",
+				);
 				INFOPLIST_FILE = AccountingAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -527,9 +1221,14 @@
 		};
 		DB39CA2521CB7DCD003A1303 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C07C596F6B3E1FDBC4A46BAB /* Pods-AccountingAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AccountingApp",
+				);
 				INFOPLIST_FILE = AccountingAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
