@@ -101,6 +101,29 @@
 		DB976FF821EC3CE600A7E312 /* CameraReviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FF721EC3CE600A7E312 /* CameraReviewPresenter.swift */; };
 		DB976FFA21EC3D0900A7E312 /* CameraReviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FF921EC3D0900A7E312 /* CameraReviewInteractor.swift */; };
 		DB976FFC21EC3D2C00A7E312 /* CameraReviewRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FFB21EC3D2C00A7E312 /* CameraReviewRoutes.swift */; };
+		DB976FFE21ECD7A900A7E312 /* GroupMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB976FFD21ECD7A900A7E312 /* GroupMessageCell.xib */; };
+		DB97700021ECDF4A00A7E312 /* GroupMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FFF21ECDF4A00A7E312 /* GroupMessageCell.swift */; };
+		DB97700221ECE19F00A7E312 /* GroupMessageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97700121ECE19F00A7E312 /* GroupMessageCollectionCell.swift */; };
+		DB97700421ECE44400A7E312 /* GroupMessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97700321ECE44400A7E312 /* GroupMessagePresenter.swift */; };
+		DB97700621ECE45300A7E312 /* GroupMessageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97700521ECE45300A7E312 /* GroupMessageInteractor.swift */; };
+		DB97700821ECE45E00A7E312 /* GroupMessageRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97700721ECE45E00A7E312 /* GroupMessageRoute.swift */; };
+		DB97700A21ECF02300A7E312 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97700921ECF02300A7E312 /* SettingsController.swift */; };
+		DB97700C21ECF5F900A7E312 /* GroupMessageReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB97700B21ECF5F900A7E312 /* GroupMessageReplyCell.xib */; };
+		DB97700E21ECFD0D00A7E312 /* CameraReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97700D21ECFD0D00A7E312 /* CameraReviewCell.swift */; };
+		DB97701021ED0A4900A7E312 /* AllProjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97700F21ED0A4900A7E312 /* AllProjectsController.swift */; };
+		DB97701221ED0A9E00A7E312 /* AllProjectsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97701121ED0A9E00A7E312 /* AllProjectsPresenter.swift */; };
+		DB97701421ED0AC000A7E312 /* AllProjectsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97701321ED0AC000A7E312 /* AllProjectsInteractor.swift */; };
+		DB97701621ED0AE000A7E312 /* AllProjectsRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97701521ED0AE000A7E312 /* AllProjectsRoutes.swift */; };
+		DB97701821ED0D1500A7E312 /* ProjectDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB97701721ED0D1500A7E312 /* ProjectDetailsCell.xib */; };
+		DB97701A21ED0D2B00A7E312 /* ProjectDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97701921ED0D2B00A7E312 /* ProjectDetailsCell.swift */; };
+		DB97701C21ED111F00A7E312 /* NavigationSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB97701B21ED111F00A7E312 /* NavigationSearchView.xib */; };
+		DB97701E21ED117D00A7E312 /* NavigationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97701D21ED117D00A7E312 /* NavigationSearchView.swift */; };
+		DB97702021ED6E2400A7E312 /* GroupChatHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97701F21ED6E2400A7E312 /* GroupChatHeader.swift */; };
+		DB97702221ED6E3800A7E312 /* GroupChatHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB97702121ED6E3800A7E312 /* GroupChatHeader.xib */; };
+		DB97702421ED6FF800A7E312 /* GroupChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97702321ED6FF800A7E312 /* GroupChatController.swift */; };
+		DB97702621ED700700A7E312 /* GroupChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97702521ED700700A7E312 /* GroupChatPresenter.swift */; };
+		DB97702821ED701500A7E312 /* GroupChatInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97702721ED701500A7E312 /* GroupChatInteractor.swift */; };
+		DB97702A21ED702500A7E312 /* GroupChatRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97702921ED702500A7E312 /* GroupChatRoute.swift */; };
 		DBC5A36D21E3AA4F00D615BF /* ReusableFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC5A36B21E3AA4400D615BF /* ReusableFramework.framework */; };
 		DBC5A36E21E3AA4F00D615BF /* ReusableFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBC5A36B21E3AA4400D615BF /* ReusableFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBC5A37021E3C54600D615BF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5A36F21E3C54600D615BF /* Camera.swift */; };
@@ -253,6 +276,29 @@
 		DB976FF721EC3CE600A7E312 /* CameraReviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraReviewPresenter.swift; sourceTree = "<group>"; };
 		DB976FF921EC3D0900A7E312 /* CameraReviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraReviewInteractor.swift; sourceTree = "<group>"; };
 		DB976FFB21EC3D2C00A7E312 /* CameraReviewRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraReviewRoutes.swift; sourceTree = "<group>"; };
+		DB976FFD21ECD7A900A7E312 /* GroupMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupMessageCell.xib; sourceTree = "<group>"; };
+		DB976FFF21ECDF4A00A7E312 /* GroupMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageCell.swift; sourceTree = "<group>"; };
+		DB97700121ECE19F00A7E312 /* GroupMessageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageCollectionCell.swift; sourceTree = "<group>"; };
+		DB97700321ECE44400A7E312 /* GroupMessagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessagePresenter.swift; sourceTree = "<group>"; };
+		DB97700521ECE45300A7E312 /* GroupMessageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageInteractor.swift; sourceTree = "<group>"; };
+		DB97700721ECE45E00A7E312 /* GroupMessageRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageRoute.swift; sourceTree = "<group>"; };
+		DB97700921ECF02300A7E312 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		DB97700B21ECF5F900A7E312 /* GroupMessageReplyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupMessageReplyCell.xib; sourceTree = "<group>"; };
+		DB97700D21ECFD0D00A7E312 /* CameraReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraReviewCell.swift; sourceTree = "<group>"; };
+		DB97700F21ED0A4900A7E312 /* AllProjectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProjectsController.swift; sourceTree = "<group>"; };
+		DB97701121ED0A9E00A7E312 /* AllProjectsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProjectsPresenter.swift; sourceTree = "<group>"; };
+		DB97701321ED0AC000A7E312 /* AllProjectsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProjectsInteractor.swift; sourceTree = "<group>"; };
+		DB97701521ED0AE000A7E312 /* AllProjectsRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProjectsRoutes.swift; sourceTree = "<group>"; };
+		DB97701721ED0D1500A7E312 /* ProjectDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectDetailsCell.xib; sourceTree = "<group>"; };
+		DB97701921ED0D2B00A7E312 /* ProjectDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsCell.swift; sourceTree = "<group>"; };
+		DB97701B21ED111F00A7E312 /* NavigationSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationSearchView.xib; sourceTree = "<group>"; };
+		DB97701D21ED117D00A7E312 /* NavigationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSearchView.swift; sourceTree = "<group>"; };
+		DB97701F21ED6E2400A7E312 /* GroupChatHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatHeader.swift; sourceTree = "<group>"; };
+		DB97702121ED6E3800A7E312 /* GroupChatHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupChatHeader.xib; sourceTree = "<group>"; };
+		DB97702321ED6FF800A7E312 /* GroupChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatController.swift; sourceTree = "<group>"; };
+		DB97702521ED700700A7E312 /* GroupChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatPresenter.swift; sourceTree = "<group>"; };
+		DB97702721ED701500A7E312 /* GroupChatInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatInteractor.swift; sourceTree = "<group>"; };
+		DB97702921ED702500A7E312 /* GroupChatRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatRoute.swift; sourceTree = "<group>"; };
 		DBC5A36B21E3AA4400D615BF /* ReusableFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReusableFramework.framework; sourceTree = "<group>"; };
 		DBC5A36F21E3C54600D615BF /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		DBC5A37121E4FB7000D615BF /* CameraControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControllerCell.swift; sourceTree = "<group>"; };
@@ -401,6 +447,9 @@
 				DBC5A37D21E5147400D615BF /* CameraReviewController.swift */,
 				DB976FE321E6D47A00A7E312 /* ImagePreviewController.swift */,
 				DB976FEF21EC34EC00A7E312 /* GroupMessagesController.swift */,
+				DB97700921ECF02300A7E312 /* SettingsController.swift */,
+				DB97700F21ED0A4900A7E312 /* AllProjectsController.swift */,
+				DB97702321ED6FF800A7E312 /* GroupChatController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -417,6 +466,9 @@
 				DB39CA8021CBA181003A1303 /* ForgotPassPresenter.swift */,
 				DB976FF121EC37D000A7E312 /* GroupPresenter.swift */,
 				DB976FF721EC3CE600A7E312 /* CameraReviewPresenter.swift */,
+				DB97700321ECE44400A7E312 /* GroupMessagePresenter.swift */,
+				DB97701121ED0A9E00A7E312 /* AllProjectsPresenter.swift */,
+				DB97702521ED700700A7E312 /* GroupChatPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -433,6 +485,9 @@
 				DB39CA8221CBA191003A1303 /* ForgotPassInteractor.swift */,
 				DB976FF321EC37DE00A7E312 /* GroupInteractor.swift */,
 				DB976FF921EC3D0900A7E312 /* CameraReviewInteractor.swift */,
+				DB97700521ECE45300A7E312 /* GroupMessageInteractor.swift */,
+				DB97701321ED0AC000A7E312 /* AllProjectsInteractor.swift */,
+				DB97702721ED701500A7E312 /* GroupChatInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -449,6 +504,9 @@
 				DB39CA8421CBA19F003A1303 /* ForgotPassRoute.swift */,
 				DB976FF521EC37EA00A7E312 /* GroupRoutes.swift */,
 				DB976FFB21EC3D2C00A7E312 /* CameraReviewRoutes.swift */,
+				DB97700721ECE45E00A7E312 /* GroupMessageRoute.swift */,
+				DB97701521ED0AE000A7E312 /* AllProjectsRoutes.swift */,
+				DB97702921ED702500A7E312 /* GroupChatRoute.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -519,6 +577,17 @@
 				DB976FE921E7820000A7E312 /* GroupHeader.swift */,
 				DB976FEB21E786C100A7E312 /* GroupCell.swift */,
 				DB976FED21E786E400A7E312 /* GroupCell.xib */,
+				DB976FFD21ECD7A900A7E312 /* GroupMessageCell.xib */,
+				DB976FFF21ECDF4A00A7E312 /* GroupMessageCell.swift */,
+				DB97700121ECE19F00A7E312 /* GroupMessageCollectionCell.swift */,
+				DB97700B21ECF5F900A7E312 /* GroupMessageReplyCell.xib */,
+				DB97700D21ECFD0D00A7E312 /* CameraReviewCell.swift */,
+				DB97701721ED0D1500A7E312 /* ProjectDetailsCell.xib */,
+				DB97701921ED0D2B00A7E312 /* ProjectDetailsCell.swift */,
+				DB97701B21ED111F00A7E312 /* NavigationSearchView.xib */,
+				DB97701D21ED117D00A7E312 /* NavigationSearchView.swift */,
+				DB97701F21ED6E2400A7E312 /* GroupChatHeader.swift */,
+				DB97702121ED6E3800A7E312 /* GroupChatHeader.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -699,7 +768,9 @@
 			files = (
 				DBC5A37621E510FF00D615BF /* TextFieldView.xib in Resources */,
 				DB39CA0321CB7DCD003A1303 /* LaunchScreen.storyboard in Resources */,
+				DB97701C21ED111F00A7E312 /* NavigationSearchView.xib in Resources */,
 				DB22675B21DE6442001F6D01 /* NoConnectionView.xib in Resources */,
+				DB97702221ED6E3800A7E312 /* GroupChatHeader.xib in Resources */,
 				DB7BFF1B21CCDF3200C10B8E /* CollectionCellWithImage.xib in Resources */,
 				DB39CA9F21CBDB67003A1303 /* InvoiceTableCell.xib in Resources */,
 				DB22675F21DE7312001F6D01 /* GroupHeader.xib in Resources */,
@@ -709,9 +780,12 @@
 				DB39CA0021CB7DCD003A1303 /* Assets.xcassets in Resources */,
 				DBC5A37421E50B0700D615BF /* ButtonView.xib in Resources */,
 				DB976FE821E6D4EB00A7E312 /* ImagePreviewCell.xib in Resources */,
+				DB97701821ED0D1500A7E312 /* ProjectDetailsCell.xib in Resources */,
 				DB39C9FB21CB7DC9003A1303 /* Main.storyboard in Resources */,
+				DB976FFE21ECD7A900A7E312 /* GroupMessageCell.xib in Resources */,
 				DB39CA3721CB821C003A1303 /* Quicksand-Light.ttf in Resources */,
 				DB39CA3421CB821C003A1303 /* Quicksand-Regular.ttf in Resources */,
+				DB97700C21ECF5F900A7E312 /* GroupMessageReplyCell.xib in Resources */,
 				DB39CA3521CB821C003A1303 /* Quicksand-Bold.ttf in Resources */,
 				DB39CA3621CB821C003A1303 /* Quicksand-Medium.ttf in Resources */,
 			);
@@ -853,7 +927,11 @@
 				DB39CA5921CB8451003A1303 /* ReportsRoute.swift in Sources */,
 				DBC5A37E21E5147400D615BF /* CameraReviewController.swift in Sources */,
 				DB976FF621EC37EA00A7E312 /* GroupRoutes.swift in Sources */,
+				DB97700621ECE45300A7E312 /* GroupMessageInteractor.swift in Sources */,
 				DB39CAB721CBF7BE003A1303 /* InvoiceDetails+CoreDataClass.swift in Sources */,
+				DB97701421ED0AC000A7E312 /* AllProjectsInteractor.swift in Sources */,
+				DB97700A21ECF02300A7E312 /* SettingsController.swift in Sources */,
+				DB97701A21ED0D2B00A7E312 /* ProjectDetailsCell.swift in Sources */,
 				DB39CA7D21CB9DA6003A1303 /* GlobalConstants.swift in Sources */,
 				DB39CA9B21CBD96D003A1303 /* InvoiceApis.swift in Sources */,
 				DB39CAB021CBF3EC003A1303 /* Helper.swift in Sources */,
@@ -873,16 +951,21 @@
 				DB39CA3F21CB83A9003A1303 /* InvoiceController.swift in Sources */,
 				DB39CA4321CB83C2003A1303 /* ProjectsPresenter.swift in Sources */,
 				DB39CA5F21CB8472003A1303 /* InvoiceRoute.swift in Sources */,
+				DB97702021ED6E2400A7E312 /* GroupChatHeader.swift in Sources */,
 				DB39CA6D21CB91B8003A1303 /* ProfileConstants.swift in Sources */,
 				DB39CA7021CB9532003A1303 /* Profile+CoreDataClass.swift in Sources */,
+				DB97702421ED6FF800A7E312 /* GroupChatController.swift in Sources */,
 				DB39CA7321CB9580003A1303 /* LoginController.swift in Sources */,
 				DBC5A38021E6501300D615BF /* UIConstants.swift in Sources */,
 				DB39CA8B21CBA62A003A1303 /* AccountingEnums.swift in Sources */,
+				DB97701221ED0A9E00A7E312 /* AllProjectsPresenter.swift in Sources */,
 				DB39CAA421CBDEDC003A1303 /* InvoiceCollectionCell.swift in Sources */,
 				DB7BFF2121CCE9A200C10B8E /* InvoiceDetailsController.swift in Sources */,
 				DB39CAA821CBE5AC003A1303 /* InvoiceEntity.swift in Sources */,
+				DB97702821ED701500A7E312 /* GroupChatInteractor.swift in Sources */,
 				DB39CA2E21CB7E2C003A1303 /* AccountingProtocols.swift in Sources */,
 				DB22675D21DE6966001F6D01 /* NoConnectionView.swift in Sources */,
+				DB97700821ECE45E00A7E312 /* GroupMessageRoute.swift in Sources */,
 				DB39CA9D21CBDB58003A1303 /* InvoiceTableCell.swift in Sources */,
 				DB39C9FE21CB7DC9003A1303 /* AccountingApp.xcdatamodeld in Sources */,
 				DBC5A37021E3C54600D615BF /* Camera.swift in Sources */,
@@ -896,10 +979,12 @@
 				DB39CA4121CB83B6003A1303 /* ProfileController.swift in Sources */,
 				DBC5A37221E4FB7000D615BF /* CameraControllerCell.swift in Sources */,
 				DB39CA4721CB83D7003A1303 /* CameraPresenter.swift in Sources */,
+				DB97701621ED0AE000A7E312 /* AllProjectsRoutes.swift in Sources */,
 				DB39CA4B21CB83F8003A1303 /* ProfilePresenter.swift in Sources */,
 				DB7BFF2721CD235D00C10B8E /* ProjectDateCell.swift in Sources */,
 				DB976FF821EC3CE600A7E312 /* CameraReviewPresenter.swift in Sources */,
 				DB39CA5521CB8438003A1303 /* InvoiceInteractor.swift in Sources */,
+				DB97700E21ECFD0D00A7E312 /* CameraReviewCell.swift in Sources */,
 				DB39CA4F21CB840F003A1303 /* ReportsInteractor.swift in Sources */,
 				DB39CA5D21CB8466003A1303 /* CameraRoute.swift in Sources */,
 				DB39CAB621CBF7BE003A1303 /* Invoices+CoreDataProperties.swift in Sources */,
@@ -909,15 +994,22 @@
 				DB976FEC21E786C100A7E312 /* GroupCell.swift in Sources */,
 				DB39CA7521CB95C1003A1303 /* LoginPresenter.swift in Sources */,
 				DB39CA7121CB9532003A1303 /* Profile+CoreDataProperties.swift in Sources */,
+				DB97701E21ED117D00A7E312 /* NavigationSearchView.swift in Sources */,
+				DB97700221ECE19F00A7E312 /* GroupMessageCollectionCell.swift in Sources */,
 				DB39CA5B21CB845A003A1303 /* ProfileRoute.swift in Sources */,
 				DB22675921DE635A001F6D01 /* GroupController.swift in Sources */,
 				DB39CAB821CBF7BE003A1303 /* InvoiceDetails+CoreDataProperties.swift in Sources */,
 				DB7BFF2521CD234D00C10B8E /* ProjectsCell.swift in Sources */,
 				DB39CA4921CB83E7003A1303 /* InvoicePresenter.swift in Sources */,
 				DB39CA7F21CBA145003A1303 /* ForgotPassController.swift in Sources */,
+				DB97702621ED700700A7E312 /* GroupChatPresenter.swift in Sources */,
+				DB97701021ED0A4900A7E312 /* AllProjectsController.swift in Sources */,
 				DB7BFF2921CD236D00C10B8E /* ProjectTaskCell.swift in Sources */,
+				DB97700421ECE44400A7E312 /* GroupMessagePresenter.swift in Sources */,
 				DB39CAB521CBF7BE003A1303 /* Invoices+CoreDataClass.swift in Sources */,
 				DB39CA7721CB95CE003A1303 /* LoginInteractor.swift in Sources */,
+				DB97702A21ED702500A7E312 /* GroupChatRoute.swift in Sources */,
+				DB97700021ECDF4A00A7E312 /* GroupMessageCell.swift in Sources */,
 				DB39CA8321CBA191003A1303 /* ForgotPassInteractor.swift in Sources */,
 				DB39C9F621CB7DC9003A1303 /* AppDelegate.swift in Sources */,
 				DB39CA5721CB8445003A1303 /* ProjectRoute.swift in Sources */,

@@ -17,6 +17,20 @@ class ProjectsController: UIViewController{
         self.navigationController?.hideTranslucency()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "Invoice"
+        //navigationController?.navigationBar.prefersLargeTitles = false
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.title = ""
+        //navigationController?.navigationBar.prefersLargeTitles = true
+        tabBarController?.tabBar.isHidden = true
+    }
+    
 }
 
 extension ProjectsController: UITableViewDelegate, UITableViewDataSource{
@@ -96,6 +110,11 @@ extension ProjectsController{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let allProjects = AllProjectsRoutes.createModule()
+        navigationController?.pushViewController(allProjects, animated: true)
     }
 }
 

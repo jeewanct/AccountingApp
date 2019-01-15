@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AccountingApp/Modules/Views/InvoiceController.swift"
-            timestampString = "567098208.373547"
+            timestampString = "569210040.179251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "cellClicked(data:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,7 +90,7 @@
                   moduleName = "AccountingApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jeevantiwari/Desktop/AccountingApp/AccountingApp/Modules/Interactor/LoginInteractor.swift"
-                  timestampString = "569129929.286541"
+                  timestampString = "569180616.073715"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "51"
@@ -105,7 +105,7 @@
                   moduleName = "AccountingApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jeevantiwari/Desktop/AccountingApp/AccountingApp/Modules/Interactor/LoginInteractor.swift"
-                  timestampString = "569129929.290316"
+                  timestampString = "569180616.103012"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "52"
@@ -138,7 +138,7 @@
                   moduleName = "AccountingApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jeevantiwari/Desktop/AccountingApp/AccountingApp/Modules/Interactor/LoginInteractor.swift"
-                  timestampString = "569129929.2993079"
+                  timestampString = "569180616.1156631"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -153,7 +153,7 @@
                   moduleName = "AccountingApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jeevantiwari/Desktop/AccountingApp/AccountingApp/Modules/Interactor/LoginInteractor.swift"
-                  timestampString = "569129929.303036"
+                  timestampString = "569180616.120872"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AccountingApp/Modules/Views/CameraReviewController.swift"
-            timestampString = "569130876.328173"
+            timestampString = "569210040.1794699"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "scrollViewWillEndDragging(_:withVelocity:targetContentOffset:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AccountingApp/Xibs/GroupHeader.swift"
-            timestampString = "569127906.3317291"
+            timestampString = "569173509.2720571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AccountingApp/Modules/Views/GroupController.swift"
-            timestampString = "569130876.328279"
+            timestampString = "569210040.179616"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "detailOfGroup(at:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AccountingApp/Modules/Views/GroupController.swift"
-            timestampString = "569130876.328342"
+            timestampString = "569210040.179683"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "tableView(_:heightForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -250,12 +250,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AccountingApp/HomeController.swift"
-            timestampString = "569130876.328401"
+            timestampString = "569210040.179747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
             endingLineNumber = "61"
             landmarkName = "handleCamera()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AccountingApp/Xibs/CameraReviewCell.swift"
+            timestampString = "569210040.179811"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "imageUrl"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AccountingApp/Modules/Views/CameraController.swift"
+            timestampString = "569210040.179871"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "imagePicker(_:didFinishPickingExternalURLs:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

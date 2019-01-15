@@ -23,6 +23,20 @@ class InvoiceController: UIViewController{
         presenter?.updateView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "Invoice"
+        //navigationController?.navigationBar.prefersLargeTitles = false
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.title = ""
+        //navigationController?.navigationBar.prefersLargeTitles = true
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     @IBAction func scannedInvoice(_ sender: Any) {
         collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: true)
     }

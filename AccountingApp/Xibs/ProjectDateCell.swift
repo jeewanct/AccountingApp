@@ -21,8 +21,17 @@ class ProjectDateCell: UITableViewCell{
 
 extension ProjectDateCell{
     func setup(){
+        configureCollectionCell()
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    func configureCollectionCell(){
+        if let layout = collectionView.collectionViewLayout as? UPCarouselFlowLayout{
+            layout.spacingMode = .overlap(visibleOffset: 0)
+            layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2, height: 46)
+            layout.scrollDirection = .horizontal
+        }
     }
 }
 
@@ -38,11 +47,7 @@ extension ProjectDateCell: UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectDateCollectionCell", for: indexPath) as! ProjectDateCollectionCell
-        if cell.isSelected{
-            cell.selectedCell()
-        }else{
-            cell.deselectedCell()
-        }
+       
         return cell
     }
     
@@ -52,12 +57,12 @@ extension ProjectDateCell{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? ProjectDateCollectionCell
-        cell?.selectedCell()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? ProjectDateCollectionCell
-        cell?.deselectedCell()
+        
     }
     
 }

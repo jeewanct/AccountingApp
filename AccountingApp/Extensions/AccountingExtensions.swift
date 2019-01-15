@@ -129,9 +129,36 @@ extension UIImageView{
 extension UINavigationController{
     
     func hideTranslucency(){
-        self.navigationBar.isTranslucent = false
+       //e self.navigationBar.isTranslucent = false
         self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationBar.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         self.navigationBar.shadowImage = UIImage()
     }
     
+}
+
+
+extension UIButton{
+    
+    func roundCorners(corners: UIRectCorner, radius: CGFloat){
+        
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+        
+    }
+}
+
+
+extension UIView{
+    
+    func roundCorners1(corners: UIRectCorner, radius: CGFloat){
+        
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+        
+    }
 }

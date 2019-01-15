@@ -19,6 +19,17 @@ class GroupController: UITableViewController{
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "Groups"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.title = ""
+    }
+    
+    
     var expandedSection: Int?
 }
 
@@ -101,6 +112,9 @@ extension GroupController: ExpandTableCellDelegate{
     }
     
     func detailOfGroup(at section: Int) {
+        
+        let messages = GroupMessageRoute.createModule()
+        navigationController?.pushViewController(messages, animated: true)
         
     }
     

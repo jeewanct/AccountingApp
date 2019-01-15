@@ -21,6 +21,20 @@ class ProfileController: UIViewController{
         super.viewDidLoad()
         setup()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "Profile"
+        navigationController?.navigationBar.prefersLargeTitles = false
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.title = ""
+        navigationController?.navigationBar.prefersLargeTitles = true
+        tabBarController?.tabBar.isHidden = true
+    }
 }
 
 extension ProfileController{
@@ -61,6 +75,10 @@ extension ProfileController{
         case 0:
             let groupController = GroupRoutes.createModule()
             navigationController?.pushViewController(groupController, animated: true)
+        case 2:
+            let storyBoard = InvoiceRoute.mainstoryboard
+            let settingsController = storyBoard.instantiateViewController(withIdentifier: "SettingsController") as! SettingsController
+            navigationController?.pushViewController(settingsController, animated: true)
         default:
             print("")
         }

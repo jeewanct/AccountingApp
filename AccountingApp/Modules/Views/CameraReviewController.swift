@@ -26,9 +26,15 @@ class CameraReviewController: UIViewController{
         configureCollectionCell()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "Review"
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.title = ""
     }
     
     @IBAction func handleUpload(_ sender: Any) {
@@ -46,7 +52,7 @@ class CameraReviewController: UIViewController{
         self.view.addSubview(projectList)
     }
     
-    
+    var selectedImages: [URL]?
     var selectProject: ButtonView!
     var titleForBill: TextFieldView!
     var presenter: ViewToPresenterProtocol?
@@ -87,11 +93,12 @@ extension CameraReviewController: UICollectionViewDataSource{
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return selectedImages?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CameraReviewCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CameraReviewCell", for: indexPath) as! CameraReviewCell
+        cell.imageUrl = selectedImages?[indexPath.item]
         return cell
     }
 }

@@ -26,6 +26,7 @@ class CameraController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationItem.title = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -100,6 +101,7 @@ extension CameraController{
     
     
     func configureCameraController() {
+        navigationController?.hideTranslucency()
         camera.prepare {(error) in
             if let error = error {
                 print(error)
@@ -116,8 +118,9 @@ extension CameraController: OpalImagePickerControllerDelegate{
         
         dismiss(animated: true , completion: nil)
         
-        let reviewController = CameraReviewRoutes.createModule()
-        navigationController?.pushViewController(reviewController, animated: true)
+        let reviewController = CameraReviewRoutes.createModule() as? CameraReviewController
+        reviewController?.selectedImages = urls
+        navigationController?.pushViewController(reviewController ?? UIViewController(), animated: true)
         
     }
 }
