@@ -8,11 +8,11 @@
 
 import UIKit
 
-class GroupChatController: UITableViewController{
+class GroupChatController: UICollectionViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,32 +31,33 @@ class GroupChatController: UITableViewController{
 
 }
 
-extension GroupChatController {
+extension GroupChatController: UICollectionViewDelegateFlowLayout {
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let headerView: GroupChatHeader = UIView.fromNib()
-        return headerView
+    func configureCollectionView(){
+        collectionView.register(UINib(nibName: "GroupChatHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "GroupChatHeader")
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 200
-        
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 200)
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "GroupChatHeader", for: indexPath)
+        return header
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupChatCell", for: indexPath)
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupChatCell", for: indexPath)
         return cell
     }
+    
+   
     
     
 }
