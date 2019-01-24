@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1359B7E4FC338F6E43254847 /* Pods_AccountingAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA94C64004EB2C52A49FD53 /* Pods_AccountingAppUITests.framework */; };
+		A4284F6B21F978420056FA08 /* ReplyChatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4284F6A21F978420056FA08 /* ReplyChatView.xib */; };
+		A4284F6D21F97A5F0056FA08 /* ReplyChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4284F6C21F97A5F0056FA08 /* ReplyChatView.swift */; };
 		DB22675921DE635A001F6D01 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB22675821DE635A001F6D01 /* GroupController.swift */; };
 		DB22675B21DE6442001F6D01 /* NoConnectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB22675A21DE6442001F6D01 /* NoConnectionView.xib */; };
 		DB22675D21DE6966001F6D01 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB22675C21DE6966001F6D01 /* NoConnectionView.swift */; };
@@ -240,6 +242,8 @@
 		0DA94C64004EB2C52A49FD53 /* Pods_AccountingAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccountingAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF384BA81FF0E2EED436F83 /* Pods_AccountingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccountingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DAE48B4A652EB10D8EA61F0 /* Pods-AccountingAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountingAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccountingAppUITests/Pods-AccountingAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A4284F6A21F978420056FA08 /* ReplyChatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyChatView.xib; sourceTree = "<group>"; };
+		A4284F6C21F97A5F0056FA08 /* ReplyChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyChatView.swift; sourceTree = "<group>"; };
 		B314A52CA1A78FBE6FC56912 /* Pods-AccountingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccountingApp/Pods-AccountingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B7D103A3B6331221956FDC0A /* Pods-AccountingAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountingAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccountingAppTests/Pods-AccountingAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		C07C596F6B3E1FDBC4A46BAB /* Pods-AccountingAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountingAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccountingAppUITests/Pods-AccountingAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -790,6 +794,8 @@
 				DB861A6921F218D000083D35 /* CreateSubgroupCell.swift */,
 				DB861A7321F224FF00083D35 /* CheckUncheckCell.swift */,
 				DB861A7521F2252000083D35 /* CheckUncheckCell.xib */,
+				A4284F6A21F978420056FA08 /* ReplyChatView.xib */,
+				A4284F6C21F97A5F0056FA08 /* ReplyChatView.swift */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -982,6 +988,7 @@
 				DB22675B21DE6442001F6D01 /* NoConnectionView.xib in Resources */,
 				DB97702221ED6E3800A7E312 /* GroupChatHeader.xib in Resources */,
 				DB7BFF1B21CCDF3200C10B8E /* CollectionCellWithImage.xib in Resources */,
+				A4284F6B21F978420056FA08 /* ReplyChatView.xib in Resources */,
 				DB97702E21EE43E800A7E312 /* GroupChatReplyCell.xib in Resources */,
 				DB39CA9F21CBDB67003A1303 /* InvoiceTableCell.xib in Resources */,
 				DB22675F21DE7312001F6D01 /* GroupHeader.xib in Resources */,
@@ -1279,6 +1286,7 @@
 				DB861A7021F21E0400083D35 /* CreateSubGroupInteracto.swift in Sources */,
 				DB39CAB521CBF7BE003A1303 /* Invoices+CoreDataClass.swift in Sources */,
 				DB39CA7721CB95CE003A1303 /* LoginInteractor.swift in Sources */,
+				A4284F6D21F97A5F0056FA08 /* ReplyChatView.swift in Sources */,
 				DB97702A21ED702500A7E312 /* GroupChatRoute.swift in Sources */,
 				DB608E5321F79B1600E7F963 /* ProjectsList+CoreDataProperties.swift in Sources */,
 				DB97700021ECDF4A00A7E312 /* GroupMessageCell.swift in Sources */,

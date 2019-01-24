@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="56"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Reply " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yf5-Gp-dNk">
+                    <rect key="frame" x="16" y="8.5" width="314.5" height="39"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0O-w4-VD9">
+                    <rect key="frame" x="386" y="8.5" width="39" height="39"/>
+                    <state key="normal" image="chatSendImage"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ful-hV-ynr">
+                    <rect key="frame" x="338.5" y="8.5" width="39.5" height="39"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMw-vg-Xkv">
+                    <rect key="frame" x="16" y="47.5" width="314.5" height="0.5"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="BLX-Hm-EXs"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="CMw-vg-Xkv" firstAttribute="width" secondItem="Yf5-Gp-dNk" secondAttribute="width" id="9qX-6S-drg"/>
+                <constraint firstItem="c0O-w4-VD9" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.7" id="Edc-um-d8j"/>
+                <constraint firstItem="c0O-w4-VD9" firstAttribute="leading" secondItem="ful-hV-ynr" secondAttribute="trailing" constant="8" id="FRA-tj-LfB"/>
+                <constraint firstItem="c0O-w4-VD9" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.7" id="QLY-V9-oih"/>
+                <constraint firstItem="Yf5-Gp-dNk" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Tyo-1f-Uab"/>
+                <constraint firstItem="c0O-w4-VD9" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="YDm-jG-DTv"/>
+                <constraint firstItem="ful-hV-ynr" firstAttribute="width" secondItem="c0O-w4-VD9" secondAttribute="width" id="YEN-ZV-Veu"/>
+                <constraint firstItem="CMw-vg-Xkv" firstAttribute="centerX" secondItem="Yf5-Gp-dNk" secondAttribute="centerX" id="c23-90-hac"/>
+                <constraint firstItem="c0O-w4-VD9" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-8" id="cIL-rj-4SM"/>
+                <constraint firstItem="Yf5-Gp-dNk" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.7" id="coO-HV-op8"/>
+                <constraint firstItem="ful-hV-ynr" firstAttribute="height" secondItem="c0O-w4-VD9" secondAttribute="height" id="e2h-WV-Nch"/>
+                <constraint firstItem="Yf5-Gp-dNk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="omU-Ex-Pu3"/>
+                <constraint firstItem="ful-hV-ynr" firstAttribute="leading" secondItem="Yf5-Gp-dNk" secondAttribute="trailing" constant="8" id="pIz-ap-2rO"/>
+                <constraint firstItem="ful-hV-ynr" firstAttribute="centerY" secondItem="c0O-w4-VD9" secondAttribute="centerY" id="wfj-Nh-xip"/>
+                <constraint firstItem="CMw-vg-Xkv" firstAttribute="top" secondItem="Yf5-Gp-dNk" secondAttribute="bottom" id="yZc-ni-ZBS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-90.400000000000006" y="133.13343328335833"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chatSendImage" width="72" height="72"/>
+    </resources>
+</document>

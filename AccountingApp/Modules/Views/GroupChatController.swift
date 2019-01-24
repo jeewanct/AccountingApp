@@ -15,6 +15,7 @@ class GroupChatController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         configureTableView()
     }
     
@@ -31,9 +32,29 @@ class GroupChatController: UIViewController{
     
     }
     
-    
+    var sendMessageView: ReplyChatView!
     var presenter: ViewToPresenterProtocol?
 
+}
+
+extension GroupChatController{
+    
+    func setup(){
+        sendMessageView = UIView.fromNib()
+        sendMessageView.translatesAutoresizingMaskIntoConstraints = false
+        sendMessageView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        sendMessageView.rightAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        sendMessageView.heightAnchor.constraint(equalToConstant: 49).isActive = true
+        
+        if #available(iOS 11.0, *){
+            sendMessageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        }else{
+            sendMessageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        }
+        
+        
+    }
+    
 }
 
 extension GroupChatController: UITableViewDataSource, UITableViewDelegate {
