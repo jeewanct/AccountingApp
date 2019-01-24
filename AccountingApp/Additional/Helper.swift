@@ -6,8 +6,7 @@
 //  Copyright © 2018 AccountingApp. All rights reserved.
 //
 
-import Foundation
-
+import UIKit
 
 class Helper{
     
@@ -48,6 +47,14 @@ class Helper{
         
     }
     
+    class func getDayName(date: Date) -> String{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EE"
+        return dateFormatter.string(from: date)
+        
+    }
+    
     class func lastgetYear(date: Date) -> String{
         
         let dateFormatter = DateFormatter()
@@ -79,4 +86,40 @@ class Helper{
         
     }
     
+    class func projectDayDate(date: CLong?) -> (String, String){
+        
+        let date1 = convertStringToDate(date: date)
+        let dateText = getDayName(date: date1)
+        let dayName  = "\(getDate(date: date1)) \(getMonth(date: date1)) "
+        
+        return (dayName, dateText)
+    }
+    
+    class func getProjectStartingDate(date: Date) -> String{
+        
+        return "\(getDate(date: date)) \(getMonthShort(date: date)) \(getYear(date: date))"
+    }
+    
+    // class func
+    
+    
+    
+    func saveImageToPath(image: UIImage, imageName: String){
+        
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        let fileURL = documentsDirectory.appendingPathComponent(imageName)
+      
+        if let data = image.jpegData(compressionQuality: 1.0),
+            !FileManager.default.fileExists(atPath: fileURL.path) {
+            do {
+                try data.write(to: fileURL)
+                print("file saved")
+            } catch { }
+        }else{ }
+        
+        
+    }
+    
+
 }

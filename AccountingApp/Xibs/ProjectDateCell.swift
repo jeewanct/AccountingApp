@@ -12,6 +12,14 @@ import UPCarouselFlowLayout
 class ProjectDateCell: UITableViewCell{
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var dateList: [ProjectDateEntity]?{
+        didSet{
+           collectionView.reloadData()
+        }
+        
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
@@ -47,7 +55,7 @@ extension ProjectDateCell: UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectDateCollectionCell", for: indexPath) as! ProjectDateCollectionCell
-       
+        //cell.dateDetail = dateList?[indexPath.item]
         return cell
     }
     

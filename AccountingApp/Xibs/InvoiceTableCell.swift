@@ -14,7 +14,7 @@ class InvoiceTableCell: UITableViewCell{
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
    
-    var invoice: Invoices?{
+    var invoice: InvoiceDetailEntity?{
         didSet{
             dateLabel.text = invoice?.date
             costLabel.text = invoice?.cost

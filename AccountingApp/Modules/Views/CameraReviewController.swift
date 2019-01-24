@@ -25,9 +25,11 @@ class CameraReviewController: UIViewController{
         setupView()
         configureCollectionCell()
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationItem.title = "Review"
 
     }
@@ -38,23 +40,31 @@ class CameraReviewController: UIViewController{
     }
     
     @IBAction func handleUpload(_ sender: Any) {
-        uploadButton.addButtonIndicator()
-        self.notInternetView()
-    }
-    
-    @IBAction func handleZoom(_ sender: Any) {
+        goToUploadScreen()
         
     }
     
-    @objc func handleProject(){
-        let projectList = CustomPopup()
-        projectList.frame = self.view.frame
-        self.view.addSubview(projectList)
+    @IBAction func handleZoom(_ sender: Any) {
+        let previewController = InvoiceRoute.mainstoryboard.instantiateViewController(withIdentifier: "ImagePreviewController") as! ImagePreviewController
+        previewController.images = images
+        navigationController?.pushViewController(previewController, animated: true)
     }
     
-    var selectedImages: [URL]?
+    @objc func handleProject(){
+       
+        let customPopUp = InvoiceRoute.mainstoryboard.instantiateViewController(withIdentifier: "CustomPopUpController") as! CustomPopUpController
+        customPopUp.projectList = projectList
+        customPopUp.delegate = self
+        customPopUp.modalTransitionStyle = .crossDissolve
+        customPopUp.modalPresentationStyle = .overCurrentContext
+        present(customPopUp, animated: true, completion: nil)
+        
+    }
+    
+    var images: [CameraImages]?
     var selectProject: ButtonView!
     var titleForBill: TextFieldView!
+    var projectList: [CameraProjectUIEntity]?
     var presenter: ViewToPresenterProtocol?
 }
 
@@ -77,28 +87,34 @@ extension CameraReviewController{
         projectView.addSubview(selectProject)
         detailView.addSubview(titleForBill)
         
-        pagerControl.numberOfPages = 2
+        pagerControl.numberOfPages = images?.count ?? 0
+        
+        presenter?.updateView()
+        selectProject.selectButton.addButtonIndicator()
     }
 }
 
 extension CameraReviewController: UICollectionViewDataSource{
     
     func configureCollectionCell(){
+        
+        pagerControl.numberOfPages = images?.count ?? 0
+        
         if let layout = collectionView.collectionViewLayout as? UPCarouselFlowLayout{
-            layout.spacingMode = .overlap(visibleOffset: 0)
-            layout.itemSize = CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+            layout.spacingMode = .overlap(visibleOffset: 8)
+            layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: collectionView.frame.height)
             layout.scrollDirection = .horizontal
         }
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selectedImages?.count ?? 0
+        return images?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CameraReviewCell", for: indexPath) as! CameraReviewCell
-        cell.imageUrl = selectedImages?[indexPath.item]
+        cell.image.image = images?[indexPath.item].image
         return cell
     }
 }
@@ -108,23 +124,79 @@ extension CameraReviewController: UICollectionViewDelegate{
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
-        let current = targetContentOffset.pointee.x / collectionView.frame.width
-        pagerControl.currentPage = Int(current)
+        if let layout = collectionView.collectionViewLayout as? UPCarouselFlowLayout{
+            let current = targetContentOffset.pointee.x / layout.itemSize.width
+            print(current)
+            pagerControl.currentPage = Int(current) - 1
+         
+        }
+        
+        
         
     }
 }
+
+extension CameraReviewController: ProjectSelectedDelegate{
+    
+    @objc func handleRefreshProjectList(){
+        presenter?.updateView()
+    }
+    
+    
+    func didSelectedProject(withName name: String?, andProjectId is: String?) {
+        selectProject.selectButton.setTitle(name, for: .normal)
+    }
+    
+    
+    func goToUploadScreen(){
+        
+        if selectProject.selectButton.isEmpty{
+            self.sheetStyleAlert(message: CameraErrorEnum.selectProject.rawValue)
+        }else if titleForBill.inputTextField.isEmpty(){
+            self.sheetStyleAlert(message: CameraErrorEnum.selectTitle.rawValue)
+        }else{
+            
+            if Reachability.isConnectedToNetwork(){
+                getInformationOfBills()
+            }else{
+                self.notInternetView()
+            }
+            
+        }
+    
+        
+    }
+    
+    func getInformationOfBills(){
+        uploadButton.hideButtonIndicator(title: CameraEnum.upload.rawValue)
+        let upload = UploadInvoiceRoute.createModule()
+        self.navigationController?.pushViewController(upload, animated: true)
+        
+    }
+
+}
+
 
 
 extension CameraReviewController: PresenterToViewProtocol{
     
     func showContent<T>(news: T) {
-        
+        selectProject.selectButton.hideButtonIndicator(title: CameraEnum.select.rawValue)
+        selectProject.refreshButton.isHidden = true
+        if let list = news as? [CameraProjectUIEntity]{
+            self.projectList = list
+        }
         
         
     }
     
-    func showError() {
-        
+    func showError<T>(error: T) {
+        selectProject.selectButton.hideButtonIndicator(title: CameraEnum.select.rawValue)
+        if let errorMessage = error as? String{
+            self.sheetStyleAlert(message: errorMessage)
+            selectProject.refreshButton.isHidden = false
+            selectProject.refreshButton.addTarget(self, action: #selector(handleRefreshProjectList), for: .touchUpInside)
+        }
     }
     
 }

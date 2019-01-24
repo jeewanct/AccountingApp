@@ -15,10 +15,32 @@ class SettingsController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Settings"
+        switchButton.isOn = CredentialsCheck.isSecured()
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+        
+    }
     @IBAction func handleSwitch(_ sender: Any) {
+        
+        if switchButton.isOn {
+            UserDefaults.standard.set(true, forKey: KeysEnum.isBiometric.rawValue)
+            ChangeRootViewController.changeRootViewController(to: ChangeToControllerEnum.LoginController)
+            
+        }else{
+            UserDefaults.standard.set(true, forKey: KeysEnum.isBiometric.rawValue)
+            
+        }
         
     }
     
 }
+

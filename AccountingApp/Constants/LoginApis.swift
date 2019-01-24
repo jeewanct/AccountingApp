@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct LoginApis{
     
         static let loginUrl = "/api/User/Login"
@@ -18,5 +17,6 @@ struct LoginApis{
         static let getAssignIds = "/api/ProjectManagement/GetEmployeeList"
         static let logOutUser = "/api/User/Logout/"
         static let assigneeList = "/api/ProjectManagement/GetAssignUserProjectList"
-
 }
+
+

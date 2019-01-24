@@ -16,19 +16,34 @@ class AllProjectsController: UICollectionViewController{
         configureCollectionView()
         navigationItem.title = "Projects"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let navigationView: NavigationSearchView = UIView.fromNib()
-        navigationView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 49)
-        navigationItem.titleView = navigationView
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    
     
     var presenter: ViewToPresenterProtocol?
 }
 
 extension AllProjectsController: UICollectionViewDelegateFlowLayout{
     
+    
     func configureCollectionView(){
         collectionView.register(UINib(nibName: "ProjectDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProjectDetailsCell")
+    
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -52,7 +67,7 @@ extension AllProjectsController: PresenterToViewProtocol{
         
     }
     
-    func showError() {
+    func showError<T>(error: T) {
         
     }
     

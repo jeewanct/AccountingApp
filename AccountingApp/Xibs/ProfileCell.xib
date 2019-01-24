@@ -51,6 +51,10 @@
                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Tfh-kY-SX0">
+                        <rect key="frame" x="273" y="22.5" width="20" height="20"/>
+                        <color key="color" red="0.44705882349999998" green="0.56862745100000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="lVY-cH-dXe" secondAttribute="trailing" id="4ME-pY-Cbr"/>
@@ -60,12 +64,15 @@
                     <constraint firstItem="lVY-cH-dXe" firstAttribute="leading" secondItem="9ID-Mu-Wfw" secondAttribute="leading" constant="16" id="YZV-NT-7tn"/>
                     <constraint firstItem="xYi-Tk-7YT" firstAttribute="centerY" secondItem="N2M-pM-tqI" secondAttribute="centerY" id="ehB-hW-PNn"/>
                     <constraint firstAttribute="trailing" secondItem="Uai-0N-JTA" secondAttribute="trailing" constant="16" id="hQ5-6a-As3"/>
+                    <constraint firstItem="Tfh-kY-SX0" firstAttribute="centerX" secondItem="Uai-0N-JTA" secondAttribute="centerX" id="klb-xP-eTM"/>
                     <constraint firstItem="N2M-pM-tqI" firstAttribute="leading" secondItem="9ID-Mu-Wfw" secondAttribute="leading" constant="16" id="liq-Nd-0nh"/>
+                    <constraint firstItem="Tfh-kY-SX0" firstAttribute="centerY" secondItem="Uai-0N-JTA" secondAttribute="centerY" id="pGK-dB-dfF"/>
                     <constraint firstItem="xYi-Tk-7YT" firstAttribute="leading" secondItem="N2M-pM-tqI" secondAttribute="trailing" constant="8" id="wz7-KH-x8h"/>
                     <constraint firstAttribute="bottom" secondItem="lVY-cH-dXe" secondAttribute="bottom" id="zH9-bS-I51"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="activityIndicator" destination="Tfh-kY-SX0" id="ItI-i2-eL0"/>
                 <outlet property="optionImageView" destination="N2M-pM-tqI" id="Bf1-qJ-ILI"/>
                 <outlet property="optionLabel" destination="xYi-Tk-7YT" id="aYS-4u-NkO"/>
             </connections>

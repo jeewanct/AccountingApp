@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Quicksand-Regular.ttf">
+            <string>Quicksand-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="EditProfileTextCell" rowHeight="71" id="8cC-sL-tJk" customClass="EditProfileTextCell" customModule="AccountingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="422" height="71"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8cC-sL-tJk" id="VZa-QM-gKq">
+                <rect key="frame" x="0.0" y="0.0" width="422" height="70.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PlaceHolderText" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sur-Cs-QPG">
+                        <rect key="frame" x="16" y="8" width="390" height="54.5"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KZm-jR-5B7">
+                        <rect key="frame" x="24" y="21.5" width="27.5" height="27.5"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="KZm-jR-5B7" firstAttribute="height" secondItem="Sur-Cs-QPG" secondAttribute="height" multiplier="0.5" id="8yD-gy-q5p"/>
+                    <constraint firstItem="KZm-jR-5B7" firstAttribute="centerY" secondItem="Sur-Cs-QPG" secondAttribute="centerY" id="FfU-ef-pOT"/>
+                    <constraint firstAttribute="trailing" secondItem="Sur-Cs-QPG" secondAttribute="trailing" constant="16" id="HSM-gZ-Wkk"/>
+                    <constraint firstAttribute="bottom" secondItem="Sur-Cs-QPG" secondAttribute="bottom" constant="8" id="PjK-Bb-s46"/>
+                    <constraint firstItem="Sur-Cs-QPG" firstAttribute="top" secondItem="VZa-QM-gKq" secondAttribute="top" constant="8" id="bmU-74-h7R"/>
+                    <constraint firstItem="KZm-jR-5B7" firstAttribute="width" secondItem="Sur-Cs-QPG" secondAttribute="height" multiplier="0.5" id="e7i-Rh-szD"/>
+                    <constraint firstItem="KZm-jR-5B7" firstAttribute="leading" secondItem="VZa-QM-gKq" secondAttribute="leading" constant="24" id="fHM-1I-42V"/>
+                    <constraint firstItem="Sur-Cs-QPG" firstAttribute="leading" secondItem="VZa-QM-gKq" secondAttribute="leading" constant="16" id="tMR-ay-ur7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="optionImageView" destination="KZm-jR-5B7" id="qRD-V7-Bz4"/>
+                <outlet property="textField" destination="Sur-Cs-QPG" id="hOu-SC-msc"/>
+            </connections>
+            <point key="canvasLocation" x="59.200000000000003" y="117.39130434782609"/>
+        </tableViewCell>
+    </objects>
+</document>

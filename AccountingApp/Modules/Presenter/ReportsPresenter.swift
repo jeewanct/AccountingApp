@@ -28,7 +28,7 @@ extension ReportsPresenter: InterectorToPresenterProtocol {
         
     }
     
-    func dataFetchedFailed() {
+    func dataFetchedFailed<T>(error: T) {
         
     }
 }

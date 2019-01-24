@@ -23,11 +23,9 @@ class GroupHeader: UIView {
         setupView()
     }
     
-    
-    
-    
     weak var delegate: ExpandTableCellDelegate?
     var headerSection: Int!
+    
     
 }
 
@@ -52,6 +50,24 @@ extension GroupHeader{
     
     @objc func handleExpandCells(){
         delegate?.expandingTableCell(at: headerSection)
+    }
+}
+
+extension GroupHeader{
+    
+    func fillData(groupName: String?, subGroups: String?){
+        titleLbl.text = groupName
+        
+        if subGroups == ""{
+            subGroupHeight.constant = 0
+            betweenHeight.constant = 0
+            subGroupLbl.isHidden = true
+        }else{
+            subGroupLbl.setTitle(subGroups, for: .normal)
+            subGroupHeight.constant = 20
+            betweenHeight.constant = 4
+            subGroupLbl.isHidden = false
+        }
     }
 }
 

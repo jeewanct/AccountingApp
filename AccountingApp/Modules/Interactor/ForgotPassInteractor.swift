@@ -7,38 +7,62 @@
 //
 
 import Foundation
+import RxSwift
 import ReusableFramework
 
 
-class ForgotPassInteractor: PresentorToInterectorProtocol{
+class ForgotPassInteractor: PresentorToInterectorProtocol, APIRequest{
+    
+    var method: RequestType
+    var path: String
+    var parameters: Data
+    var headers: [String : String]
+    var message = ""
+    
+    init() {
+        method = RequestType.POST
+        parameters = Data()
+        headers = "".getHeader()
+        path = LoginApis.forgotPasswordUrl
+    }
     
     var presenter: InterectorToPresenterProtocol?
     
+}
+
+extension ForgotPassInteractor{
+    
     func fetchData<T>(body: T) where T : Decodable, T : Encodable {
         
-        let url = GlobalConstants.base + LoginApis.forgotPasswordUrl
+        let (data, error) =  EncodeData.getData(parameters: body)
         
-        do{
-            let data = try JSONEncoder().encode(body.self)
-            getDataFromServer(url: url, data: data)
-        }catch let error{
+        if let requestData = data{
             
+            parameters = requestData
+            
+            
+            let forgotResponse: Observable<ForgotResponseEntity> = Network.shared.post(apiRequest: self)
+            
+            forgotResponse.subscribe(onNext: { (response) in
+               
+                if let responseMessage = response.message{
+                    self.message = responseMessage
+                }
+                
+            }, onError: { (onError) in
+                self.presenter?.dataFetchedFailed(error: onError.localizedDescription)
+            }, onCompleted: {
+                self.presenter?.dataFetched(news: self.message)
+            }) {
+                
+            }
+            
+        }else{
+            presenter?.dataFetchedFailed(error: NetworkError.parsingError)
         }
     }
     
-    func fetchData() {
-        
-    }
+    func fetchData() {}
     
-    func getDataFromServer(url: String, data: Data){
-//        Networking.shared.postRequest(url: url, header: url.getHeader(), data: data, completion: { (forgotPass: ForgotResponseEntity) in
-//            
-//            self.presenter?.dataFetched(news: forgotPass)
-//            
-//        }) { (error) in
-//            self.presenter?.dataFetchedFailed()
-//        }
-    
-    }
     
 }

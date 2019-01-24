@@ -8,17 +8,21 @@
 
 import UIKit
 
-class GroupChatHeader: UIView{
+class GroupChatHeader: UITableViewCell{
     
-    @IBOutlet weak var cardView: CardView!
+    
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var postedDate: UILabel!
+    
+    @IBOutlet weak var message: UILabel!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
+        
     }
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        cardView.roundCorners1(corners: [.topLeft, .topRight], radius: 10)
-    }
+    
 }

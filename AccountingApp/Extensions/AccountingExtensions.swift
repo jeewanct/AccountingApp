@@ -48,24 +48,38 @@ extension UIViewController{
         
     }
     
+    func sheetStyleAlert(message: String){
+        let alertController = UIAlertController(title: "", message: message, preferredStyle: .actionSheet)
+        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    var navigationBarHeight: CGFloat {
+        return UIApplication.shared.statusBarFrame.height
+    }
+    
 }
 
 
 extension String{
     
     func getHeader() -> [String: String]{
-        guard let token = UserDefaults.standard.value(forKey: "token") as? String else{
+        guard let token = UserDefaults.standard.value(forKey: KeysEnum.token.rawValue) as? String else{
             let header = [
                 "Content-Type":"application/json",
-                "client" : "android"
+                "client" : "iOS"
             ]
             return header
         }
         
+        let (userId, _) = UserHelper.companyID()
+        
         let header = [
             "Content-Type":"application/json",
             "token": token,
-            "client" : "android"
+            "client" : "iOS",
+            "userId" : userId
         ]
         
         
@@ -120,9 +134,31 @@ extension UIImageView{
         }
         if let imageUrl = URL(string: GlobalConstants.base + image){
             self.pin_setImage(from: imageUrl)
+        }else{
+            self.image = #imageLiteral(resourceName: "profilePlaceholder")
         }
         
     }
+}
+
+extension UIButton{
+    func addImage(url: String?){
+        
+        guard let image = url  else {
+            self.setImage(#imageLiteral(resourceName: "profilePlaceholder"), for: .normal)
+            return
+        }
+        if let imageUrl = URL(string: GlobalConstants.base + image){
+            let profileImageView = UIImageView()
+            //profileImageView.pin_setImage(from: imageUrl)
+            profileImageView.pin_setImage(from: imageUrl)
+            self.setImage(profileImageView.image, for: .normal)
+        }else{
+            self.setImage(#imageLiteral(resourceName: "profilePlaceholder"), for: .normal)
+        }
+        
+    }
+    
 }
 
 
@@ -130,10 +166,13 @@ extension UINavigationController{
     
     func hideTranslucency(){
        //e self.navigationBar.isTranslucent = false
-        self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationBar.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+       // self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+       // self.navigationBar.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         self.navigationBar.shadowImage = UIImage()
+        self.navigationBar.prefersLargeTitles = true
     }
+    
+    
     
 }
 

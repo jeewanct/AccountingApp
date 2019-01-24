@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D32a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D39a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="InvoiceDetails" representedClassName="InvoiceDetails" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cvr" optional="YES" attributeType="String" syncable="YES"/>
@@ -10,23 +10,70 @@
     </entity>
     <entity name="Invoices" representedClassName="Invoices" syncable="YES">
         <attribute name="cost" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="invoiceId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="invoiceDetail" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InvoiceDetails" inverseName="invoice" inverseEntity="InvoiceDetails" syncable="YES"/>
     </entity>
+    <entity name="InvoiceUpload" representedClassName="InvoiceUpload" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES">
         <attribute name="companyId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profileImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="ProjectDates" representedClassName="ProjectDates" syncable="YES">
+        <attribute name="projectDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectDay" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serverDate" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="projectTaskList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProjectTasks" syncable="YES"/>
+    </entity>
+    <entity name="ProjectList" representedClassName="ProjectList" syncable="YES">
+        <attribute name="projectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Projects" representedClassName="Projects" syncable="YES">
+        <attribute name="canCreateProject" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="noTaskLabelShown" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="projectLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProjectsList" syncable="YES"/>
+    </entity>
+    <entity name="ProjectsList" representedClassName="ProjectsList" syncable="YES">
+        <attribute name="canEditProject" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="createdBy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serverEndDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serverStartDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sortingEndDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="sortingStartDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="projectDatesList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProjectDates" syncable="YES"/>
+    </entity>
+    <entity name="ProjectTasks" representedClassName="ProjectTasks" syncable="YES">
+        <attribute name="taskDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="taskId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="taskName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="taskProjectId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="InvoiceDetails" positionX="-36" positionY="54" width="128" height="135"/>
-        <element name="Invoices" positionX="-54" positionY="36" width="128" height="135"/>
-        <element name="Profile" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Invoices" positionX="-54" positionY="36" width="128" height="150"/>
+        <element name="InvoiceUpload" positionX="-45" positionY="72" width="128" height="75"/>
+        <element name="Profile" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="ProjectList" positionX="-45" positionY="72" width="128" height="75"/>
+        <element name="Projects" positionX="-45" positionY="72" width="128" height="90"/>
+        <element name="ProjectsList" positionX="-36" positionY="81" width="128" height="210"/>
+        <element name="ProjectDates" positionX="-27" positionY="126" width="128" height="105"/>
+        <element name="ProjectTasks" positionX="-18" positionY="135" width="128" height="105"/>
     </elements>
 </model>

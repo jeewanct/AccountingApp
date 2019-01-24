@@ -12,6 +12,12 @@ import UPCarouselFlowLayout
 class ProjectsCell: UITableViewCell{
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var projects: [ProjectsEntity]?{
+        didSet{
+            collectionView.reloadData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
@@ -36,13 +42,35 @@ extension ProjectsCell: UICollectionViewDelegate, UICollectionViewDataSource{
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return projects?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectDetailCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectDetailCell", for: indexPath) as! ProjectDetailCell
+        cell.project = projects?[indexPath.item]
         return cell
     }
     
+    
+}
+
+extension ProjectsCell{
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        if let layout = collectionView.collectionViewLayout as? UPCarouselFlowLayout{
+            
+            
+           print(layout.itemSize.width)
+            print(UIScreen.main.bounds.width)
+            let current = targetContentOffset.pointee.x / (layout.itemSize.width - 32 * 2)
+            print(Int(current))
+            //pagerControl.currentPage = Int(current) - 1
+            
+        }
+        
+        
+        
+    }
     
 }

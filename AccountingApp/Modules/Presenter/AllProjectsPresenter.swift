@@ -31,8 +31,8 @@ extension AllProjectsPresenter: InterectorToPresenterProtocol {
         
     }
     
-    func dataFetchedFailed() {
-        view?.showError()
+    func dataFetchedFailed<T>(error: T) {
+        view?.showError(error: error)
     }
     
 }

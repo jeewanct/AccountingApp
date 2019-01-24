@@ -27,11 +27,11 @@ class ForgotPassPresenter: ViewToPresenterProtocol {
 extension ForgotPassPresenter: InterectorToPresenterProtocol {
     
     func dataFetched<T>(news: T) {
-        
+        view?.showContent(news: news)
     }
     
-    func dataFetchedFailed() {
-        view?.showError()
+    func dataFetchedFailed<T>(error: T) {
+        view?.showError(error: error)
     }
     
 }

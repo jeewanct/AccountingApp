@@ -10,26 +10,48 @@ import UIKit
 
 class ProjectsController: UIViewController{
     
-    var presenter: ViewToPresenterProtocol?
-    
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+       // navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.hideTranslucency()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "Invoice"
-        //navigationController?.navigationBar.prefersLargeTitles = false
-        tabBarController?.tabBar.isHidden = false
+        navigationItem.title = "Projects"
+        let projectDates = ProjectDate(startDate: 0, endDate: 0)
+        presenter?.updateView(body: projectDates)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationItem.title = ""
-        //navigationController?.navigationBar.prefersLargeTitles = true
-        tabBarController?.tabBar.isHidden = true
     }
+    
+    
+    @IBAction func handleAddTask(_ sender: Any) {
+        let addTask = TaskRoute.createModule()
+        navigationController?.pushViewController(addTask, animated: true)
+    }
+    
+    
+    
+    @IBAction func handleReload(_ sender: Any) {
+        
+    }
+    
+    @IBAction func handleAddProjects(_ sender: Any) {
+        
+        let createProject = CreateProjectRoute.createModule()
+        navigationController?.pushViewController(createProject, animated: true)
+        
+    }
+    
+    var presenter: ViewToPresenterProtocol?
+    var projectEntity = PojectEntity()
     
 }
 
@@ -42,7 +64,7 @@ extension ProjectsController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
         case 0,1: return 1
-        default: return 5
+        default: return projectEntity.currentDisplayTask?.count ?? 0
         }
     }
     
@@ -61,14 +83,16 @@ extension ProjectsController: UITableViewDelegate, UITableViewDataSource{
         
         switch indexPath.section {
         case 0:
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectsCell", for: indexPath) as! ProjectsCell
+            cell.projects = projectEntity.projectList
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectDateCell", for: indexPath) as! ProjectDateCell
+            cell.dateList = projectEntity.currentDisplayDate
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTaskCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTaskCell", for: indexPath) as! ProjectTaskCell
+            cell.task = projectEntity.currentDisplayTask?[indexPath.item]
             return cell
    
         }
@@ -120,11 +144,18 @@ extension ProjectsController{
 
 
 extension ProjectsController: PresenterToViewProtocol {
+    
     func showContent<T>(news: T) {
+        
+        if let projects = news as? PojectEntity{
+            self.projectEntity = projects
+            tableView.reloadData()
+            
+        }
         
     }
     
-    func showError() {
+    func showError<T>(error: T) {
         
     }
     

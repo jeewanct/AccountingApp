@@ -26,13 +26,16 @@ class GroupMessagePresenter: ViewToPresenterProtocol {
 }
 
 extension GroupMessagePresenter: InterectorToPresenterProtocol {
+    func dataFetchedFailed<T>(error: T) {
+        view?.showError(error: error)
+
+    }
+    
     
     func dataFetched<T>(news: T) {
         
     }
     
-    func dataFetchedFailed() {
-        view?.showError()
-    }
+   
     
 }

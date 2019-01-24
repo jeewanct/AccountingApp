@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="ConversationView" id="iN0-l3-epB" customClass="ConversationView" customModule="AccountingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFS-fE-SwP">
+                    <rect key="frame" x="16" y="15" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="Kgc-WQ-U7o"/>
+                        <constraint firstAttribute="height" constant="40" id="oaL-2R-fSg"/>
+                    </constraints>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="chatCameraImage"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyC-71-luT">
+                    <rect key="frame" x="64" y="13.5" width="40" height="40"/>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="gallery"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFj-az-zWM">
+                    <rect key="frame" x="319" y="13.5" width="40" height="40"/>
+                    <color key="tintColor" red="0.44705882349999998" green="0.56862745100000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="chatSendImage"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pFj-az-zWM" secondAttribute="trailing" constant="16" id="3d3-5M-8HS"/>
+                <constraint firstItem="kyC-71-luT" firstAttribute="width" secondItem="rFS-fE-SwP" secondAttribute="width" id="6qx-tP-8af"/>
+                <constraint firstItem="rFS-fE-SwP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="BRW-Gs-vRa"/>
+                <constraint firstItem="kyC-71-luT" firstAttribute="height" secondItem="rFS-fE-SwP" secondAttribute="height" id="UeC-Hd-aT1"/>
+                <constraint firstItem="pFj-az-zWM" firstAttribute="height" secondItem="kyC-71-luT" secondAttribute="height" id="ce9-fS-6sD"/>
+                <constraint firstItem="kyC-71-luT" firstAttribute="leading" secondItem="rFS-fE-SwP" secondAttribute="trailing" constant="8" id="dxk-Fp-fNp"/>
+                <constraint firstItem="pFj-az-zWM" firstAttribute="centerY" secondItem="kyC-71-luT" secondAttribute="centerY" id="nXQ-am-QfQ"/>
+                <constraint firstItem="rFS-fE-SwP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="od3-kG-nWg"/>
+                <constraint firstItem="pFj-az-zWM" firstAttribute="width" secondItem="kyC-71-luT" secondAttribute="width" id="tff-YJ-ZAe"/>
+                <constraint firstItem="kyC-71-luT" firstAttribute="centerY" secondItem="rFS-fE-SwP" secondAttribute="centerY" multiplier="0.95" id="zNG-al-oAd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40000000000001" y="-122.33883058470765"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chatCameraImage" width="72" height="72"/>
+        <image name="chatSendImage" width="72" height="72"/>
+        <image name="gallery" width="96" height="96"/>
+    </resources>
+</document>

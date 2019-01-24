@@ -8,22 +8,27 @@
 
 import UIKit
 
-class GroupChatController: UICollectionViewController{
+class GroupChatController: UIViewController{
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCollectionView()
+        configureTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
         navigationItem.title = "Group Chat"
 
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+       
         super.viewWillDisappear(animated)
+    
     }
     
     
@@ -31,34 +36,93 @@ class GroupChatController: UICollectionViewController{
 
 }
 
-extension GroupChatController: UICollectionViewDelegateFlowLayout {
+extension GroupChatController: UITableViewDataSource, UITableViewDelegate {
     
-    func configureCollectionView(){
-        collectionView.register(UINib(nibName: "GroupChatHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "GroupChatHeader")
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 200)
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "GroupChatHeader", for: indexPath)
-        return header
+    func configureTableView(){
+        tableView.register(UINib(nibName: "GroupChatHeader", bundle: nil), forCellReuseIdentifier: "GroupChatHeader")
+        tableView.register(UINib(nibName: "GroupChatReplyCell", bundle: nil), forCellReuseIdentifier: "GroupChatReplyCell")
     }
     
     
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 200
+//    }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+     func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupChatCell", for: indexPath)
-        return cell
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        default:
+            return 10
+        }
+    }
+    
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GroupChatHeader", for: indexPath) as! GroupChatHeader
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GroupChatReplyCell", for: indexPath) as! GroupChatReplyCell
+            return cell
+        }
     }
     
    
     
+    
+}
+
+extension GroupChatController{
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 1{
+            return true
+        }
+        
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteButton = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            
+            print("copy button tapped")
+            
+        }
+        deleteButton.backgroundColor = #colorLiteral(red: 0.4470588235, green: 0.568627451, blue: 0.9568627451, alpha: 1)
+        //deleteButton.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "deleteProject"))
+        
+        
+        let editButton = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
+            
+            print("Access button tapped")
+            
+        }
+        //editButton.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "editTask"))
+        editButton.backgroundColor = #colorLiteral(red: 0.4470588235, green: 0.568627451, blue: 0.9568627451, alpha: 1)
+    
+    
+    let replyButton = UITableViewRowAction(style: .normal, title: "Reply") { action, index in
+        
+        print("Access button tapped")
+        
+    }
+    
+    replyButton.backgroundColor = #colorLiteral(red: 0.4470588235, green: 0.568627451, blue: 0.9568627451, alpha: 1)
+    
+    
+        
+        return [deleteButton, editButton, replyButton]
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        
+    }
     
 }
 
@@ -70,7 +134,7 @@ extension GroupChatController: PresenterToViewProtocol{
         
     }
     
-    func showError() {
+    func showError<T>(error: T) {
         
     }
     

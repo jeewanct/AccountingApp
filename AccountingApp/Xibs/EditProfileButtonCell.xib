@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Quicksand-Medium.ttf">
+            <string>Quicksand-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="EditProfileButtonCell" rowHeight="71" id="jed-hE-zD2" customClass="EditProfileButtonCell" customModule="AccountingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="71"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jed-hE-zD2" id="icD-DD-dLN">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="70.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmI-76-4Zg">
+                        <rect key="frame" x="16" y="8" width="361" height="54.5"/>
+                        <color key="backgroundColor" red="0.44705882349999998" green="0.56862745100000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="15"/>
+                        <state key="normal" title="UPDATE PROFILE">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="lmI-76-4Zg" secondAttribute="bottom" constant="8" id="DqY-y9-qcY"/>
+                    <constraint firstAttribute="trailing" secondItem="lmI-76-4Zg" secondAttribute="trailing" constant="16" id="PTs-3Y-J5i"/>
+                    <constraint firstItem="lmI-76-4Zg" firstAttribute="top" secondItem="icD-DD-dLN" secondAttribute="top" constant="8" id="RwH-eh-C6y"/>
+                    <constraint firstItem="lmI-76-4Zg" firstAttribute="leading" secondItem="icD-DD-dLN" secondAttribute="leading" constant="16" id="nWh-6l-MFh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="updateButton" destination="lmI-76-4Zg" id="rfj-be-sSk"/>
+            </connections>
+            <point key="canvasLocation" x="82.400000000000006" y="129.98500749625188"/>
+        </tableViewCell>
+    </objects>
+</document>

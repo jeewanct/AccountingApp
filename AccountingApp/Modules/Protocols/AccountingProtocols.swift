@@ -10,12 +10,12 @@ import UIKit
 
 protocol PresenterToViewProtocol: class {
     func showContent<T>(news: T)
-    func showError();
+    func showError<T>(error: T)
 }
 
 protocol InterectorToPresenterProtocol: class {
     func dataFetched<T>(news: T)
-    func dataFetchedFailed()
+    func dataFetchedFailed<T>(error: T)
 }
 
 protocol PresentorToInterectorProtocol: class {

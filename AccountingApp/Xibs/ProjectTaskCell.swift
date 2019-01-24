@@ -10,7 +10,20 @@ import UIKit
 
 class ProjectTaskCell: UITableViewCell{
     
+    @IBOutlet weak var taskName: UILabel!
+    @IBOutlet weak var taskDescription: UILabel!
+    
+    var task: ProjectTaskEntity?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        setup()
     }
+    
+    func setup(){
+        taskName.text = task?.taskAndHours
+        taskDescription.text = task?.taskDescription
+    }
+    
+    
 }

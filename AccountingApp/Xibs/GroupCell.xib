@@ -16,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" id="nvG-BL-kpY" customClass="GroupCell" customModule="AccountingApp" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GroupCell" id="nvG-BL-kpY" customClass="GroupCell" customModule="AccountingApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nvG-BL-kpY" id="VHY-mP-0Fo">
@@ -47,6 +47,10 @@
                     <constraint firstItem="IVT-NX-d6O" firstAttribute="centerY" secondItem="nnr-oV-Pwd" secondAttribute="centerY" id="mgw-GP-0yx"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="rightImageView" destination="IVT-NX-d6O" id="UCx-bm-Y8w"/>
+                <outlet property="subGroupName" destination="nnr-oV-Pwd" id="6o6-5f-Iag"/>
+            </connections>
             <point key="canvasLocation" x="-100" y="74.662668665667169"/>
         </tableViewCell>
     </objects>

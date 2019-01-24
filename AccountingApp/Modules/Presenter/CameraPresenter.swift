@@ -28,7 +28,7 @@ extension CameraPresenter: InterectorToPresenterProtocol {
         
     }
     
-    func dataFetchedFailed() {
+    func dataFetchedFailed<T>(error: T) {
         
     }
     

@@ -9,10 +9,53 @@
 import Foundation
 
 
+class InvoiceEntity{
+    var scannedInvoices: [InvoiceDetailEntity]
+    var unscannedInvoices: [InvoiceDetailEntity]
+    init(scanned: [InvoiceDetailEntity], unscanned: [InvoiceDetailEntity]) {
+        self.scannedInvoices = scanned
+        self.unscannedInvoices = unscanned
+    }
+}
+
+class InvoiceDetailEntity{
+    var date: String?
+    var detail: String?
+    var cost: String?
+    var invoiceDescription: [InvoiceDescription]?
+    
+    init(date: String?, detail: String?, cost: String?,invoiceDescription:  [InvoiceDescription]?) {
+        self.date = date
+        self.detail = detail
+        self.cost = cost
+        self.invoiceDescription = invoiceDescription
+    }
+}
+
+class InvoiceDescription{
+    
+    var cvr: String?
+    var tax: String?
+    var amount: String?
+    var date: String?
+    var image: String?
+    
+    init(cvr: String?, tax: String?, amount: String?, date: String?, image: String?) {
+        self.cvr = cvr
+        self.tax = tax
+        self.amount = amount
+        self.date = date
+        self.image = image
+        
+    }
+    
+}
+
 class InvoiceResponseEntity: Decodable{
     var error: Bool?
     var data: [InvoiceModel]?
     var code: String?
+    var message: String?
     
 }
 

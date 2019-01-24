@@ -13,7 +13,7 @@ class InvoiceCollectionCell: UICollectionViewCell{
     @IBOutlet weak var tableView: UITableView!
        var delegate: CellClicked?
     
-    var invoiceList: [Invoices]?{
+    var invoiceList: [InvoiceDetailEntity]?{
         didSet{
             tableView.reloadData()
         }

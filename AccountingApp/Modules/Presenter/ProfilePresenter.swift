@@ -14,8 +14,9 @@ class ProfilePresenter: ViewToPresenterProtocol {
     var interector: PresentorToInterectorProtocol?;
     var router: PresenterToRouterProtocol?
     
-    func updateView<T>(body: T) {
-        
+    func updateView<T: Codable>(body: T) {
+        interector?.fetchData(body: body)
+        //interector?.fetchData(body: body)
     }
     
     func updateView() {
@@ -27,10 +28,19 @@ class ProfilePresenter: ViewToPresenterProtocol {
 
 extension ProfilePresenter: InterectorToPresenterProtocol {
     func dataFetched<T>(news: T) {
-        view?.showContent(news: news)
+        
+        DispatchQueue.main.async {
+            self.view?.showContent(news: news)
+        }
+        
+        
     }
     
-    func dataFetchedFailed() {
+    func dataFetchedFailed<T>(error: T) {
+        
+        DispatchQueue.main.async {
+            self.view?.showError(error: error)
+        }
         
     }
     

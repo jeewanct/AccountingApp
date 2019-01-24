@@ -7,37 +7,71 @@
 //
 
 import Foundation
+import RxSwift
+import CoreData
 import ReusableFramework
 
 
-class CameraReviewInteractor: PresentorToInterectorProtocol{
+class CameraReviewInteractor: PresentorToInterectorProtocol, APIRequest{
+    
+    var method: RequestType
+    var path: String
+    var parameters: Data
+    var headers: [String : String]
+    var appdelegate: AppDelegate
+    var projectList: [CameraProjectListEntity]?
+    
+    
+    init() {
+        
+        method = RequestType.GET
+        let (userId, companyId) = UserHelper.companyID()
+        path = ProjectApis.getProjectList + ProjectApis.userId + "\(userId)" + ProjectApis.companyId + "\(companyId)"
+        parameters = Data()
+        headers = path.getHeader()
+        appdelegate = AppDelegate()
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+            appdelegate = appDelegate
+        }
+    }
     
     var presenter: InterectorToPresenterProtocol?
     
+}
+
+
+extension CameraReviewInteractor{
     func fetchData<T>(body: T) where T : Decodable, T : Encodable {
         
-        let url = GlobalConstants.base + LoginApis.forgotPasswordUrl
-        
-        do{
-            let data = try JSONEncoder().encode(body.self)
-            getDataFromServer(url: url, data: data)
-        }catch let error{
-            
-        }
+    
     }
     
     func fetchData() {
         
+        let projectList: Observable<CameraProjectEntity> = Network.shared.get(apiRequest: self)
+        
+        projectList.subscribe(onNext: { (response) in
+            self.projectList = response.data
+        }, onError: { (error) in
+            self.saveProjectList()
+        }, onCompleted: {
+            self.saveProjectList()
+        }) {
+            
+        }
+        
     }
     
-    func getDataFromServer(url: String, data: Data){
-        //        Networking.shared.postRequest(url: url, header: url.getHeader(), data: data, completion: { (forgotPass: ForgotResponseEntity) in
-        //
-        //            self.presenter?.dataFetched(news: forgotPass)
-        //
-        //        }) { (error) in
-        //            self.presenter?.dataFetchedFailed()
-        //        }
+    func saveProjectList(){
+        
+        if let list = projectList{
+            
+         let allProjectList = CamerReviewDatabase.saveToDatabase(appdelegate: appdelegate, projectLists: list)
+            self.presenter?.dataFetched(news: allProjectList)
+            
+        }else{
+            self.presenter?.dataFetchedFailed(error: AlertMessage.projectListFetchFailed.rawValue)
+        }
         
     }
     

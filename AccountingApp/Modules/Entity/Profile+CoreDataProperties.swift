@@ -22,5 +22,6 @@ extension Profile {
     @NSManaged public var companyId: String?
     @NSManaged public var email: String?
     @NSManaged public var userType: String?
-    
+    @NSManaged public var firstName: String?
+    @NSManaged public var lastName: String?
 }

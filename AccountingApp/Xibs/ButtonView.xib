@@ -50,12 +50,19 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="expandDown" translatesAutoresizingMaskIntoConstraints="NO" id="1as-8N-eMi">
                     <rect key="frame" x="628" y="25.5" width="36" height="36"/>
                 </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKa-h3-jP1">
+                    <rect key="frame" x="584" y="25.5" width="36" height="36"/>
+                    <color key="tintColor" red="0.45098039220000002" green="0.52941176469999995" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="refresh"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="R94-df-Vfe" firstAttribute="leading" secondItem="BoZ-1X-UuV" secondAttribute="leading" id="6b8-xn-OWR"/>
                 <constraint firstItem="R94-df-Vfe" firstAttribute="top" secondItem="BoZ-1X-UuV" secondAttribute="top" constant="6.5" id="9N0-xF-3MS"/>
+                <constraint firstItem="1as-8N-eMi" firstAttribute="leading" secondItem="sKa-h3-jP1" secondAttribute="trailing" constant="8" id="9zP-hP-sL0"/>
                 <constraint firstItem="my9-ap-roU" firstAttribute="top" secondItem="R94-df-Vfe" secondAttribute="bottom" constant="4" id="PlF-IU-H6h"/>
+                <constraint firstItem="sKa-h3-jP1" firstAttribute="centerY" secondItem="1as-8N-eMi" secondAttribute="centerY" id="Pv9-7U-uG0"/>
                 <constraint firstAttribute="trailing" secondItem="1as-8N-eMi" secondAttribute="trailing" constant="8" id="UEw-vR-dcc"/>
                 <constraint firstItem="9vZ-nX-IhT" firstAttribute="leading" secondItem="BoZ-1X-UuV" secondAttribute="leading" id="acd-Bj-JzX"/>
                 <constraint firstItem="1as-8N-eMi" firstAttribute="centerY" secondItem="my9-ap-roU" secondAttribute="centerY" id="cC5-co-yN0"/>
@@ -69,6 +76,7 @@
             <viewLayoutGuide key="safeArea" id="BoZ-1X-UuV"/>
             <connections>
                 <outlet property="infoLabel" destination="R94-df-Vfe" id="Ltj-sI-8iO"/>
+                <outlet property="refreshButton" destination="sKa-h3-jP1" id="3Df-0A-8km"/>
                 <outlet property="selectButton" destination="my9-ap-roU" id="eaO-GH-bem"/>
             </connections>
             <point key="canvasLocation" x="16" y="-223.98800599700152"/>
@@ -76,5 +84,6 @@
     </objects>
     <resources>
         <image name="expandDown" width="36" height="36"/>
+        <image name="refresh" width="36" height="36"/>
     </resources>
 </document>

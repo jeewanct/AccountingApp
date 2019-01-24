@@ -12,10 +12,21 @@ class ProfileCell: UITableViewCell{
     
     @IBOutlet weak var optionImageView: UIImageView!
     @IBOutlet weak var optionLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func hideActivityIndicator(){
+       self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
+    }
+    
+    func showActivityIndicator(){
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
     }
 
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Quicksand-Medium.ttf">
+            <string>Quicksand-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileImageCell" rowHeight="179" id="VwK-LX-0Yx" customClass="ProfileImageCell" customModule="AccountingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="462" height="179"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VwK-LX-0Yx" id="Laj-xK-ubc">
+                <rect key="frame" x="0.0" y="0.0" width="462" height="178.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTM-tK-yUg">
+                        <rect key="frame" x="159.5" y="14" width="143" height="142.5"/>
+                        <color key="backgroundColor" red="0.45098039220000002" green="0.52941176469999995" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="3BQ-YW-PLz">
+                        <rect key="frame" x="161.5" y="16" width="139" height="138.5"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmZ-yG-3Y8">
+                        <rect key="frame" x="210" y="162.5" width="42" height="20"/>
+                        <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="16"/>
+                        <color key="textColor" red="0.44705882349999998" green="0.56862745100000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3BQ-YW-PLz" firstAttribute="centerX" secondItem="Laj-xK-ubc" secondAttribute="centerX" id="18F-2e-RWu"/>
+                    <constraint firstItem="fTM-tK-yUg" firstAttribute="leading" secondItem="3BQ-YW-PLz" secondAttribute="leading" constant="-2" id="5bM-rP-AzZ"/>
+                    <constraint firstAttribute="bottom" secondItem="qmZ-yG-3Y8" secondAttribute="bottom" constant="16" id="79P-jy-V21"/>
+                    <constraint firstItem="fTM-tK-yUg" firstAttribute="top" secondItem="3BQ-YW-PLz" secondAttribute="top" constant="-2" id="BSc-K0-blw"/>
+                    <constraint firstItem="3BQ-YW-PLz" firstAttribute="top" secondItem="Laj-xK-ubc" secondAttribute="top" constant="16" id="YKh-mN-3d1"/>
+                    <constraint firstItem="qmZ-yG-3Y8" firstAttribute="centerX" secondItem="3BQ-YW-PLz" secondAttribute="centerX" id="bfA-aB-1oN"/>
+                    <constraint firstItem="fTM-tK-yUg" firstAttribute="trailing" secondItem="3BQ-YW-PLz" secondAttribute="trailing" constant="2" id="eYM-o6-lTQ"/>
+                    <constraint firstItem="qmZ-yG-3Y8" firstAttribute="top" secondItem="3BQ-YW-PLz" secondAttribute="bottom" constant="8" id="jTa-2J-bxJ"/>
+                    <constraint firstItem="fTM-tK-yUg" firstAttribute="bottom" secondItem="3BQ-YW-PLz" secondAttribute="bottom" constant="2" id="nDI-Es-Zw2"/>
+                    <constraint firstItem="3BQ-YW-PLz" firstAttribute="width" secondItem="Laj-xK-ubc" secondAttribute="width" multiplier="0.3" id="uvJ-ym-ERe"/>
+                    <constraint firstItem="3BQ-YW-PLz" firstAttribute="height" secondItem="Laj-xK-ubc" secondAttribute="width" multiplier="0.3" id="xEe-I3-HoZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="borderView" destination="fTM-tK-yUg" id="bKa-2T-xqA"/>
+                <outlet property="profileImage" destination="3BQ-YW-PLz" id="WCX-ef-SHd"/>
+                <outlet property="userName" destination="qmZ-yG-3Y8" id="Oqk-tl-R1Z"/>
+            </connections>
+            <point key="canvasLocation" x="86.400000000000006" y="145.27736131934034"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="profilePlaceholder" width="393" height="393"/>
+    </resources>
+</document>

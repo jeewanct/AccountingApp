@@ -43,14 +43,19 @@ extension UIViewController{
 
 extension UIButton{
     
-    
+    var isEmpty: Bool{
+        if self.title(for: .normal) == CameraEnum.select.rawValue{
+            return true
+        }
+        return false
+    }
     
     func addButtonIndicator(){
         
         self.setTitle("", for: .normal)
         self.isUserInteractionEnabled = false
         
-        let activityIndicator = UIActivityIndicatorView(style: .white)
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
         self.addSubview(activityIndicator)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
@@ -70,6 +75,19 @@ extension UIButton{
                 subView.removeFromSuperview()
             }
         }
+        
+    }
+    
+}
+
+
+extension UITextField{
+    
+    func leftMargins(){
+        
+        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.height * 0.07 * 0.5 + 16, height: 0))
+        self.leftView = leftView
+        self.leftViewMode = .always
         
     }
     

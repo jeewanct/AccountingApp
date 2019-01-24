@@ -15,7 +15,7 @@ class InvoiceController: UIViewController{
     @IBOutlet weak var movingView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var invoiceData: InvoiceData?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +27,14 @@ class InvoiceController: UIViewController{
         super.viewWillAppear(animated)
         navigationItem.title = "Invoice"
         //navigationController?.navigationBar.prefersLargeTitles = false
-        tabBarController?.tabBar.isHidden = false
+        //tabBarController?.tabBar.isHidden = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationItem.title = ""
         //navigationController?.navigationBar.prefersLargeTitles = true
-        tabBarController?.tabBar.isHidden = true
+        //tabBarController?.tabBar.isHidden = true
     }
     
     @IBAction func scannedInvoice(_ sender: Any) {
@@ -46,6 +46,7 @@ class InvoiceController: UIViewController{
         collectionView.scrollToItem(at: IndexPath(item: 1, section: 0), at: .right, animated: true)
     }
     
+    var invoiceData: InvoiceEntity?
 }
 
 extension InvoiceController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -68,11 +69,12 @@ extension InvoiceController: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InvoiceCollectionCell", for: indexPath) as! InvoiceCollectionCell
-        if indexPath.item == 0{
-            cell.invoiceList = invoiceData?.scannedInvoice
+        if indexPath.item == 0 {
+             cell.invoiceList = invoiceData?.scannedInvoices
         }else{
-            cell.invoiceList = invoiceData?.pendingInvoice
+             cell.invoiceList = invoiceData?.unscannedInvoices
         }
+       
         cell.delegate = self
         return cell
     }
@@ -93,14 +95,40 @@ extension InvoiceController: CellClicked{
 extension InvoiceController: PresenterToViewProtocol {
     
     func showContent<T>(news: T) {
-        if let invoices = news as? InvoiceData{
+        if let invoices = news as? InvoiceEntity{
             self.invoiceData = invoices
             collectionView.reloadData()
         }
     }
     
-    func showError() {
-        
+    func showError<T>(error: T) {
+        if let errorMessage = error as? String{
+            
+            if errorMessage == ErrorCodeEnum.logout.rawValue{
+                let alertController = UIAlertController(title: "", message: AlertMessage.sessionExpired.rawValue + UserHelper.nameOfUser() + "?", preferredStyle: .actionSheet)
+                
+                let okAction = UIAlertAction(title: AlertMessage.ok.rawValue, style: .default) { [unowned self] (action) in
+                    UserHelper.logoutUser()
+                    
+                    DispatchQueue.main.async {
+    
+                        ChangeRootViewController.changeRootViewController(to: ChangeToControllerEnum.LoginController)
+                    }
+                    
+                    
+                }
+            
+               
+                
+                alertController.addAction(okAction)
+               
+                
+                present(alertController, animated: true, completion: nil)
+            }else{
+                self.sheetStyleAlert(message: errorMessage)
+            }
+            
+        }
     }
     
 }

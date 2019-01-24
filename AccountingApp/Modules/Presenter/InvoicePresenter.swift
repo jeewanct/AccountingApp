@@ -26,11 +26,16 @@ class InvoicePresenter: ViewToPresenterProtocol {
 extension InvoicePresenter: InterectorToPresenterProtocol {
    
     func dataFetched<T>(news: T) {
-        view?.showContent(news: news)
+        DispatchQueue.main.async {
+            self.view?.showContent(news: news)
+        }
+        
     }
     
-    func dataFetchedFailed() {
-        
+    func dataFetchedFailed<T>(error: T) {
+        DispatchQueue.main.async {
+            self.view?.showError(error: error)
+        }
     }
     
 }

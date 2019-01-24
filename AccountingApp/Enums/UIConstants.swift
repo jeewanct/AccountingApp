@@ -19,3 +19,15 @@ enum CameraReviewControllerEnum: String{
     case upload = "UPLOAD"
     
 }
+
+// Forgot Password
+
+enum ForgotPasswordEnum: String{
+    case submit = "SUBMIT"
+}
+
+// Login
+
+enum LoginEnum: String{
+    case enter =  "ENTER"
+}

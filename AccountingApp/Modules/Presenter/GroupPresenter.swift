@@ -16,11 +16,11 @@ class GroupPresenter: ViewToPresenterProtocol {
     var router: PresenterToRouterProtocol?
     
     func updateView<T>(body: T) where T : Decodable, T : Encodable {
-        interector?.fetchData(body: body)
+        //interector?.fetchData(body: body)
     }
     
     func updateView() {
-        
+        interector?.fetchData()
     }
     
 }
@@ -29,10 +29,18 @@ extension GroupPresenter: InterectorToPresenterProtocol {
     
     func dataFetched<T>(news: T) {
         
+        DispatchQueue.main.async {
+            self.view?.showContent(news: news)
+        }
+        
     }
     
-    func dataFetchedFailed() {
-        view?.showError()
+    func dataFetchedFailed<T>(error: T) {
+        
+        DispatchQueue.main.async {
+            self.view?.showError(error: error)
+        }
+        
     }
     
 }

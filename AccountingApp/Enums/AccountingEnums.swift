@@ -9,12 +9,38 @@
 import Foundation
 
 
+enum ErrorCodeEnum: String{
+    case logout = "401"
+}
+
+
 enum ProjectNibs: String{
     case imagePreviewCell = "ImagePreviewCell"
 }
 
 enum AlertMessage: String{
+    
     case empty = "All fields are required"
     case email = "Input email is not valid"
+    case logout = "Log out of "
+    case ok = "Ok"
+    case cancel = "Cancel"
+    case userInfoFetchError = "Could not fetch user information"
+    case profileEdited = "Profile edited Succesfully"
+    case fetchError = "Cannot fetch invoices from database"
+    case sessionExpired = "Session Expired! Log out of "
+    case projectListFetchFailed = "Project List cannot be fetch at this time"
 }
+
+enum KeysEnum: String{
+    case isLogin = "isLogin"
+    case userId = "userId"
+    case companyId = "companyId"
+    case token = "token"
+    case userName = "userName"
+    case isBiometric = "isBiometric"
+    case userType = "userType"
+}
+
+
 

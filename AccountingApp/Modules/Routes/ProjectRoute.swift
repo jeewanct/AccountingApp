@@ -14,7 +14,7 @@ class ProjectRoute: PresenterToRouterProtocol{
     class func createModule() ->UIViewController{
         let view = InvoiceRoute.mainstoryboard.instantiateViewController(withIdentifier: "ProjectsController") as? ProjectsController
         let presenter: ViewToPresenterProtocol & InterectorToPresenterProtocol = ProjectsPresenter()
-        let interactor: PresentorToInterectorProtocol = InvoiceInteractor()
+        let interactor: PresentorToInterectorProtocol = ProjectInteractor()
         let router: PresenterToRouterProtocol = ProjectRoute()
         
         view?.presenter = presenter

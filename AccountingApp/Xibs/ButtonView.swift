@@ -13,6 +13,8 @@ class ButtonView: UIView{
     @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var infoLabel: UILabel!
     
+    @IBOutlet weak var refreshButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

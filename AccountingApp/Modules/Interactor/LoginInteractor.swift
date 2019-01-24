@@ -22,6 +22,7 @@ class LoginInteractor: PresentorToInterectorProtocol, APIRequest{
     var headers: [String : String]
     var presenter: InterectorToPresenterProtocol?
     
+    var error = ""
     // Login Interactor initiliazers
     init() {
         method = RequestType.POST
@@ -34,31 +35,52 @@ class LoginInteractor: PresentorToInterectorProtocol, APIRequest{
     func fetchData() {}
     
     func fetchData<T>(body: T) where T : Decodable, T : Encodable {
+        
         let (data, _) = EncodeData.getData(parameters: body)
-        if  let jsonData = data{
-            parameters = jsonData
+        
+        if let requestData = data{
+            
+            parameters = requestData
+            
+            let loginResponse: Observable<LoginResponseEntity> = Network.shared.post(apiRequest: self)
+            
+            loginResponse.subscribe(onNext: { (response) in
+                
+                if response.error == true{
+                    if let errorMessage = response.message{
+                        self.error  = errorMessage
+                    }
+                }else{
+                    if let loginResponse = response.data?.result{
+                        ProfileDatabase.saveUserProfile(userData: loginResponse, update: false)
+                    }
+                }
+                
+            }, onError: { (error) in
+                self.presenter?.dataFetchedFailed(error: error.localizedDescription)
+            }, onCompleted: {
+                
+                if self.error == ""{
+                     self.presenter?.dataFetched(news: "")
+                    
+                }else{
+                    self.presenter?.dataFetchedFailed(error: self.error)
+                    self.error = ""
+                }
+               
+            }) {
+                
+            }
+            
+            
         }else{
-            presenter?.dataFetchedFailed()
+            self.presenter?.dataFetchedFailed(error: NetworkError.parsingError)
         }
         
         
     }
     
-    func callServer(){
-        
-        let loginResponse: Observable<LoginResponseEntity> = Network.shared.post(apiRequest: self)
-        
-        loginResponse.subscribe(onNext: { (response) in
-            print(response)
-        }, onError: { (error) in
-            print(error)
-        }, onCompleted: {
-            
-        }) {
-            
-        }
-        
-    }
+    
 
 }
 
@@ -68,48 +90,62 @@ extension LoginInteractor{
     
     func saveUserProfile(userData: LoginData?){
         
-        UserDefaults.standard.set(userData?.Token, forKey: "token")
-        UserDefaults.standard.set(userData?.CompanyId, forKey: "companyId")
-        UserDefaults.standard.set(userData?.ID, forKey: "userId")
         
+        if let token = userData?.Token, let companyId
+            = userData?.CompanyId, let userId = userData?.ID, let userType = userData?.UserType{
+            
+            UserDefaults.standard.set(true, forKey: KeysEnum.isLogin.rawValue)
+            UserDefaults.standard.set(token, forKey: KeysEnum.token.rawValue)
+            UserDefaults.standard.set(String(companyId), forKey: KeysEnum.companyId.rawValue)
+            UserDefaults.standard.set(String(userId), forKey: KeysEnum.userId.rawValue)
+            UserDefaults.standard.set(String(userType), forKey: KeysEnum.userType.rawValue)
+            
+        }
         
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
-            
-            if let userInformation = NSEntityDescription.insertNewObject(forEntityName: "Profile", into: appDelegate.persistentContainer.viewContext) as? Profile{
+        DispatchQueue.main.async {
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
                 
-                if let userId = userData?.ID{
-                    userInformation.userId = String(userId)
+                if let userInformation = NSEntityDescription.insertNewObject(forEntityName: "Profile", into: appDelegate.persistentContainer.viewContext) as? Profile{
+                    
+                    if let userId = userData?.ID{
+                        userInformation.userId = String(userId)
+                    }
+                    
+                    if let companyId = userData?.CompanyId{
+                        userInformation.companyId = String(companyId)
+                    }
+                    
+                    if let userType = userData?.UserType{
+                        userInformation.userType = String(userType)
+                    }
+                    
+                    var fullName = ""
+                    
+                    if let firstName = userData?.FirstName{
+                        fullName.append(firstName.capitalized)
+                        userInformation.firstName = firstName
+                    }
+                    
+                    if let lastName = userData?.LastName{
+                        fullName.append(" ")
+                        fullName.append(lastName.capitalized)
+                        userInformation.lastName = lastName
+                    }
+                    
+                    UserDefaults.standard.setValue(fullName, forKey: KeysEnum.userName.rawValue)
+                    
+                    userInformation.name = fullName
+                    
+                    userInformation.profileImage = userData?.ImagePath
+                    userInformation.email = userData?.Email
+                    
+                    appDelegate.saveContext()
+                    
                 }
-                
-                if let companyId = userData?.CompanyId{
-                    userInformation.companyId = String(companyId)
-                }
-            
-                if let userType = userData?.UserType{
-                    userInformation.userType = String(userType)
-                }
-                
-                var fullName = ""
-                
-                if let firstName = userData?.FirstName{
-                    fullName.append(firstName)
-                }
-                
-                if let firstName = userData?.LastName{
-                    fullName.append(" ")
-                    fullName.append(firstName)
-                }
-                
-                userInformation.name = fullName
-                
-                userInformation.profileImage = userData?.ImagePath
-                userInformation.email = userData?.Email
-                
-                appDelegate.saveContext()
                 
             }
-        
         }
+        
         
         
     }

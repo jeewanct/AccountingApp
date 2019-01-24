@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="EditProfileImageCell" rowHeight="170" id="Ba5-BT-vpJ" customClass="EditProfileImageCell" customModule="AccountingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="505" height="170"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ba5-BT-vpJ" id="n6H-SU-s8X">
+                <rect key="frame" x="0.0" y="0.0" width="505" height="169.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnF-ch-bFD">
+                        <rect key="frame" x="177" y="9" width="151.5" height="151.5"/>
+                        <state key="normal" image="profilePlaceholder"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dnF-ch-bFD" firstAttribute="width" secondItem="n6H-SU-s8X" secondAttribute="width" multiplier="0.3" id="HKH-PX-Cdw"/>
+                    <constraint firstItem="dnF-ch-bFD" firstAttribute="centerY" secondItem="n6H-SU-s8X" secondAttribute="centerY" id="PIT-nP-bAx"/>
+                    <constraint firstItem="dnF-ch-bFD" firstAttribute="centerX" secondItem="n6H-SU-s8X" secondAttribute="centerX" id="YB1-v6-Byr"/>
+                    <constraint firstItem="dnF-ch-bFD" firstAttribute="height" secondItem="n6H-SU-s8X" secondAttribute="width" multiplier="0.3" id="ZM6-6c-fzU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="profileImageButton" destination="dnF-ch-bFD" id="dLn-ov-AUd"/>
+            </connections>
+            <point key="canvasLocation" x="124" y="-8.995502248875562"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="profilePlaceholder" width="393" height="393"/>
+    </resources>
+</document>

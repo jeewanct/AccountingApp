@@ -15,13 +15,16 @@ class GroupMessagesController: UIViewController{
     @IBOutlet weak var movingView: UIView!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title  = "Group Chat"
+        tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -29,6 +32,11 @@ class GroupMessagesController: UIViewController{
         navigationItem.title  = ""
     }
     
+    @IBAction func handleCreateConversation(_ sender: Any) {
+        
+        let conversation = ConversationRoute.createModule()
+        navigationController?.pushViewController(conversation, animated: true)
+    }
     
     @IBAction func handleAll(_ sender: Any) {
         collectionView.scrollToItem(at: IndexPath(item: 1, section: 0), at: .left, animated: true)
@@ -38,9 +46,47 @@ class GroupMessagesController: UIViewController{
         collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .right, animated: true)
     }
     
+    
+    var messageParams: (String?, String?)?
+    
     var presenter: ViewToPresenterProtocol?
 }
 
+extension GroupMessagesController{
+    
+    func setup(){
+        
+        if let (groupId, subGroupId) = messageParams{
+            
+            guard let unwrappedGroupId = groupId else { return }
+            
+            
+            if let unwrappedSubGroupId = subGroupId{
+                
+            }else{
+                addCreateSubGroupBarButton()
+            }
+            
+        }
+    }
+    
+    func addCreateSubGroupBarButton(){
+        
+        let createSubGroupButton = UIBarButtonItem(title: GroupMessageEnum.createSubGroup.rawValue, style: .plain, target: self, action: #selector(handleCreateSubGroup))
+        navigationItem.rightBarButtonItem = createSubGroupButton
+    }
+    
+
+}
+
+
+extension GroupMessagesController{
+    
+    @objc func handleCreateSubGroup(){
+        let createSubgroup = CreateSubGroupRoute.createModule()
+        navigationController?.pushViewController(createSubgroup, animated: true)
+    }
+}
 
 
 extension GroupMessagesController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -85,7 +131,7 @@ extension GroupMessagesController: PresenterToViewProtocol{
         
     }
     
-    func showError() {
+    func showError<T>(error: T) {
         
     }
     

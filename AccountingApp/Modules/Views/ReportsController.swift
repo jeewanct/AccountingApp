@@ -23,7 +23,7 @@ extension ReportsController: PresenterToViewProtocol {
         
     }
     
-    func showError() {
+    func showError<T>(error: T) {
         
     }
 

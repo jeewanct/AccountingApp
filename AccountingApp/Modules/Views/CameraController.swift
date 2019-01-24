@@ -63,10 +63,11 @@ class CameraController: UIViewController{
         }
     }
     
-    @IBAction func handleClose(_ sender: Any) {
+    @objc @IBAction func handleClose(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    var seledtedImages = [CameraImages]()
     var presenter: ViewToPresenterProtocol?
     let camera = Camera()
     
@@ -101,7 +102,14 @@ extension CameraController{
     
     
     func configureCameraController() {
+        
         navigationController?.hideTranslucency()
+        
+        let downGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleClose(_:)))
+        downGesture.direction = .down
+        view.addGestureRecognizer(downGesture)
+        
+        
         camera.prepare {(error) in
             if let error = error {
                 print(error)
@@ -114,15 +122,20 @@ extension CameraController{
 
 extension CameraController: OpalImagePickerControllerDelegate{
     
-    func imagePicker(_ picker: OpalImagePickerController, didFinishPickingExternalURLs urls: [URL]) {
+    func imagePicker(_ picker: OpalImagePickerController, didFinishPickingImages images: [UIImage]) {
         
         dismiss(animated: true , completion: nil)
         
+        images.forEach { (image) in
+            self.seledtedImages.append(CameraImages(image: image))
+        }
+        
         let reviewController = CameraReviewRoutes.createModule() as? CameraReviewController
-        reviewController?.selectedImages = urls
+        reviewController?.images = seledtedImages
         navigationController?.pushViewController(reviewController ?? UIViewController(), animated: true)
         
     }
+    
 }
 
 
@@ -133,7 +146,7 @@ extension CameraController: PresenterToViewProtocol {
         
     }
     
-    func showError() {
+    func showError<T>(error: T) {
         
     }
     
