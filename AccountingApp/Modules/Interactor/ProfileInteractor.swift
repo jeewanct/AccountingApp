@@ -14,7 +14,7 @@ class ProfileInteractor: PresentorToInterectorProtocol, APIRequest{
    
     var method: RequestType
     var path: String
-    var parameters: Data
+    var parameters: Data?
     var headers: [String : String]
     var error = ""
     var context: AppDelegate
@@ -32,10 +32,7 @@ class ProfileInteractor: PresentorToInterectorProtocol, APIRequest{
         
     }
     
-    
     var presenter: InterectorToPresenterProtocol?
-    
-    
     
 }
 

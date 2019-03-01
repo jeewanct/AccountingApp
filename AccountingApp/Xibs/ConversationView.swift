@@ -8,7 +8,13 @@
 
 import UIKit
 
-class ConversationView: UITableViewCell{
+class ConversationView: UIView{
+    
+    @IBOutlet weak var cameraButton: UIButton!
+    
+    @IBOutlet weak var galleryButton: UIButton!
+    
+    @IBOutlet weak var sendButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

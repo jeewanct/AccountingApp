@@ -11,9 +11,13 @@ import UIKit
 class ProjectsController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addProjectBtn: UIButton!
+    @IBOutlet weak var notTasks: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        // navigationItem.largeTitleDisplayMode = .never
+        getProjects()
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.hideTranslucency()
     }
@@ -21,8 +25,7 @@ class ProjectsController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Projects"
-        let projectDates = ProjectDate(startDate: 0, endDate: 0)
-        presenter?.updateView(body: projectDates)
+        
         
     }
     
@@ -85,10 +88,12 @@ extension ProjectsController: UITableViewDelegate, UITableViewDataSource{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectsCell", for: indexPath) as! ProjectsCell
             cell.projects = projectEntity.projectList
+            cell.projectInstance = self
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectDateCell", for: indexPath) as! ProjectDateCell
             cell.dateList = projectEntity.currentDisplayDate
+            cell.projectInstance = self
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTaskCell", for: indexPath) as! ProjectTaskCell
@@ -106,6 +111,8 @@ extension ProjectsController{
         if indexPath.section == 2{
             return true
         }
+        
+        
         
         return false
     }
@@ -143,20 +150,65 @@ extension ProjectsController{
 }
 
 
+extension ProjectsController{
+    
+    func getProjects(){
+        self.showDataIndicator()
+        let projectDates = ProjectDate(startDate: 0, endDate: 0)
+        presenter?.updateView(body: projectDates)
+    }
+    
+    
+}
+
 extension ProjectsController: PresenterToViewProtocol {
     
     func showContent<T>(news: T) {
         
+        self.hideDataIndicator()
         if let projects = news as? PojectEntity{
+            
             self.projectEntity = projects
+            
+            if let isHidden = self.projectEntity.isCreateProjectHidden{
+                addProjectBtn.isHidden = isHidden
+            }
+            
+            tableView.isHidden = false
             tableView.reloadData()
             
+        }else{
+            tableView.isHidden = true
         }
         
     }
     
     func showError<T>(error: T) {
         
+        self.hideDataIndicator()
+        if let errorMessage = error as? String{
+            
+            if errorMessage == ErrorCodeEnum.logout.rawValue{
+                let alertController = UIAlertController(title: "", message: AlertMessage.sessionExpired.rawValue + UserHelper.nameOfUser() + "?", preferredStyle: .actionSheet)
+                
+                let okAction = UIAlertAction(title: AlertMessage.ok.rawValue, style: .default) { [unowned self] (action) in
+                    UserHelper.logoutUser()
+                    
+                    DispatchQueue.main.async {
+                        
+                        ChangeRootViewController.changeRootViewController(to: ChangeToControllerEnum.LoginController)
+                    }
+                    
+                    
+                }
+                
+                alertController.addAction(okAction)
+                present(alertController, animated: true, completion: nil)
+            }else{
+                self.sheetStyleAlert(message: errorMessage)
+            }
+            
+        }
     }
     
     

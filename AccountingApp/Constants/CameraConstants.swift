@@ -8,12 +8,19 @@
 
 import Foundation
 
+struct CameraApis{
+    static let getProjectList = "/api/ProjectManagement/GetAssignUserProjectList"
+    //static let uploadImages = "http://ocr.cadhla.com/v1/upload/image/"
+    static let uploadImages = "https://invoice-scan.herokuapp.com/v1/upload/image"
+    static let uploadInvoices = "/api/Projectmanagement/ScanInvoiceSave"
+}
+
+
 enum CameraEnum: String{
     
     case title = "Preview"
     case upload = "Upload"
     case select = "Select"
-    
     
 }
 

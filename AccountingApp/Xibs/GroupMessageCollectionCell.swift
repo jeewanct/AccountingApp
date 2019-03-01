@@ -11,8 +11,14 @@ import UIKit
 class GroupMessageCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var tableView: UITableView!
-    var delegate: SelectedProjectDelegate?
-    
+    //var delegate: SelectedProjectDelegate?
+    weak var groupMessageInstance: GroupMessagesController?
+    var cellNumber: Int!
+    var groupMessage: [GroupDetailEntity]?{
+        didSet{
+            tableView.reloadData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,13 +37,15 @@ class GroupMessageCollectionCell: UICollectionViewCell {
 extension GroupMessageCollectionCell: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return groupMessage?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupMessageCell", for: indexPath) as! GroupMessageCell
-        cell.delegate = self
+        cell.collectionIndex = cellNumber
+        cell.groupMessageInstance = groupMessageInstance
         cell.selectedMessage = indexPath.item
+        cell.messageDetail = groupMessage?[indexPath.item]
         return cell
     }
     
@@ -46,6 +54,28 @@ extension GroupMessageCollectionCell: UITableViewDataSource{
 
 extension GroupMessageCollectionCell: UITableViewDelegate{
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        guard let indexNumber = cellNumber else {
+            return
+        }
+        
+        if groupMessageInstance?.groupList?[indexNumber].isMoreDataAvail == true{
+            if (((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height ) && groupMessageInstance?.groupList?[indexNumber].isLoadingList == false){
+                //self. isLoadingList = true
+               // self. loadMoreItemsForList()
+                if indexNumber == 0 {
+                    groupMessageInstance?.getNewDataFromServer()
+                }else{
+                    groupMessageInstance?.getAllDataFromServer()
+                }
+                
+            }
+            
+        }
+        
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -53,10 +83,10 @@ extension GroupMessageCollectionCell: UITableViewDelegate{
 }
 
 
-extension GroupMessageCollectionCell: SelectedProjectDelegate{
-    
-    func startConversation(to section: Int) {
-        delegate?.startConversation(to: section)
-    }
-    
-}
+//extension GroupMessageCollectionCell: SelectedProjectDelegate{
+//    
+////    func startConversation(to section: Int) {
+////        delegate?.startConversation(to: section)
+////    }
+//    
+//}

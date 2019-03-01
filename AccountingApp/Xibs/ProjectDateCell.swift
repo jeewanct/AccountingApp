@@ -13,6 +13,8 @@ class ProjectDateCell: UITableViewCell{
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    weak var projectInstance: ProjectsController?
+    
     var dateList: [ProjectDateEntity]?{
         didSet{
            collectionView.reloadData()
@@ -50,12 +52,12 @@ extension ProjectDateCell: UICollectionViewDelegate, UICollectionViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return dateList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectDateCollectionCell", for: indexPath) as! ProjectDateCollectionCell
-        //cell.dateDetail = dateList?[indexPath.item]
+        cell.dateDetail = dateList?[indexPath.item]
         return cell
     }
     
@@ -63,14 +65,21 @@ extension ProjectDateCell: UICollectionViewDelegate, UICollectionViewDataSource,
 
 extension ProjectDateCell{
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? ProjectDateCollectionCell
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let center = CGPoint(x: targetContentOffset.pointee.x + (scrollView.frame.width / 2), y: (scrollView.frame.height / 2))
+        if let ip = self.collectionView!.indexPathForItem(at: center) {
+            //self.pageControl.currentPage = ip.row
+            //print(ip.row)
+            
+            projectInstance?.projectEntity.currentDisplayTask = dateList?[ip.row].taskList
+            
+            let indexSet = IndexSet(arrayLiteral: 2)
+            projectInstance?.tableView.reloadSections(indexSet, with: .automatic)
+            
+        }
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? ProjectDateCollectionCell
-        
-    }
+   
     
 }

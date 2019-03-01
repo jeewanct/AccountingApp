@@ -17,6 +17,11 @@ class ProjectDateCollectionCell: UICollectionViewCell{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        //setup()
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         setup()
     }
     

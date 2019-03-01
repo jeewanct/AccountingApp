@@ -12,6 +12,7 @@ import ReusableFramework
 
 class ForgotPassController: UIViewController{
     
+    @IBOutlet var keyboardToolBar: UIToolbar!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
@@ -49,6 +50,9 @@ class ForgotPassController: UIViewController{
     }
     
     
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        self.view.endEditing(true)
+    }
     @IBAction func handleSubmit(_ sender: Any) {
         
         if userEmail.isEmail(){
@@ -73,6 +77,25 @@ class ForgotPassController: UIViewController{
     
 }
 
+
+extension ForgotPassController: UITextFieldDelegate{
+    
+    func setupDelegates(){
+        userEmail.delegate = self
+        userEmail.inputAccessoryView = keyboardToolBar
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case userEmail:
+            view.endEditing(true)
+        default:
+            print("")
+            //view.endEditing(true)
+        }
+        return false
+    }
+}
 
 
 extension ForgotPassController{

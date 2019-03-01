@@ -38,6 +38,30 @@ extension UIViewController{
         }
         
     }
+    
+    func showDataIndicator(){
+        
+        let loaderView: LoaderView = UIView.fromNib()
+        loaderView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(loaderView)
+        
+        loaderView.loader.startAnimating()
+        loaderView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loaderView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        loaderView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        loaderView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        
+    }
+    
+    func hideDataIndicator(){
+        
+        for subview in self.view.subviews{
+            if subview is LoaderView{
+                subview.removeFromSuperview()
+            }
+        }
+        
+    }
 }
 
 
@@ -91,4 +115,15 @@ extension UITextField{
         
     }
     
+}
+
+extension Array{
+    
+    func convertImageToData(images: [UIImage]) -> [Data]{
+        
+        return images.map { (image) -> Data in
+            return image.jpegData(compressionQuality: 0.5)!
+        }
+        
+    }
 }

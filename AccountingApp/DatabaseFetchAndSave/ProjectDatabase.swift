@@ -19,15 +19,15 @@ class ProjectDatabase{
         if let projectEntity = NSEntityDescription.insertNewObject(forEntityName: "Projects", into: appdelegate.persistentContainer.viewContext) as? Projects{
             
             if UserHelper.userType() == "1" || UserHelper.userType() == "2"{
-                projectEntity.canCreateProject = false
-            }else{
                 projectEntity.canCreateProject = true
+            }else{
+                projectEntity.canCreateProject = false
             }
-            
             
             for project in projects{
                 
                 if let projectType = NSEntityDescription.insertNewObject(forEntityName: "ProjectsList", into: appdelegate.persistentContainer.viewContext ) as? ProjectsList{
+                    
                     
                     projectType.projectName = project.ProjectName
                     projectType.sortingStartDate = Helper.convertStringToDate(date: project.StartDate) as? NSDate
@@ -57,8 +57,6 @@ class ProjectDatabase{
                             
                         }
                     }
-                    
-                   
                     
                     if let endDate = project.EndDate{
                         projectType.serverEndDate = String(endDate)
@@ -94,8 +92,6 @@ class ProjectDatabase{
 
                                         projectDatabaseTask.taskName = task.TaskText
                                         projectDatabaseTask.taskDescription = task.Description
-
-
                                         projectDatabaseDate.addToProjectTaskList(projectDatabaseTask)
                                     }
 
@@ -107,9 +103,6 @@ class ProjectDatabase{
                            projectType.addToProjectDatesList(projectDatabaseDate)
 
                         }
-
-                            
-
 
                         }
 
@@ -133,7 +126,7 @@ class ProjectDatabase{
     class func getProjectsFromDatabase(appdelegate: AppDelegate) -> PojectEntity?{
         
         let fetchRequest = NSFetchRequest<Projects>(entityName: "Projects")
-        
+       
         do{
             let projects = try appdelegate.persistentContainer.viewContext.fetch(fetchRequest)
             
@@ -157,7 +150,7 @@ class ProjectDatabase{
                             projectDetails.endDate = savingList.endDate
                             projectDetails.projectId = savingList.projectId
                             projectDetails.projectName = savingList.projectName
-                            
+                            projectDetails.sort = savingList.sortingStartDate as Date?
                             if let projectDates = savingList.projectDatesList{
                                 
                                 var projectDateArray = [ProjectDateEntity]()
@@ -195,21 +188,33 @@ class ProjectDatabase{
                                     
                                 }
                                 
+                               
+                                
                                 projectDetails.dates = projectDateArray
                                 
                                 
                             }
                             
+                            
                             projectArray.append(projectDetails)
                             
                         }
-
+                        
+                        
 
                     }
                     
                 }
                 
+                projectArray.sort { (value1, value2) -> Bool in
+                    if value1.sort! > value2.sort!{
+                        return true
+                    }
+                    return false
+                }
+                
                 projectEntity.projectList = projectArray
+                
                 
                 if let firstProject = projectArray.first{
                     

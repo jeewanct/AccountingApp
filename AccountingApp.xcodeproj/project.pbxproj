@@ -86,13 +86,14 @@
 		DB39CA9F21CBDB67003A1303 /* InvoiceTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB39CA9E21CBDB67003A1303 /* InvoiceTableCell.xib */; };
 		DB39CAA221CBDBF2003A1303 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAA121CBDBF2003A1303 /* CardView.swift */; };
 		DB39CAA421CBDEDC003A1303 /* InvoiceCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAA321CBDEDC003A1303 /* InvoiceCollectionCell.swift */; };
-		DB39CAA621CBE270003A1303 /* UserInfoValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAA521CBE270003A1303 /* UserInfoValue.swift */; };
+		DB39CAA621CBE270003A1303 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAA521CBE270003A1303 /* UserHelper.swift */; };
 		DB39CAA821CBE5AC003A1303 /* InvoiceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAA721CBE5AC003A1303 /* InvoiceEntity.swift */; };
 		DB39CAB021CBF3EC003A1303 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAAF21CBF3EC003A1303 /* Helper.swift */; };
 		DB39CAB521CBF7BE003A1303 /* Invoices+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAB121CBF7BE003A1303 /* Invoices+CoreDataClass.swift */; };
 		DB39CAB621CBF7BE003A1303 /* Invoices+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAB221CBF7BE003A1303 /* Invoices+CoreDataProperties.swift */; };
 		DB39CAB721CBF7BE003A1303 /* InvoiceDetails+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAB321CBF7BE003A1303 /* InvoiceDetails+CoreDataClass.swift */; };
 		DB39CAB821CBF7BE003A1303 /* InvoiceDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39CAB421CBF7BE003A1303 /* InvoiceDetails+CoreDataProperties.swift */; };
+		DB5AAC132209D68D00D425EF /* GroupChatDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5AAC122209D68D00D425EF /* GroupChatDatabase.swift */; };
 		DB608E3121F64E4700E7F963 /* ProjectDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB608E3021F64E4700E7F963 /* ProjectDatabase.swift */; };
 		DB608E5221F79B1600E7F963 /* ProjectsList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB608E4A21F79B1600E7F963 /* ProjectsList+CoreDataClass.swift */; };
 		DB608E5321F79B1600E7F963 /* ProjectsList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB608E4B21F79B1600E7F963 /* ProjectsList+CoreDataProperties.swift */; };
@@ -103,6 +104,7 @@
 		DB608E5821F79B1600E7F963 /* ProjectTasks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB608E5021F79B1600E7F963 /* ProjectTasks+CoreDataClass.swift */; };
 		DB608E5921F79B1600E7F963 /* ProjectTasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB608E5121F79B1600E7F963 /* ProjectTasks+CoreDataProperties.swift */; };
 		DB639A1D21E0C086009F7C94 /* Pods_AccountingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF384BA81FF0E2EED436F83 /* Pods_AccountingApp.framework */; };
+		DB6475A12215B1AD0064B052 /* CreateConversationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6475A02215B1AD0064B052 /* CreateConversationEntity.swift */; };
 		DB65563321EE5D5B00DD8910 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB65563221EE5D5B00DD8910 /* ConversationView.swift */; };
 		DB65563521EE5DBD00DD8910 /* ConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB65563421EE5DBD00DD8910 /* ConversationController.swift */; };
 		DB65563721EE5F0700DD8910 /* ConversationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB65563621EE5F0700DD8910 /* ConversationPresenter.swift */; };
@@ -121,6 +123,14 @@
 		DB7BFF2921CD236D00C10B8E /* ProjectTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2821CD236D00C10B8E /* ProjectTaskCell.swift */; };
 		DB7BFF2B21CD272500C10B8E /* ProjectDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2A21CD272500C10B8E /* ProjectDetailCell.swift */; };
 		DB7BFF2D21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2C21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift */; };
+		DB8513C2220F170C004041F0 /* ProjectAssigneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8513C1220F170C004041F0 /* ProjectAssigneView.swift */; };
+		DB8513C5220F1AC1004041F0 /* ProjectAssignees+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8513C3220F1AC1004041F0 /* ProjectAssignees+CoreDataClass.swift */; };
+		DB8513C6220F1AC1004041F0 /* ProjectAssignees+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8513C4220F1AC1004041F0 /* ProjectAssignees+CoreDataProperties.swift */; };
+		DB8513C8220F1AF2004041F0 /* DatabaseEntityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8513C7220F1AF2004041F0 /* DatabaseEntityName.swift */; };
+		DB8513CA220F1B63004041F0 /* ProjectAssigneeDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8513C9220F1B63004041F0 /* ProjectAssigneeDatabase.swift */; };
+		DB8513CC220F1BD9004041F0 /* ProjectAssigneeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8513CB220F1BD9004041F0 /* ProjectAssigneeEntity.swift */; };
+		DB8513CE220F53DB004041F0 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8513CD220F53DB004041F0 /* ConversationCell.swift */; };
+		DB8513D0220F5FDA004041F0 /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8513CF220F5FDA004041F0 /* ConversationCell.xib */; };
 		DB861A5A21F0CEBD00083D35 /* ChangeRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB861A5921F0CEBD00083D35 /* ChangeRootViewController.swift */; };
 		DB861A5C21F0D84A00083D35 /* GroupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB861A5B21F0D84A00083D35 /* GroupEntity.swift */; };
 		DB861A5E21F0D97A00083D35 /* GroupApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB861A5D21F0D97A00083D35 /* GroupApis.swift */; };
@@ -193,6 +203,23 @@
 		DB97704021EE509200A7E312 /* ProfileEditInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97703F21EE509200A7E312 /* ProfileEditInteractor.swift */; };
 		DB97704221EE50BA00A7E312 /* ProfileEditRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97704121EE50BA00A7E312 /* ProfileEditRoute.swift */; };
 		DB97704421EE57F900A7E312 /* ConversationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB97704321EE57F900A7E312 /* ConversationView.xib */; };
+		DB9B540522131DF300093430 /* GroupChatEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B540422131DF300093430 /* GroupChatEntity.swift */; };
+		DB9D2AE921FB53E10021FBC4 /* ProjectCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D2AE821FB53E10021FBC4 /* ProjectCalendar.swift */; };
+		DB9D2AEC21FB54120021FBC4 /* ProjectCalendarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D2AEB21FB54120021FBC4 /* ProjectCalendarDelegate.swift */; };
+		DB9D2AEE21FB54600021FBC4 /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D2AED21FB54600021FBC4 /* CalendarViewCell.swift */; };
+		DB9D2AF021FB55290021FBC4 /* CalendarViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D2AEF21FB55290021FBC4 /* CalendarViewHeader.swift */; };
+		DBAE902621FD9B99008478D5 /* TaskCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE902521FD9B99008478D5 /* TaskCalendar.swift */; };
+		DBAE902821FD9BBD008478D5 /* TaskCalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE902721FD9BBD008478D5 /* TaskCalendarDelegates.swift */; };
+		DBAE902A21FD9D88008478D5 /* LoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBAE902921FD9D88008478D5 /* LoaderView.xib */; };
+		DBAE902C21FD9F04008478D5 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE902B21FD9F04008478D5 /* LoaderView.swift */; };
+		DBAE902E2200942D008478D5 /* GroupMessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE902D2200942D008478D5 /* GroupMessageEntity.swift */; };
+		DBAE90352200B576008478D5 /* SeenGroupMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE902F2200B576008478D5 /* SeenGroupMessage+CoreDataClass.swift */; };
+		DBAE90362200B576008478D5 /* SeenGroupMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE90302200B576008478D5 /* SeenGroupMessage+CoreDataProperties.swift */; };
+		DBAE90372200B576008478D5 /* GroupMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE90312200B576008478D5 /* GroupMessage+CoreDataClass.swift */; };
+		DBAE90382200B576008478D5 /* GroupMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE90322200B576008478D5 /* GroupMessage+CoreDataProperties.swift */; };
+		DBAE90392200B576008478D5 /* UnseenGroupMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE90332200B576008478D5 /* UnseenGroupMessage+CoreDataClass.swift */; };
+		DBAE903A2200B576008478D5 /* UnseenGroupMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE90342200B576008478D5 /* UnseenGroupMessage+CoreDataProperties.swift */; };
+		DBB1B440221DC4B6002F26BE /* CreateSubgroupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB1B43F221DC4B6002F26BE /* CreateSubgroupEntity.swift */; };
 		DBC5A36D21E3AA4F00D615BF /* ReusableFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC5A36B21E3AA4400D615BF /* ReusableFramework.framework */; };
 		DBC5A36E21E3AA4F00D615BF /* ReusableFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBC5A36B21E3AA4400D615BF /* ReusableFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBC5A37021E3C54600D615BF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5A36F21E3C54600D615BF /* Camera.swift */; };
@@ -204,6 +231,9 @@
 		DBC5A37C21E512CB00D615BF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5A37B21E512CB00D615BF /* Extension.swift */; };
 		DBC5A37E21E5147400D615BF /* CameraReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5A37D21E5147400D615BF /* CameraReviewController.swift */; };
 		DBC5A38021E6501300D615BF /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5A37F21E6501300D615BF /* UIConstants.swift */; };
+		DBEAEF95221756C10054F2CC /* SubGroupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAEF94221756C10054F2CC /* SubGroupEntity.swift */; };
+		DBEE5EF5220EEDB300AF991B /* CreateProjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE5EF4220EEDB300AF991B /* CreateProjectEntity.swift */; };
+		DBEE5EF7220EF14200AF991B /* CreateProjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE5EF6220EF14200AF991B /* CreateProjectConstants.swift */; };
 		F92D578FA7D6E39524194EBF /* Pods_AccountingAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C2246EB06FCE677C5222D6 /* Pods_AccountingAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -330,14 +360,15 @@
 		DB39CA9E21CBDB67003A1303 /* InvoiceTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceTableCell.xib; sourceTree = "<group>"; };
 		DB39CAA121CBDBF2003A1303 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		DB39CAA321CBDEDC003A1303 /* InvoiceCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCollectionCell.swift; sourceTree = "<group>"; };
-		DB39CAA521CBE270003A1303 /* UserInfoValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoValue.swift; sourceTree = "<group>"; };
+		DB39CAA521CBE270003A1303 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		DB39CAA721CBE5AC003A1303 /* InvoiceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceEntity.swift; sourceTree = "<group>"; };
 		DB39CAAF21CBF3EC003A1303 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		DB39CAB121CBF7BE003A1303 /* Invoices+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoices+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DB39CAB221CBF7BE003A1303 /* Invoices+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoices+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DB39CAB321CBF7BE003A1303 /* InvoiceDetails+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvoiceDetails+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DB39CAB421CBF7BE003A1303 /* InvoiceDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvoiceDetails+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DB608E3021F64E4700E7F963 /* ProjectDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDatabase.swift; sourceTree = "<group>"; };
+		DB5AAC122209D68D00D425EF /* GroupChatDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatDatabase.swift; sourceTree = "<group>"; };
+		DB608E3021F64E4700E7F963 /* ProjectDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDatabase.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		DB608E4A21F79B1600E7F963 /* ProjectsList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectsList+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DB608E4B21F79B1600E7F963 /* ProjectsList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectsList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DB608E4C21F79B1600E7F963 /* ProjectDates+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectDates+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -347,6 +378,7 @@
 		DB608E5021F79B1600E7F963 /* ProjectTasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectTasks+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DB608E5121F79B1600E7F963 /* ProjectTasks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectTasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DB639A2321E0C4DF009F7C94 /* Pods_ReusableFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ReusableFramework.framework; path = /Users/jeevantiwari/Desktop/AccountingApp/AccountingApp/Pods_ReusableFramework.framework; sourceTree = "<absolute>"; };
+		DB6475A02215B1AD0064B052 /* CreateConversationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateConversationEntity.swift; sourceTree = "<group>"; };
 		DB65563221EE5D5B00DD8910 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
 		DB65563421EE5DBD00DD8910 /* ConversationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationController.swift; sourceTree = "<group>"; };
 		DB65563621EE5F0700DD8910 /* ConversationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationPresenter.swift; sourceTree = "<group>"; };
@@ -365,6 +397,14 @@
 		DB7BFF2821CD236D00C10B8E /* ProjectTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTaskCell.swift; sourceTree = "<group>"; };
 		DB7BFF2A21CD272500C10B8E /* ProjectDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailCell.swift; sourceTree = "<group>"; };
 		DB7BFF2C21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDateCollectionCell.swift; sourceTree = "<group>"; };
+		DB8513C1220F170C004041F0 /* ProjectAssigneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAssigneView.swift; sourceTree = "<group>"; };
+		DB8513C3220F1AC1004041F0 /* ProjectAssignees+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectAssignees+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DB8513C4220F1AC1004041F0 /* ProjectAssignees+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectAssignees+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DB8513C7220F1AF2004041F0 /* DatabaseEntityName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseEntityName.swift; sourceTree = "<group>"; };
+		DB8513C9220F1B63004041F0 /* ProjectAssigneeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAssigneeDatabase.swift; sourceTree = "<group>"; };
+		DB8513CB220F1BD9004041F0 /* ProjectAssigneeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAssigneeEntity.swift; sourceTree = "<group>"; };
+		DB8513CD220F53DB004041F0 /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
+		DB8513CF220F5FDA004041F0 /* ConversationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
 		DB861A5921F0CEBD00083D35 /* ChangeRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeRootViewController.swift; sourceTree = "<group>"; };
 		DB861A5B21F0D84A00083D35 /* GroupEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupEntity.swift; sourceTree = "<group>"; };
 		DB861A5D21F0D97A00083D35 /* GroupApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupApis.swift; sourceTree = "<group>"; };
@@ -437,6 +477,23 @@
 		DB97703F21EE509200A7E312 /* ProfileEditInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditInteractor.swift; sourceTree = "<group>"; };
 		DB97704121EE50BA00A7E312 /* ProfileEditRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditRoute.swift; sourceTree = "<group>"; };
 		DB97704321EE57F900A7E312 /* ConversationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationView.xib; sourceTree = "<group>"; };
+		DB9B540422131DF300093430 /* GroupChatEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatEntity.swift; sourceTree = "<group>"; };
+		DB9D2AE821FB53E10021FBC4 /* ProjectCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCalendar.swift; sourceTree = "<group>"; };
+		DB9D2AEB21FB54120021FBC4 /* ProjectCalendarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCalendarDelegate.swift; sourceTree = "<group>"; };
+		DB9D2AED21FB54600021FBC4 /* CalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
+		DB9D2AEF21FB55290021FBC4 /* CalendarViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewHeader.swift; sourceTree = "<group>"; };
+		DBAE902521FD9B99008478D5 /* TaskCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCalendar.swift; sourceTree = "<group>"; };
+		DBAE902721FD9BBD008478D5 /* TaskCalendarDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCalendarDelegates.swift; sourceTree = "<group>"; };
+		DBAE902921FD9D88008478D5 /* LoaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoaderView.xib; sourceTree = "<group>"; };
+		DBAE902B21FD9F04008478D5 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		DBAE902D2200942D008478D5 /* GroupMessageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageEntity.swift; sourceTree = "<group>"; };
+		DBAE902F2200B576008478D5 /* SeenGroupMessage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeenGroupMessage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DBAE90302200B576008478D5 /* SeenGroupMessage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeenGroupMessage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBAE90312200B576008478D5 /* GroupMessage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupMessage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DBAE90322200B576008478D5 /* GroupMessage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupMessage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBAE90332200B576008478D5 /* UnseenGroupMessage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnseenGroupMessage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DBAE90342200B576008478D5 /* UnseenGroupMessage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnseenGroupMessage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBB1B43F221DC4B6002F26BE /* CreateSubgroupEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSubgroupEntity.swift; sourceTree = "<group>"; };
 		DBC5A36B21E3AA4400D615BF /* ReusableFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReusableFramework.framework; sourceTree = "<group>"; };
 		DBC5A36F21E3C54600D615BF /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		DBC5A37121E4FB7000D615BF /* CameraControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControllerCell.swift; sourceTree = "<group>"; };
@@ -447,6 +504,9 @@
 		DBC5A37B21E512CB00D615BF /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DBC5A37D21E5147400D615BF /* CameraReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraReviewController.swift; sourceTree = "<group>"; };
 		DBC5A37F21E6501300D615BF /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		DBEAEF94221756C10054F2CC /* SubGroupEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubGroupEntity.swift; sourceTree = "<group>"; };
+		DBEE5EF4220EEDB300AF991B /* CreateProjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectEntity.swift; sourceTree = "<group>"; };
+		DBEE5EF6220EF14200AF991B /* CreateProjectConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectConstants.swift; sourceTree = "<group>"; };
 		F5C2246EB06FCE677C5222D6 /* Pods_AccountingAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccountingAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4566F59DD1835BDD76B556 /* Pods-AccountingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountingAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccountingAppTests/Pods-AccountingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -500,6 +560,8 @@
 				DB2D48B521F4637700C901D1 /* InvoiceDatabase.swift */,
 				DB2D48B721F4E6E700C901D1 /* CameraReviewDatabase.swift */,
 				DB608E3021F64E4700E7F963 /* ProjectDatabase.swift */,
+				DB5AAC122209D68D00D425EF /* GroupChatDatabase.swift */,
+				DB8513C9220F1B63004041F0 /* ProjectAssigneeDatabase.swift */,
 			);
 			path = DatabaseFetchAndSave;
 			sourceTree = "<group>";
@@ -572,8 +634,9 @@
 		DB39CA2621CB7DD2003A1303 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DB9D2AE721FB50270021FBC4 /* Entity */,
 				DB39CA2C21CB7DEB003A1303 /* Protocols */,
-				DB39CA2B21CB7DE9003A1303 /* Entity */,
+				DB39CA2B21CB7DE9003A1303 /* DatabaseEntity */,
 				DB39CA2A21CB7DE7003A1303 /* Routes */,
 				DB39CA2921CB7DE4003A1303 /* Interactor */,
 				DB39CA2821CB7DE2003A1303 /* Presenter */,
@@ -606,6 +669,7 @@
 				DB861A8121F312DD00083D35 /* TaskController.swift */,
 				DB2D48A721F323EC00C901D1 /* CreateProjectController.swift */,
 				DB2D48C121F4F6C600C901D1 /* UploadInvoiceController.swift */,
+				DB8513C1220F170C004041F0 /* ProjectAssigneView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -685,9 +749,17 @@
 			path = Routes;
 			sourceTree = "<group>";
 		};
-		DB39CA2B21CB7DE9003A1303 /* Entity */ = {
+		DB39CA2B21CB7DE9003A1303 /* DatabaseEntity */ = {
 			isa = PBXGroup;
 			children = (
+				DB8513C3220F1AC1004041F0 /* ProjectAssignees+CoreDataClass.swift */,
+				DB8513C4220F1AC1004041F0 /* ProjectAssignees+CoreDataProperties.swift */,
+				DBAE902F2200B576008478D5 /* SeenGroupMessage+CoreDataClass.swift */,
+				DBAE90302200B576008478D5 /* SeenGroupMessage+CoreDataProperties.swift */,
+				DBAE90312200B576008478D5 /* GroupMessage+CoreDataClass.swift */,
+				DBAE90322200B576008478D5 /* GroupMessage+CoreDataProperties.swift */,
+				DBAE90332200B576008478D5 /* UnseenGroupMessage+CoreDataClass.swift */,
+				DBAE90342200B576008478D5 /* UnseenGroupMessage+CoreDataProperties.swift */,
 				DB608E4A21F79B1600E7F963 /* ProjectsList+CoreDataClass.swift */,
 				DB608E4B21F79B1600E7F963 /* ProjectsList+CoreDataProperties.swift */,
 				DB608E4C21F79B1600E7F963 /* ProjectDates+CoreDataClass.swift */,
@@ -704,17 +776,8 @@
 				DB39CAB421CBF7BE003A1303 /* InvoiceDetails+CoreDataProperties.swift */,
 				DB39CA6F21CB9532003A1303 /* Profile+CoreDataProperties.swift */,
 				DB39CA6E21CB9531003A1303 /* Profile+CoreDataClass.swift */,
-				DB39CA8C21CBA768003A1303 /* ForgotPassEntity.swift */,
-				DB39CA9821CBC293003A1303 /* LoginResponseEntity.swift */,
-				DB39CAA721CBE5AC003A1303 /* InvoiceEntity.swift */,
-				DB65563E21EFA7EB00DD8910 /* ProfileEntity.swift */,
-				DB861A5B21F0D84A00083D35 /* GroupEntity.swift */,
-				DB861A6521F15F1200083D35 /* EditProfileEntity.swift */,
-				DB861A7921F2399600083D35 /* CameraEntity.swift */,
-				DB861A7F21F2C6AB00083D35 /* CameraReviewEntity.swift */,
-				DB2D48CB21F62CBA00C901D1 /* ProjectEntity.swift */,
 			);
-			path = Entity;
+			path = DatabaseEntity;
 			sourceTree = "<group>";
 		};
 		DB39CA2C21CB7DEB003A1303 /* Protocols */ = {
@@ -796,6 +859,10 @@
 				DB861A7521F2252000083D35 /* CheckUncheckCell.xib */,
 				A4284F6A21F978420056FA08 /* ReplyChatView.xib */,
 				A4284F6C21F97A5F0056FA08 /* ReplyChatView.swift */,
+				DBAE902921FD9D88008478D5 /* LoaderView.xib */,
+				DBAE902B21FD9F04008478D5 /* LoaderView.swift */,
+				DB8513CD220F53DB004041F0 /* ConversationCell.swift */,
+				DB8513CF220F5FDA004041F0 /* ConversationCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -811,6 +878,8 @@
 				DB861A5F21F0EAC600083D35 /* GroupConstants.swift */,
 				DB861A7B21F2B73900083D35 /* CameraConstants.swift */,
 				DB861A7D21F2C61000083D35 /* ProjectApis.swift */,
+				DBEE5EF6220EF14200AF991B /* CreateProjectConstants.swift */,
+				DB8513C7220F1AF2004041F0 /* DatabaseEntityName.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -843,8 +912,9 @@
 		DB39CAA021CBDBDF003A1303 /* Additional */ = {
 			isa = PBXGroup;
 			children = (
+				DB9D2AEA21FB53FC0021FBC4 /* Calendars */,
 				DB39CAA121CBDBF2003A1303 /* CardView.swift */,
-				DB39CAA521CBE270003A1303 /* UserInfoValue.swift */,
+				DB39CAA521CBE270003A1303 /* UserHelper.swift */,
 				DB39CAAF21CBF3EC003A1303 /* Helper.swift */,
 				DBC5A36F21E3C54600D615BF /* Camera.swift */,
 				DB65563C21EEB98D00DD8910 /* CredentialsCheck.swift */,
@@ -860,6 +930,43 @@
 				DB639A2321E0C4DF009F7C94 /* Pods_ReusableFramework.framework */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		DB9D2AE721FB50270021FBC4 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DB39CA8C21CBA768003A1303 /* ForgotPassEntity.swift */,
+				DB39CA9821CBC293003A1303 /* LoginResponseEntity.swift */,
+				DB39CAA721CBE5AC003A1303 /* InvoiceEntity.swift */,
+				DB65563E21EFA7EB00DD8910 /* ProfileEntity.swift */,
+				DB861A5B21F0D84A00083D35 /* GroupEntity.swift */,
+				DB861A6521F15F1200083D35 /* EditProfileEntity.swift */,
+				DB861A7921F2399600083D35 /* CameraEntity.swift */,
+				DB861A7F21F2C6AB00083D35 /* CameraReviewEntity.swift */,
+				DB2D48CB21F62CBA00C901D1 /* ProjectEntity.swift */,
+				DBAE902D2200942D008478D5 /* GroupMessageEntity.swift */,
+				DBEE5EF4220EEDB300AF991B /* CreateProjectEntity.swift */,
+				DB8513CB220F1BD9004041F0 /* ProjectAssigneeEntity.swift */,
+				DB9B540422131DF300093430 /* GroupChatEntity.swift */,
+				DB6475A02215B1AD0064B052 /* CreateConversationEntity.swift */,
+				DBEAEF94221756C10054F2CC /* SubGroupEntity.swift */,
+				DBB1B43F221DC4B6002F26BE /* CreateSubgroupEntity.swift */,
+			);
+			name = Entity;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		DB9D2AEA21FB53FC0021FBC4 /* Calendars */ = {
+			isa = PBXGroup;
+			children = (
+				DB9D2AE821FB53E10021FBC4 /* ProjectCalendar.swift */,
+				DB9D2AEB21FB54120021FBC4 /* ProjectCalendarDelegate.swift */,
+				DB9D2AED21FB54600021FBC4 /* CalendarViewCell.swift */,
+				DB9D2AEF21FB55290021FBC4 /* CalendarViewHeader.swift */,
+				DBAE902521FD9B99008478D5 /* TaskCalendar.swift */,
+				DBAE902721FD9BBD008478D5 /* TaskCalendarDelegates.swift */,
+			);
+			path = Calendars;
 			sourceTree = "<group>";
 		};
 		FBCAA8CC8D9996FE85369B4F /* Frameworks */ = {
@@ -990,6 +1097,7 @@
 				DB7BFF1B21CCDF3200C10B8E /* CollectionCellWithImage.xib in Resources */,
 				A4284F6B21F978420056FA08 /* ReplyChatView.xib in Resources */,
 				DB97702E21EE43E800A7E312 /* GroupChatReplyCell.xib in Resources */,
+				DB8513D0220F5FDA004041F0 /* ConversationCell.xib in Resources */,
 				DB39CA9F21CBDB67003A1303 /* InvoiceTableCell.xib in Resources */,
 				DB22675F21DE7312001F6D01 /* GroupHeader.xib in Resources */,
 				DB7BFF1D21CCE7E100C10B8E /* TableCellTwoLabels.xib in Resources */,
@@ -998,6 +1106,7 @@
 				DB97703221EE4D4700A7E312 /* EditProfileImageCell.xib in Resources */,
 				DB39CA6821CB8CFF003A1303 /* ProfileCell.xib in Resources */,
 				DB861A6821F218BD00083D35 /* CreateSubgroupCell.xib in Resources */,
+				DBAE902A21FD9D88008478D5 /* LoaderView.xib in Resources */,
 				DB39CA0021CB7DCD003A1303 /* Assets.xcassets in Resources */,
 				DBC5A37421E50B0700D615BF /* ButtonView.xib in Resources */,
 				DB976FE821E6D4EB00A7E312 /* ImagePreviewCell.xib in Resources */,
@@ -1142,12 +1251,15 @@
 				DBC5A37C21E512CB00D615BF /* Extension.swift in Sources */,
 				DB2D48C421F4F72600C901D1 /* UploadInvoicePresenter.swift in Sources */,
 				DB65563721EE5F0700DD8910 /* ConversationPresenter.swift in Sources */,
+				DBAE903A2200B576008478D5 /* UnseenGroupMessage+CoreDataProperties.swift in Sources */,
 				DB7BFF2321CCEB7A00C10B8E /* InvoiceDetailCollectionCell.swift in Sources */,
+				DB8513C2220F170C004041F0 /* ProjectAssigneView.swift in Sources */,
 				DB97703E21EE505C00A7E312 /* ProfileEditPresenter.swift in Sources */,
 				DB39CAA221CBDBF2003A1303 /* CardView.swift in Sources */,
 				DBC5A37821E5124100D615BF /* TextFieldView.swift in Sources */,
 				DB861A8421F312EC00083D35 /* TaskPresenter.swift in Sources */,
 				DB39CA8121CBA181003A1303 /* ForgotPassPresenter.swift in Sources */,
+				DBEE5EF5220EEDB300AF991B /* CreateProjectEntity.swift in Sources */,
 				DB861A8021F2C6AB00083D35 /* CameraReviewEntity.swift in Sources */,
 				DB65563521EE5DBD00DD8910 /* ConversationController.swift in Sources */,
 				DB7BFF2D21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift in Sources */,
@@ -1175,24 +1287,34 @@
 				DB39CAB021CBF3EC003A1303 /* Helper.swift in Sources */,
 				DB2D48A821F323EC00C901D1 /* CreateProjectController.swift in Sources */,
 				DB976FFC21EC3D2C00A7E312 /* CameraReviewRoutes.swift in Sources */,
+				DBEE5EF7220EF14200AF991B /* CreateProjectConstants.swift in Sources */,
 				DB2D48C821F4F74B00C901D1 /* UploadInvoiceRoute.swift in Sources */,
+				DB8513CA220F1B63004041F0 /* ProjectAssigneeDatabase.swift in Sources */,
 				DB7BFF1921CCDF2700C10B8E /* CollectionCellWithImage.swift in Sources */,
 				DB39CA8D21CBA768003A1303 /* ForgotPassEntity.swift in Sources */,
 				DB861A6A21F218D000083D35 /* CreateSubgroupCell.swift in Sources */,
 				DB976FE621E6D4DA00A7E312 /* ImagePreviewCell.swift in Sources */,
 				DB39CA3B21CB8396003A1303 /* ReportsController.swift in Sources */,
+				DBEAEF95221756C10054F2CC /* SubGroupEntity.swift in Sources */,
+				DB6475A12215B1AD0064B052 /* CreateConversationEntity.swift in Sources */,
+				DB8513C6220F1AC1004041F0 /* ProjectAssignees+CoreDataProperties.swift in Sources */,
 				DB97703421EE4D6400A7E312 /* EditProfileImageCell.swift in Sources */,
+				DB9D2AF021FB55290021FBC4 /* CalendarViewHeader.swift in Sources */,
+				DBAE90362200B576008478D5 /* SeenGroupMessage+CoreDataProperties.swift in Sources */,
 				DB39CA7B21CB9D33003A1303 /* LoginApis.swift in Sources */,
 				DB2D48B821F4E6E700C901D1 /* CameraReviewDatabase.swift in Sources */,
 				DB39CA3D21CB839F003A1303 /* CameraController.swift in Sources */,
 				DB39CA5321CB842B003A1303 /* CameraInteractor.swift in Sources */,
 				DB39CA9921CBC293003A1303 /* LoginResponseEntity.swift in Sources */,
 				DB976FF221EC37D000A7E312 /* GroupPresenter.swift in Sources */,
+				DBAE902C21FD9F04008478D5 /* LoaderView.swift in Sources */,
 				DB861A7C21F2B73900083D35 /* CameraConstants.swift in Sources */,
 				DB39CA8821CBA4E0003A1303 /* AccountingExtensions.swift in Sources */,
 				DB39CA7921CB95D8003A1303 /* LoginRoutes.swift in Sources */,
+				DBAE90392200B576008478D5 /* UnseenGroupMessage+CoreDataClass.swift in Sources */,
 				DB2D48AA21F3242B00C901D1 /* CreateProjectPresenter.swift in Sources */,
 				DB39CA8521CBA19F003A1303 /* ForgotPassRoute.swift in Sources */,
+				DBAE902E2200942D008478D5 /* GroupMessageEntity.swift in Sources */,
 				DB39CA3F21CB83A9003A1303 /* InvoiceController.swift in Sources */,
 				DB39CA4321CB83C2003A1303 /* ProjectsPresenter.swift in Sources */,
 				DB39CA5F21CB8472003A1303 /* InvoiceRoute.swift in Sources */,
@@ -1213,7 +1335,11 @@
 				DB97701221ED0A9E00A7E312 /* AllProjectsPresenter.swift in Sources */,
 				DB39CAA421CBDEDC003A1303 /* InvoiceCollectionCell.swift in Sources */,
 				DB7BFF2121CCE9A200C10B8E /* InvoiceDetailsController.swift in Sources */,
+				DB9D2AE921FB53E10021FBC4 /* ProjectCalendar.swift in Sources */,
+				DBAE90382200B576008478D5 /* GroupMessage+CoreDataProperties.swift in Sources */,
 				DB608E5921F79B1600E7F963 /* ProjectTasks+CoreDataProperties.swift in Sources */,
+				DB8513CC220F1BD9004041F0 /* ProjectAssigneeEntity.swift in Sources */,
+				DB8513C8220F1AF2004041F0 /* DatabaseEntityName.swift in Sources */,
 				DB2D48B421F44A0000C901D1 /* ProfileDatabase.swift in Sources */,
 				DB39CAA821CBE5AC003A1303 /* InvoiceEntity.swift in Sources */,
 				DB861A6E21F21DDF00083D35 /* CreateSubGroupPresenter.swift in Sources */,
@@ -1224,6 +1350,7 @@
 				DB65563F21EFA7EB00DD8910 /* ProfileEntity.swift in Sources */,
 				DB97700821ECE45E00A7E312 /* GroupMessageRoute.swift in Sources */,
 				DB39CA9D21CBDB58003A1303 /* InvoiceTableCell.swift in Sources */,
+				DB8513C5220F1AC1004041F0 /* ProjectAssignees+CoreDataClass.swift in Sources */,
 				DB861A5C21F0D84A00083D35 /* GroupEntity.swift in Sources */,
 				DB861A8821F3130C00083D35 /* TaskRoute.swift in Sources */,
 				DB39C9FE21CB7DC9003A1303 /* AccountingApp.xcdatamodeld in Sources */,
@@ -1232,6 +1359,7 @@
 				DBC5A37A21E5127800D615BF /* ButtonView.swift in Sources */,
 				DB861A7221F21E2C00083D35 /* CreateSubGroupRoute.swift in Sources */,
 				DB608E5521F79B1600E7F963 /* ProjectDates+CoreDataProperties.swift in Sources */,
+				DBB1B440221DC4B6002F26BE /* CreateSubgroupEntity.swift in Sources */,
 				DB7BFF2B21CD272500C10B8E /* ProjectDetailCell.swift in Sources */,
 				DB2D48CC21F62CBA00C901D1 /* ProjectEntity.swift in Sources */,
 				DB7BFF1F21CCE7F100C10B8E /* TableCellTwoLabels.swift in Sources */,
@@ -1243,8 +1371,10 @@
 				DB97702C21EE43B800A7E312 /* GroupChatReplyCell.swift in Sources */,
 				DB608E5421F79B1600E7F963 /* ProjectDates+CoreDataClass.swift in Sources */,
 				DB976FEA21E7820000A7E312 /* GroupHeader.swift in Sources */,
+				DB5AAC132209D68D00D425EF /* GroupChatDatabase.swift in Sources */,
 				DB39CA4121CB83B6003A1303 /* ProfileController.swift in Sources */,
 				DBC5A37221E4FB7000D615BF /* CameraControllerCell.swift in Sources */,
+				DB9B540522131DF300093430 /* GroupChatEntity.swift in Sources */,
 				DB39CA4721CB83D7003A1303 /* CameraPresenter.swift in Sources */,
 				DB97701621ED0AE000A7E312 /* AllProjectsRoutes.swift in Sources */,
 				DB65563921EE5F2700DD8910 /* ConversationInteractor.swift in Sources */,
@@ -1262,7 +1392,7 @@
 				DB39CAB621CBF7BE003A1303 /* Invoices+CoreDataProperties.swift in Sources */,
 				DB976FF421EC37DE00A7E312 /* GroupInteractor.swift in Sources */,
 				DB39CA6321CB8999003A1303 /* HomeController.swift in Sources */,
-				DB39CAA621CBE270003A1303 /* UserInfoValue.swift in Sources */,
+				DB39CAA621CBE270003A1303 /* UserHelper.swift in Sources */,
 				DB976FEC21E786C100A7E312 /* GroupCell.swift in Sources */,
 				DB39CA7521CB95C1003A1303 /* LoginPresenter.swift in Sources */,
 				DB861A8221F312DD00083D35 /* TaskController.swift in Sources */,
@@ -1271,11 +1401,15 @@
 				DB97701E21ED117D00A7E312 /* NavigationSearchView.swift in Sources */,
 				DB97700221ECE19F00A7E312 /* GroupMessageCollectionCell.swift in Sources */,
 				DB861A6221F0FC7B00083D35 /* ProfileImageCell.swift in Sources */,
+				DBAE902621FD9B99008478D5 /* TaskCalendar.swift in Sources */,
 				DB39CA5B21CB845A003A1303 /* ProfileRoute.swift in Sources */,
 				DB65563D21EEB98D00DD8910 /* CredentialsCheck.swift in Sources */,
 				DB2D48AC21F3244C00C901D1 /* CreateProjectInteractor.swift in Sources */,
+				DB9D2AEC21FB54120021FBC4 /* ProjectCalendarDelegate.swift in Sources */,
 				DB22675921DE635A001F6D01 /* GroupController.swift in Sources */,
+				DB9D2AEE21FB54600021FBC4 /* CalendarViewCell.swift in Sources */,
 				DB39CAB821CBF7BE003A1303 /* InvoiceDetails+CoreDataProperties.swift in Sources */,
+				DBAE90372200B576008478D5 /* GroupMessage+CoreDataClass.swift in Sources */,
 				DB7BFF2521CD234D00C10B8E /* ProjectsCell.swift in Sources */,
 				DB39CA4921CB83E7003A1303 /* InvoicePresenter.swift in Sources */,
 				DB39CA7F21CBA145003A1303 /* ForgotPassController.swift in Sources */,
@@ -1289,11 +1423,14 @@
 				A4284F6D21F97A5F0056FA08 /* ReplyChatView.swift in Sources */,
 				DB97702A21ED702500A7E312 /* GroupChatRoute.swift in Sources */,
 				DB608E5321F79B1600E7F963 /* ProjectsList+CoreDataProperties.swift in Sources */,
+				DBAE90352200B576008478D5 /* SeenGroupMessage+CoreDataClass.swift in Sources */,
 				DB97700021ECDF4A00A7E312 /* GroupMessageCell.swift in Sources */,
 				DB39CA8321CBA191003A1303 /* ForgotPassInteractor.swift in Sources */,
+				DBAE902821FD9BBD008478D5 /* TaskCalendarDelegates.swift in Sources */,
 				DB861A6C21F21D4300083D35 /* CreateSubGrouController.swift in Sources */,
 				DB39C9F621CB7DC9003A1303 /* AppDelegate.swift in Sources */,
 				DB608E5721F79B1600E7F963 /* Projects+CoreDataProperties.swift in Sources */,
+				DB8513CE220F53DB004041F0 /* ConversationCell.swift in Sources */,
 				DB2D48C021F4EB3F00C901D1 /* ProjectList+CoreDataProperties.swift in Sources */,
 				DB861A7421F224FF00083D35 /* CheckUncheckCell.swift in Sources */,
 				DB39CA5721CB8445003A1303 /* ProjectRoute.swift in Sources */,

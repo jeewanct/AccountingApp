@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.43"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ConversationCell" id="U6V-5q-dmz" customClass="ConversationCell" customModule="AccountingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="246" height="161"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="246" height="161"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yfi-qx-ryd">
+                        <rect key="frame" x="0.0" y="0.0" width="246" height="161"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAO-FR-zap">
+                        <rect key="frame" x="206" y="8" width="32" height="32"/>
+                        <state key="normal" image="delete"/>
+                        <connections>
+                            <action selector="handleDelete" destination="U6V-5q-dmz" eventType="touchUpInside" id="jFV-90-Kv8"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Yfi-qx-ryd" secondAttribute="trailing" id="J2x-8g-Mwf"/>
+                <constraint firstAttribute="bottom" secondItem="Yfi-qx-ryd" secondAttribute="bottom" id="eV9-HK-Zmp"/>
+                <constraint firstAttribute="trailing" secondItem="HAO-FR-zap" secondAttribute="trailing" constant="8" id="i3m-1m-9Nn"/>
+                <constraint firstItem="HAO-FR-zap" firstAttribute="top" secondItem="U6V-5q-dmz" secondAttribute="top" constant="8" id="m9c-Qa-zUZ"/>
+                <constraint firstItem="Yfi-qx-ryd" firstAttribute="top" secondItem="U6V-5q-dmz" secondAttribute="top" id="qxb-Pg-gy5"/>
+                <constraint firstItem="Yfi-qx-ryd" firstAttribute="leading" secondItem="U6V-5q-dmz" secondAttribute="leading" id="zZL-aD-Tj2"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="9UO-ag-FDp"/>
+            <size key="customSize" width="246" height="161"/>
+            <connections>
+                <outlet property="deleteButton" destination="HAO-FR-zap" id="CQY-YZ-PKx"/>
+                <outlet property="image" destination="Yfi-qx-ryd" id="sXt-FM-Qk1"/>
+            </connections>
+            <point key="canvasLocation" x="210.1449275362319" y="138.95089285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="delete" width="32" height="32"/>
+    </resources>
+</document>

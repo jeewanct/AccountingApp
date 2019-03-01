@@ -15,7 +15,7 @@ class GroupInteractor: PresentorToInterectorProtocol, APIRequest{
     
     var method: RequestType
     var path: String
-    var parameters: Data
+    var parameters: Data?
     var headers: [String : String]
     
     init() {
@@ -25,12 +25,10 @@ class GroupInteractor: PresentorToInterectorProtocol, APIRequest{
         parameters = Data()
         headers = path.getHeader()
         
-    
-        
-        
         
     }
     
+    var errorMessage = ""
     var groups = [GroupDataEntity]()
     var presenter: InterectorToPresenterProtocol?
     
@@ -45,17 +43,43 @@ extension GroupInteractor{
     
     func fetchData() {
         
-        let groupList: Observable<GroupEntity> = Network.shared.get(apiRequest: self)
+        let groupList: Observable<GroupEntity> = Network.get(apiRequest: self)
         
-        groupList.subscribe(onNext: { (groupsList) in
+        groupList.subscribe(onNext: { (response) in
+            
             print(dump(groupList))
-            if let list = groupsList.data{
-                self.groups = list
+            
+            if response.error == true{
+                
+                if let message = response.message{
+                    
+                    if response.code == ErrorCodeEnum.logout.rawValue{
+                        self.errorMessage = ErrorCodeEnum.logout.rawValue
+                    }else{
+                        self.errorMessage = message
+                    }
+                }
+            }else{
+                
+                if let projects = response.data{
+                    self.groups = projects
+                    
+                }
+                
             }
+            
         }, onError: { (error) in
             self.presenter?.dataFetchedFailed(error: error.localizedDescription)
         }, onCompleted: {
-            self.presenter?.dataFetched(news: self.saveToDatabase())
+            
+            if self.errorMessage == ""{
+                self.presenter?.dataFetched(news: self.saveToDatabase())
+            }else{
+                self.presenter?.dataFetchedFailed(error: self.errorMessage)
+                self.errorMessage = ""
+            }
+            
+            
             //self.saveToDatabase()
         }) {
             

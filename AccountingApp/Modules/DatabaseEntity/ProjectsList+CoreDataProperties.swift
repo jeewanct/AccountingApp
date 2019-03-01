@@ -28,6 +28,7 @@ extension ProjectsList {
     @NSManaged public var createdBy: String?
     @NSManaged public var projectDatesList: NSSet?
     @NSManaged public var projectId: String?
+    @NSManaged public var noTaskShown: Bool
 }
 
 // MARK: Generated accessors for projectDatesList

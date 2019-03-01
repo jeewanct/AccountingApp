@@ -10,7 +10,11 @@ import UIKit
 
 class CheckUncheckCell: UITableViewCell{
     
+    @IBOutlet weak var optionLabel: UILabel!
+    @IBOutlet weak var checkImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
 }

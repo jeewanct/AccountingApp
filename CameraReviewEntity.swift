@@ -8,6 +8,23 @@
 
 import Foundation
 
+class CameraReviewEntity: Codable{
+    
+    var billTitle: String?
+    var images: [CameraInvoiceEntity]?
+    
+}
+
+class CameraInvoiceEntity: Codable{
+    var image: Data?
+    var totalAmount: String?
+    var date: [String?]?
+    var cvr: [String?]?
+    var tax: String?
+}
+
+
+
 class CameraProjectUIEntity{
     var name: String?
     var projectId: String?

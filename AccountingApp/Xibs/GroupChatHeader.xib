@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.43"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,7 +26,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="442" height="250.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gV0-3c-FrS" customClass="CardView" customModule="AccountingApp" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gV0-3c-FrS">
                         <rect key="frame" x="16" y="8" width="410" height="250.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
@@ -47,40 +47,43 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="AD1-4c-c5k">
-                        <rect key="frame" x="24" y="24" width="50" height="50"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="AD1-4c-c5k">
+                        <rect key="frame" x="16" y="24" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="Yg1-Nu-AJE"/>
                             <constraint firstAttribute="width" constant="50" id="fWq-hm-itz"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUC-xo-vAX">
-                        <rect key="frame" x="82" y="29.5" width="40" height="19"/>
+                        <rect key="frame" x="74" y="29.5" width="40" height="19"/>
                         <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEX-UI-6fj">
-                        <rect key="frame" x="82" y="50" width="36" height="18"/>
+                        <rect key="frame" x="74" y="50" width="36" height="18"/>
                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKB-cm-Rr1">
-                        <rect key="frame" x="24" y="82" width="394" height="19"/>
+                        <rect key="frame" x="16" y="82" width="402" height="56"/>
                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                         <color key="textColor" red="0.44705882349999998" green="0.56862745100000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eat-qk-wtp">
-                        <rect key="frame" x="24" y="105" width="394" height="137"/>
+                        <rect key="frame" x="16" y="142" width="402" height="100"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gh0-fN-8ZC">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="vtY-6f-QB3"/>
+                        </constraints>
+                        <collectionViewLayout key="collectionViewLayout" id="ftI-qb-h8h" customClass="UPCarouselFlowLayout" customModule="UPCarouselFlowLayout"/>
                     </collectionView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBX-Kv-5Ek">
                         <rect key="frame" x="24" y="250" width="402" height="0.5"/>
@@ -107,7 +110,7 @@
                     <constraint firstItem="LUC-xo-vAX" firstAttribute="leading" secondItem="AD1-4c-c5k" secondAttribute="trailing" constant="8" id="bW8-bJ-tzS"/>
                     <constraint firstAttribute="trailing" secondItem="gV0-3c-FrS" secondAttribute="trailing" constant="16" id="bnD-nD-nEo"/>
                     <constraint firstItem="aEX-UI-6fj" firstAttribute="leading" secondItem="AD1-4c-c5k" secondAttribute="trailing" constant="8" id="g98-dm-jlC"/>
-                    <constraint firstItem="AD1-4c-c5k" firstAttribute="leading" secondItem="8mb-E1-SKa" secondAttribute="leading" constant="24" id="lDT-Pi-UWv"/>
+                    <constraint firstItem="AD1-4c-c5k" firstAttribute="leading" secondItem="8mb-E1-SKa" secondAttribute="leading" constant="16" id="lDT-Pi-UWv"/>
                     <constraint firstItem="eat-qk-wtp" firstAttribute="leading" secondItem="RKB-cm-Rr1" secondAttribute="leading" id="mFq-hR-fLh"/>
                     <constraint firstItem="AD1-4c-c5k" firstAttribute="top" secondItem="8mb-E1-SKa" secondAttribute="top" constant="24" id="r4A-fZ-96I"/>
                     <constraint firstItem="gV0-3c-FrS" firstAttribute="top" secondItem="AD1-4c-c5k" secondAttribute="top" constant="-16" id="rhN-Zf-rls"/>
@@ -115,6 +118,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="collectionView" destination="eat-qk-wtp" id="1DV-Cm-G7G"/>
+                <outlet property="collectionViewHeightAnchor" destination="vtY-6f-QB3" id="p0w-BU-oxT"/>
                 <outlet property="message" destination="RKB-cm-Rr1" id="9lw-kP-LHE"/>
                 <outlet property="postedDate" destination="aEX-UI-6fj" id="Alb-b4-OgC"/>
                 <outlet property="userImage" destination="AD1-4c-c5k" id="aD1-lb-YyJ"/>

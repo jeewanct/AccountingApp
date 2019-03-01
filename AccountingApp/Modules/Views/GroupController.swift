@@ -28,6 +28,7 @@ class GroupController: UITableViewController{
         navigationItem.title = "Groups"
         
         if Reachability.isConnectedToNetwork(){
+            self.showDataIndicator()
             presenter?.updateView()
         }else{
             self.notInternetView()
@@ -119,9 +120,14 @@ extension GroupController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let messages = GroupMessageRoute.createModule() as? GroupMessagesController
-        let groupId = groupList?[indexPath.section].groupId
-        let subGroupId = groupList?[indexPath.section].subGroups?[indexPath.item].subGroupId
-        messages?.messageParams = (groupId, subGroupId)
+        if let groupId = groupList?[indexPath.section].groupId, let subGroupId = groupList?[indexPath.section].subGroups?[indexPath.item].subGroupId{
+            
+            messages?.groupInformation = GroupInformationEntity(projectId: groupId, parentCommentId: "0", subGroupId: subGroupId, groupType: GroupType.subGroup.rawValue, projectName: "")
+
+            
+        }
+        
+        
         navigationController?.pushViewController(messages ?? UIViewController(), animated: true)
         
     }
@@ -146,9 +152,11 @@ extension GroupController: ExpandTableCellDelegate{
 
         let messages = GroupMessageRoute.createModule() as? GroupMessagesController
         
-        let groupId = groupList?[section].groupId
-        messages?.messageParams = (groupId, nil)
-        
+        if let groupId = groupList?[section].groupId{
+            messages?.groupInformation = GroupInformationEntity(projectId: groupId, groupType: GroupType.group.rawValue, projectName: groupList?[section].groupName)
+            
+        }
+        //messages?.messageParams = (groupId, nil)
         navigationController?.pushViewController(messages ?? UIViewController(), animated: true)
         
     }
@@ -159,7 +167,7 @@ extension GroupController: ExpandTableCellDelegate{
 extension GroupController: PresenterToViewProtocol{
     
     func showContent<T>(news: T) {
-        
+        self.hideDataIndicator()
         if let data = news as? [GroupsEntity]{
             groupList = data
             tableView.reloadData()
@@ -168,9 +176,33 @@ extension GroupController: PresenterToViewProtocol{
     }
     
     func showError<T>(error: T) {
-        if let error = error as? String{
-            self.showAlert(message: error)
+        
+        self.hideDataIndicator()
+        if let errorMessage = error as? String{
+            
+            if errorMessage == ErrorCodeEnum.logout.rawValue{
+                let alertController = UIAlertController(title: "", message: AlertMessage.sessionExpired.rawValue + UserHelper.nameOfUser() + "?", preferredStyle: .actionSheet)
+                
+                let okAction = UIAlertAction(title: AlertMessage.ok.rawValue, style: .default) { [unowned self] (action) in
+                    
+                    UserHelper.logoutUser()
+                    
+                    DispatchQueue.main.async {
+                        
+                        ChangeRootViewController.changeRootViewController(to: ChangeToControllerEnum.LoginController)
+                    }
+                    
+                    
+                }
+                
+                alertController.addAction(okAction)
+                present(alertController, animated: true, completion: nil)
+            }else{
+                self.sheetStyleAlert(message: errorMessage)
+            }
+            
         }
+        
     }
     
 }

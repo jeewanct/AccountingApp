@@ -11,9 +11,6 @@ import CoreData
 
 class ProfileDatabase{
     
-    
-    
-    
     class func saveUserProfile(userData: LoginData?, update: Bool){
         
         if let token = userData?.Token, let companyId
@@ -82,14 +79,9 @@ class ProfileDatabase{
                     
                 }
                 
-                
-                
             }
         }
-        
-        
-        
-        
+          
     }
     
     

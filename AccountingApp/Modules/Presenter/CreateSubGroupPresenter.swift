@@ -20,7 +20,7 @@ class CreateSubGroupPresenter: ViewToPresenterProtocol {
     }
     
     func updateView() {
-        
+        interector?.fetchData()
     }
     
 }
@@ -28,11 +28,19 @@ class CreateSubGroupPresenter: ViewToPresenterProtocol {
 extension CreateSubGroupPresenter: InterectorToPresenterProtocol {
     
     func dataFetched<T>(news: T) {
-        
+        DispatchQueue.main.async {
+            self.view?.showContent(news: news)
+        }
     }
     
     func dataFetchedFailed<T>(error: T) {
-        view?.showError(error: error)
+        
+        DispatchQueue.main.async {
+             self.view?.showError(error: error)
+        }
+        
+        
+       
     }
     
 }

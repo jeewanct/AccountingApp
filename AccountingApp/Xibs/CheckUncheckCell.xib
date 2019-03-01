@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.43"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -23,7 +23,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="446" height="51.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkImage" translatesAutoresizingMaskIntoConstraints="NO" id="axB-BQ-KAI">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheckImage" translatesAutoresizingMaskIntoConstraints="NO" id="axB-BQ-KAI">
                         <rect key="frame" x="0.0" y="14.5" width="20" height="20"/>
                         <color key="tintColor" red="0.45098039220000002" green="0.52941176469999995" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -51,10 +51,14 @@
                     <constraint firstItem="I01-GY-8u7" firstAttribute="leading" secondItem="axB-BQ-KAI" secondAttribute="trailing" constant="8" id="eDO-dy-Zzw"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="checkImage" destination="axB-BQ-KAI" id="0CM-Mz-Lmv"/>
+                <outlet property="optionLabel" destination="I01-GY-8u7" id="jKl-qe-paY"/>
+            </connections>
             <point key="canvasLocation" x="110.40000000000001" y="111.54422788605699"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="checkImage" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="uncheckImage" width="128" height="128"/>
     </resources>
 </document>

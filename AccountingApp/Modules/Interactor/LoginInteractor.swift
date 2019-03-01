@@ -18,7 +18,7 @@ class LoginInteractor: PresentorToInterectorProtocol, APIRequest{
     
     var method: RequestType
     var path: String
-    var parameters: Data
+    var parameters: Data?
     var headers: [String : String]
     var presenter: InterectorToPresenterProtocol?
     

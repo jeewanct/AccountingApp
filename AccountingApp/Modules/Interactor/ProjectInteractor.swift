@@ -14,7 +14,7 @@ class ProjectInteractor: PresentorToInterectorProtocol, APIRequest {
     
     var method: RequestType
     var path: String
-    var parameters: Data
+    var parameters: Data?
     var headers: [String : String]
     var errorMessage = ""
     var projectListModel: [ProjectListModel]?
@@ -31,11 +31,8 @@ class ProjectInteractor: PresentorToInterectorProtocol, APIRequest {
         if let appDelegateInstance = UIApplication.shared.delegate as? AppDelegate{
             appDelegate = appDelegateInstance
         }
-        
     }
-    
     var presenter: InterectorToPresenterProtocol?
-    
     
 }
 
@@ -46,7 +43,7 @@ extension ProjectInteractor{
         
         path.append(GlobalConstants.startDate + "\(projectDates.startDate)" + GlobalConstants.endDate + "\(projectDates.endDate)")
         
-        let projectList: Observable<ProjectListApiModel> = Network.shared.get(apiRequest: self)
+        let projectList: Observable<ProjectListApiModel> = Network.get(apiRequest: self)
         
         projectList.subscribe(onNext: { (response) in
           
@@ -65,10 +62,6 @@ extension ProjectInteractor{
                 if let projects = response.data{
                     self.projectListModel = projects
                     
-                    
-                    
-                    
-                   // print(dump(projects))
                 }
                 
             }
@@ -91,9 +84,6 @@ extension ProjectInteractor{
             
         }
         
-        
-        
-        
     }
     
     
@@ -104,37 +94,70 @@ extension ProjectInteractor{
             return
         }
         
+        var count = 0
         
-        let projectList = projects.map { (projectList) -> Observable<ProjectTaskApiModel>? in
-            
+        let projectList = projects.map { (projectList) in
             if let projectId = projectList.ProjectID{
                 self.path = ProjectApis.projectTaskUrl + GlobalConstants.projectId + "\(projectId)" + GlobalConstants.startDate + "0" + GlobalConstants.endDate + "0"
                 
-                return Network.shared.get(apiRequest: self)
-            }
-            
-            return nil
-            
-        }
-        
-        
-        for index in  0..<projectList.count{
-            if let unwrappedProject = projectList[index]{
+                let projectList: Observable<ProjectTaskApiModel> = Network.get(apiRequest: self)
                 
-                unwrappedProject.subscribe(onNext: { (task) in
-                   self.projectListModel?[index].projectTasks = task.data
+                var projectTaks: [ProjectTaskDateListModel]?
+                
+                projectList.subscribe(onNext: { (value) in
+                    
+                    projectTaks = value.data
                 }, onError: { (error) in
-                    self.projectListModel?[index].projectTasks = nil
+                    count = count + 1
                 }, onCompleted: {
-                    if index == projectList.count - 1{
+                    //return projectTaks
+                    self.projectListModel?[count].projectTasks = projectTaks
+                    if count == projects.count - 1 {
                         self.saveToDatabase()
                     }
-                }) {
+                    count = count + 1
                     
-                }
+                }, onDisposed: {
+                    
+                })
                 
             }
-        }
+            }
+        
+        
+//        let projectList = projects.map { (projectList) -> Observable<ProjectTaskApiModel>? in
+//
+//            if let projectId = projectList.ProjectID{
+//                self.path = ProjectApis.projectTaskUrl + GlobalConstants.projectId + "\(projectId)" + GlobalConstants.startDate + "0" + GlobalConstants.endDate + "0"
+//
+//                return Network.get(apiRequest: self)
+//            }
+//
+//            return nil
+//
+//        }
+//
+//
+//        for index in  0..<projectList.count{
+//            if let unwrappedProject = projectList[index]{
+//
+//                unwrappedProject.subscribe(onNext: { (task) in
+//                   self.projectListModel?[index].projectTasks = task.data
+//                }, onError: { (error) in
+//                    self.projectListModel?[index].projectTasks = nil
+//                }, onCompleted: {
+//
+//                    if index == projectList.count - 1 {
+//                        self.saveToDatabase()
+//                    }
+//
+//                }) {
+//
+//                }
+//
+//            }
+//        }
+//
         
         
 //        for index in 0..<projects.count{
@@ -180,13 +203,12 @@ extension ProjectInteractor{
     
     func saveToDatabase(){
         
-        if let projects = projectListModel{
+         if let projects = projectListModel{
             
            let projectList =  ProjectDatabase.saveProjects(projects: projects, appdelegate: appDelegate)
             self.presenter?.dataFetched(news: projectList)
         }
-        
-        
+    
         
     }
     

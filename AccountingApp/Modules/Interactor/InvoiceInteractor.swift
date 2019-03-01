@@ -15,7 +15,7 @@ class InvoiceInteractor: PresentorToInterectorProtocol, APIRequest{
   
     var method: RequestType
     var path: String
-    var parameters: Data
+    var parameters: Data?
     var headers: [String : String]
     var errorMessage = ""
     var invoiceData: [InvoiceModel]?
@@ -46,7 +46,7 @@ class InvoiceInteractor: PresentorToInterectorProtocol, APIRequest{
     
     func fetchData() {
         
-        let invoiceList: Observable<InvoiceResponseEntity> = Network.shared.get(apiRequest: self)
+        let invoiceList: Observable<InvoiceResponseEntity> = Network.get(apiRequest: self)
         
         invoiceList.subscribe(onNext: { (response) in
             

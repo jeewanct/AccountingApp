@@ -33,7 +33,11 @@ extension ImagePreviewController: UICollectionViewDataSource{
     func configureCollectionView(){
         
         navigationItem.title = CameraEnum.title.rawValue
-            
+        
+        if let count = images?.count{
+            numberOfImages.numberOfPages = count
+        }
+        
         collectionView.register(UINib(nibName: ProjectNibs.imagePreviewCell.rawValue, bundle: nil), forCellWithReuseIdentifier: ProjectNibs.imagePreviewCell.rawValue)
         
         if let layout = collectionView.collectionViewLayout as? UPCarouselFlowLayout{
@@ -62,17 +66,19 @@ extension ImagePreviewController: UICollectionViewDataSource{
 }
 
 extension ImagePreviewController: UICollectionViewDelegate{
-    
-    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
-        if let layout = collectionView.collectionViewLayout as? UPCarouselFlowLayout{
-            let current = targetContentOffset.pointee.x / layout.itemSize.width
-            print(current)
-            numberOfImages.currentPage = Int(current) - 1
+        let center = CGPoint(x: targetContentOffset.pointee.x + (scrollView.frame.width / 2), y: (scrollView.frame.height / 2))
+        if let ip = self.collectionView!.indexPathForItem(at: center) {
+            //self.pageControl.currentPage = ip.row
+            //print(ip.row)
+            print(ip.row)
+            
+            numberOfImages.currentPage = ip.row
             
         }
         
     }
+
+    
     
 }

@@ -13,6 +13,12 @@ import OpalImagePicker
 import UPCarouselFlowLayout
 
 
+enum CameraType {
+    case single
+    case multi
+    case combinge
+}
+
 class CameraController: UIViewController{
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -38,6 +44,21 @@ class CameraController: UIViewController{
     @IBAction func handleCapture(_ sender: Any) {
         
         camera.captureImage { (image, error) in
+            
+            if let getImage = image{
+                self.seledtedImages.append(CameraImages(image: getImage))
+            }
+            
+            if self.cameraType == .single{
+               
+                    self.goToCameraReview()
+                
+                
+            }else{
+                
+                
+            }
+            
             
         }
         
@@ -67,6 +88,7 @@ class CameraController: UIViewController{
         self.dismiss(animated: true, completion: nil)
     }
     
+    var cameraType = CameraType.single
     var seledtedImages = [CameraImages]()
     var presenter: ViewToPresenterProtocol?
     let camera = Camera()
@@ -93,8 +115,31 @@ extension CameraController: UICollectionViewDataSource{
         return cell
     }
     
+    
+    
 }
 
+
+extension CameraController: UICollectionViewDelegate{
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let center = CGPoint(x: targetContentOffset.pointee.x + (scrollView.frame.width / 2), y: (scrollView.frame.height / 2))
+        if let ip = self.collectionView!.indexPathForItem(at: center) {
+            //self.pageControl.currentPage = ip.row
+            //print(ip.row)
+            print(ip.row)
+            
+            switch ip.row{
+            case 0: cameraType = .single
+            case 1: cameraType = .multiple
+            default: cameraType = .combine
+            }
+            
+        }
+        
+    }
+    
+}
 
 // Camera setup
 
@@ -130,12 +175,16 @@ extension CameraController: OpalImagePickerControllerDelegate{
             self.seledtedImages.append(CameraImages(image: image))
         }
         
-        let reviewController = CameraReviewRoutes.createModule() as? CameraReviewController
-        reviewController?.images = seledtedImages
-        navigationController?.pushViewController(reviewController ?? UIViewController(), animated: true)
+        goToCameraReview()
+        
         
     }
     
+    func goToCameraReview(){
+        let reviewController = CameraReviewRoutes.createModule() as? CameraReviewController
+        reviewController?.images = seledtedImages
+        navigationController?.pushViewController(reviewController ?? UIViewController(), animated: true)
+    }
 }
 
 

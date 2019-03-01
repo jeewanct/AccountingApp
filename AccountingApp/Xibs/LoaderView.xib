@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.43"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Quicksand-Light.ttf">
+            <string>Quicksand-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="LoaderView" id="iN0-l3-epB" customClass="LoaderView" customModule="AccountingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g04-sh-oRM" customClass="CardView" customModule="AccountingApp" customModuleProvider="target">
+                    <rect key="frame" x="157" y="398" width="100" height="100"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JO4-VP-eS6">
+                            <rect key="frame" x="31.5" y="19.5" width="37" height="37"/>
+                            <color key="color" red="0.45098039220000002" green="0.52941176469999995" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9d-8E-Ln3">
+                            <rect key="frame" x="14.5" y="60.5" width="71" height="21.5"/>
+                            <fontDescription key="fontDescription" name="Quicksand-Light" family="Quicksand" pointSize="17"/>
+                            <color key="textColor" red="0.45098039220000002" green="0.52941176469999995" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="JO4-VP-eS6" firstAttribute="centerX" secondItem="g04-sh-oRM" secondAttribute="centerX" id="1BO-Rv-R1u"/>
+                        <constraint firstAttribute="height" constant="100" id="9no-C8-CSh"/>
+                        <constraint firstAttribute="width" constant="100" id="THp-lG-JRw"/>
+                        <constraint firstItem="JO4-VP-eS6" firstAttribute="centerY" secondItem="g04-sh-oRM" secondAttribute="centerY" constant="-12" id="aFv-aQ-rj3"/>
+                        <constraint firstItem="g9d-8E-Ln3" firstAttribute="centerX" secondItem="JO4-VP-eS6" secondAttribute="centerX" id="lN0-ui-Lj7"/>
+                        <constraint firstItem="g9d-8E-Ln3" firstAttribute="top" secondItem="JO4-VP-eS6" secondAttribute="bottom" constant="4" id="uAd-J4-Uzn"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="g04-sh-oRM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DE8-oj-19k"/>
+                <constraint firstItem="g04-sh-oRM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ew8-Mj-u2y"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="loader" destination="JO4-VP-eS6" id="GYV-Fk-wMI"/>
+            </connections>
+            <point key="canvasLocation" x="102.89855072463769" y="140.625"/>
+        </view>
+    </objects>
+</document>

@@ -12,6 +12,8 @@ import UPCarouselFlowLayout
 class ProjectsCell: UITableViewCell{
     
     @IBOutlet weak var collectionView: UICollectionView!
+    weak var projectInstance: ProjectsController?
+    
     var projects: [ProjectsEntity]?{
         didSet{
             collectionView.reloadData()
@@ -56,21 +58,47 @@ extension ProjectsCell: UICollectionViewDelegate, UICollectionViewDataSource{
 
 extension ProjectsCell{
     
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//
+//
+//        let center = CGPoint(x: scrollView.contentOffset.x + (scrollView.frame.width / 2), y: (scrollView.frame.height / 2))
+//        if let ip = self.collectionView!.indexPathForItem(at: center) {
+//            //self.pageControl.currentPage = ip.row
+//            print(ip.row)
+//        }
+//    }
+//
+    
+    
+    
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
-        if let layout = collectionView.collectionViewLayout as? UPCarouselFlowLayout{
+        let center = CGPoint(x: targetContentOffset.pointee.x + (scrollView.frame.width / 2), y: (scrollView.frame.height / 2))
+        if let ip = self.collectionView!.indexPathForItem(at: center) {
+            //self.pageControl.currentPage = ip.row
+            //print(ip.row)
             
+            projectInstance?.projectEntity.currentDisplayDate = projects?[ip.row].dates
             
-           print(layout.itemSize.width)
-            print(UIScreen.main.bounds.width)
-            let current = targetContentOffset.pointee.x / (layout.itemSize.width - 32 * 2)
-            print(Int(current))
-            //pagerControl.currentPage = Int(current) - 1
+            if let taskDates = projects?[ip.row].dates{
+                
+                projectInstance?.notTasks.isHidden = true
+                if taskDates.count > 0 {
+                    projectInstance?.projectEntity.currentDisplayTask = taskDates[0].taskList
+                }else{
+                    projectInstance?.notTasks.isHidden = false
+                    projectInstance?.projectEntity.currentDisplayTask = nil
+                }
+                
+            }else{
+                projectInstance?.notTasks.isHidden = false
+            }
+            
+            let indexSet = IndexSet(arrayLiteral: 1,2)
+            projectInstance?.tableView.reloadSections(indexSet, with: .automatic)
             
         }
-        
-        
-        
+    
     }
     
 }

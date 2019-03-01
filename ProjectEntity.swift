@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+// Project Controller
+
 class PojectEntity{
     
     var isCreateProjectHidden: Bool?
@@ -26,6 +29,7 @@ class ProjectsEntity{
     var endDate: String?
     var createdBy: String?
     var canEdit: Bool?
+    var sort: Date?
     var dates: [ProjectDateEntity]?
 
     
@@ -117,5 +121,29 @@ class ProjectTaskModel: Decodable{
     var UserId: Int?
     var CompanyId: Int?
     var TaskId: Int?
+    
+}
+
+
+
+class CreateProjectDataModel: Codable{
+    
+    var ProjectId: String?
+    var UserId: String?
+    var CompanyId: String?
+    var CreatedByName: String?
+    var StartDate: String?
+    var EndDate: String?
+    var ProjectAssignTo: String?
+    var ProjectName: String?
+    var ProjectBudGet: String?
+    
+    init() {
+        
+        let (userId, companyId) = UserHelper.companyID()
+        self.UserId = userId
+        self.CompanyId = companyId
+    
+    }
     
 }

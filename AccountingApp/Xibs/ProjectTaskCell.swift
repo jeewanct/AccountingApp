@@ -17,9 +17,14 @@ class ProjectTaskCell: UITableViewCell{
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setup()
+        
     }
     
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        setup()
+        
+    }
     func setup(){
         taskName.text = task?.taskAndHours
         taskDescription.text = task?.taskDescription

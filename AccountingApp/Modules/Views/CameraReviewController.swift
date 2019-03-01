@@ -13,6 +13,7 @@ import UPCarouselFlowLayout
 
 class CameraReviewController: UIViewController{
     
+    @IBOutlet var keyboardToolBar: UIToolbar!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var projectView: UIView!
     @IBOutlet weak var detailView: UIView!
@@ -22,10 +23,15 @@ class CameraReviewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         configureCollectionCell()
     }
 
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupView()
+        setupDelegates()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -39,9 +45,14 @@ class CameraReviewController: UIViewController{
         navigationItem.title = ""
     }
     
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
+    
     @IBAction func handleUpload(_ sender: Any) {
         goToUploadScreen()
-        
     }
     
     @IBAction func handleZoom(_ sender: Any) {
@@ -93,6 +104,27 @@ extension CameraReviewController{
         selectProject.selectButton.addButtonIndicator()
     }
 }
+
+
+extension CameraReviewController: UITextFieldDelegate{
+    
+    func setupDelegates(){
+        titleForBill.inputTextField.delegate = self
+        titleForBill.inputTextField.inputAccessoryView = keyboardToolBar
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case titleForBill:
+            view.endEditing(true)
+        default:
+            print("")
+            //view.endEditing(true)
+        }
+        return false
+    }
+}
+
 
 extension CameraReviewController: UICollectionViewDataSource{
     
@@ -155,7 +187,6 @@ extension CameraReviewController: ProjectSelectedDelegate{
         }else if titleForBill.inputTextField.isEmpty(){
             self.sheetStyleAlert(message: CameraErrorEnum.selectTitle.rawValue)
         }else{
-            
             if Reachability.isConnectedToNetwork(){
                 getInformationOfBills()
             }else{
@@ -169,29 +200,45 @@ extension CameraReviewController: ProjectSelectedDelegate{
     
     func getInformationOfBills(){
         uploadButton.hideButtonIndicator(title: CameraEnum.upload.rawValue)
-        let upload = UploadInvoiceRoute.createModule()
-        self.navigationController?.pushViewController(upload, animated: true)
+        uploadButton.showActvityIndicator()
+        if let image = images{
+            let imageData =  image.map { (value) -> Data in
+                return value.imageData
+            }
+            self.presenter?.updateView(body: imageData)
+            
+        }
         
+//        let upload = UploadInvoiceRoute.createModule()
+//        self.navigationController?.pushViewController(upload, animated: true)
+        
+    }
+    
+    func goToserverUpload(){
+        let uploadController = UploadInvoiceRoute.createModule()
+        navigationController?.pushViewController(uploadController, animated: true)
     }
 
 }
-
-
 
 extension CameraReviewController: PresenterToViewProtocol{
     
     func showContent<T>(news: T) {
         selectProject.selectButton.hideButtonIndicator(title: CameraEnum.select.rawValue)
         selectProject.refreshButton.isHidden = true
+        uploadButton.hideActivityIndicator(title: CameraEnum.upload.rawValue)
         if let list = news as? [CameraProjectUIEntity]{
             self.projectList = list
         }
         
-        
+        if let imageData = news as? [MultiAiModel] {
+            goToserverUpload()
+        }
     }
     
     func showError<T>(error: T) {
         selectProject.selectButton.hideButtonIndicator(title: CameraEnum.select.rawValue)
+         uploadButton.hideActivityIndicator(title: CameraEnum.upload.rawValue)
         if let errorMessage = error as? String{
             self.sheetStyleAlert(message: errorMessage)
             selectProject.refreshButton.isHidden = false

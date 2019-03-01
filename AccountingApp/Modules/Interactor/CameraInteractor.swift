@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class CameraInteractor: PresentorToInterectorProtocol{
     
     var presenter: InterectorToPresenterProtocol?

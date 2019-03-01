@@ -7,24 +7,88 @@
 //
 
 import Foundation
+import RxSwift
 import ReusableFramework
 
 
-class ConversationInteractor: PresentorToInterectorProtocol{
+class ConversationInteractor: PresentorToInterectorProtocol, APIMultipartRequest{
     
+    var multiFormData: MultipartEntity
+    var url: String
+    var headers: [String : String]
     var presenter: InterectorToPresenterProtocol?
+    var error: Bool?
     
-    func fetchData<T>(body: T) where T : Decodable, T : Encodable {
+    init(){
+        url = ""
+        headers = url.getHeader()
+        multiFormData = MultipartEntity(parameters: [:], imageData: nil)
         
-        let url = GlobalConstants.base + LoginApis.forgotPasswordUrl
+  //MultipartImageInfoEntity
+    }
+    
+    func fetchData<T: Encodable>(body: T) {
         
-        do{
-            let data = try JSONEncoder().encode(body.self)
-            getDataFromServer(url: url, data: data)
-        }catch let error{
+        if let converstation = body as? CreateConversationEntity{
+            if converstation.type == ConversationType.create.rawValue{
+                url  = GlobalConstants.base + GroupsControllerApi.createGroupMessage
+            }else{
+                url = GlobalConstants.base + GroupsControllerApi.updateConversation
+            }
+            
+            let conversationParameter = [
+                "UserId" : converstation.userId ?? "",
+                "Comment" : converstation.comment ?? "",
+                "CompanyId" : converstation.companyId ?? "",
+                "ProjectId" : converstation.projectId ?? "",
+                "ParentCommentId" : "0",
+                "CommentType" :  "0",
+                "SubGroupID" : converstation.subGroupId  ?? "0"
+            ]
+            
+            if let imageData = converstation.imageData{
+                
+                var multiImagesArray = [ MultipartImageInfoEntity]()
+                
+                for image in imageData{
+                    multiImagesArray.append(MultipartImageInfoEntity(imageData: image, withName: "file"))
+                }
+                multiFormData = MultipartEntity(parameters: conversationParameter, imageData: multiImagesArray)
+                
+            }else{
+                multiFormData = MultipartEntity(parameters: conversationParameter, imageData: nil)
+            }
+            
+            callCreateConversationServer()
+            
             
         }
+        
+        
+        
     }
+    
+    func callCreateConversationServer(){
+        
+        let createConversation: Observable<NewConversationModel> = Network.shared.multipartRequest(request: self)
+        
+        createConversation.subscribe(onNext: { (response) in
+            print(response)
+            self.error = response.error
+        }, onError: { (error) in
+            self.presenter?.dataFetchedFailed(error: error.localizedDescription)
+        }, onCompleted: {
+            if let errorCode = self.error{
+                self.presenter?.dataFetched(news: errorCode)
+            }
+            self.error = nil
+        }) {
+            
+        }
+        
+        
+    }
+    
     
     func fetchData() {
         

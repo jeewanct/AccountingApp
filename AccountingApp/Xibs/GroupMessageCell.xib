@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.43"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -19,15 +19,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GroupMessageCell" rowHeight="379" id="MPC-Tg-IYg" customClass="GroupMessageCell" customModule="AccountingApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="633" height="379"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GroupMessageCell" rowHeight="380" id="MPC-Tg-IYg" customClass="GroupMessageCell" customModule="AccountingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="937" height="380"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MPC-Tg-IYg" id="UK0-XX-jFJ">
-                <rect key="frame" x="0.0" y="0.0" width="633" height="378.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="937" height="379.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2a-fb-GMe" customClass="CardView" customModule="AccountingApp" customModuleProvider="target">
-                        <rect key="frame" x="16" y="8" width="601" height="362.5"/>
+                        <rect key="frame" x="16" y="8" width="905" height="363.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -48,7 +48,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWU-xw-4I6">
-                        <rect key="frame" x="16" y="333.5" width="601" height="37"/>
+                        <rect key="frame" x="16" y="295.5" width="905" height="76"/>
                         <color key="backgroundColor" red="0.44705882349999998" green="0.56862745100000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="16"/>
                         <state key="normal" title="Start conversation">
@@ -59,7 +59,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sC1-kJ-h8O">
-                        <rect key="frame" x="554" y="301" width="55" height="30"/>
+                        <rect key="frame" x="857" y="262" width="56" height="31"/>
                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                         <state key="normal" title="Seen by">
                             <color key="titleColor" red="0.44705882349999998" green="0.56862745100000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -69,21 +69,24 @@
                         </connections>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KFG-Dw-DlN">
-                        <rect key="frame" x="24" y="109" width="585" height="190"/>
+                        <rect key="frame" x="24" y="110" width="889" height="150"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="KaY-im-ero"/>
+                        </constraints>
                         <collectionViewLayout key="collectionViewLayout" id="NuO-vS-Lb0" customClass="UPCarouselFlowLayout" customModule="UPCarouselFlowLayout"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="25"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </collectionView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="vnD-Pl-u0g">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="vnD-Pl-u0g">
                         <rect key="frame" x="24" y="16" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="Uja-6h-xDb"/>
                             <constraint firstAttribute="width" constant="50" id="hsD-DS-TrD"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amjad Yusuf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnV-8H-7Bm">
                         <rect key="frame" x="82" y="24" width="86" height="18"/>
@@ -91,27 +94,43 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjw-hE-RKC">
+                        <rect key="frame" x="871" y="16" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Sg9-1b-OLw"/>
+                            <constraint firstAttribute="height" constant="50" id="apK-a1-hFz"/>
+                        </constraints>
+                        <color key="tintColor" red="0.45098039220000002" green="0.52941176469999995" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" image="moreImage"/>
+                        <connections>
+                            <action selector="handleMore:" destination="MPC-Tg-IYg" eventType="touchUpInside" id="H6W-k2-zJ7"/>
+                        </connections>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28 th December 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2s4-Qw-QPa">
-                        <rect key="frame" x="82" y="41.5" width="126" height="15.5"/>
+                        <rect key="frame" x="82" y="41" width="126" height="16.5"/>
                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHt-PQ-VdW">
-                        <rect key="frame" x="24" y="82" width="585" height="19"/>
+                        <rect key="frame" x="24" y="82" width="889" height="20"/>
                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="16"/>
                         <color key="textColor" red="0.44705882349999998" green="0.56862745100000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bHb-M1-mCb">
+                        <rect key="frame" x="450" y="171.5" width="37" height="37"/>
+                        <color key="tintColor" red="0.45098039220000002" green="0.52941176469999995" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="color" red="0.45098039220000002" green="0.52941176469999995" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </activityIndicatorView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Q0Z-0p-7O5">
-                        <rect key="frame" x="297" y="262" width="39" height="37"/>
+                        <rect key="frame" x="449" y="223" width="39" height="37"/>
                         <color key="pageIndicatorTintColor" red="0.44705882349999998" green="0.56862745100000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </pageControl>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="KFG-Dw-DlN" firstAttribute="height" secondItem="UK0-XX-jFJ" secondAttribute="width" multiplier="0.3" id="0NZ-9l-UEO"/>
                     <constraint firstAttribute="trailing" secondItem="KFG-Dw-DlN" secondAttribute="trailing" constant="24" id="37g-3l-mjf"/>
                     <constraint firstItem="vnD-Pl-u0g" firstAttribute="top" secondItem="UK0-XX-jFJ" secondAttribute="top" constant="16" id="40B-IG-bmd"/>
                     <constraint firstAttribute="trailing" secondItem="d2a-fb-GMe" secondAttribute="trailing" constant="16" id="48Q-zi-IWA"/>
@@ -120,11 +139,15 @@
                     <constraint firstItem="d2a-fb-GMe" firstAttribute="top" secondItem="vnD-Pl-u0g" secondAttribute="top" constant="-8" id="6Mm-qR-Gyf"/>
                     <constraint firstAttribute="trailing" secondItem="wHt-PQ-VdW" secondAttribute="trailing" constant="24" id="6xc-X6-6sP"/>
                     <constraint firstItem="KFG-Dw-DlN" firstAttribute="top" secondItem="wHt-PQ-VdW" secondAttribute="bottom" constant="8" id="8Er-UL-hhF"/>
+                    <constraint firstItem="bHb-M1-mCb" firstAttribute="centerY" secondItem="UK0-XX-jFJ" secondAttribute="centerY" id="AV5-5y-AcG"/>
+                    <constraint firstAttribute="trailing" secondItem="Rjw-hE-RKC" secondAttribute="trailing" constant="16" id="AgY-fX-GeP"/>
                     <constraint firstItem="wHt-PQ-VdW" firstAttribute="top" secondItem="vnD-Pl-u0g" secondAttribute="bottom" constant="16" id="DEa-sS-ZKF"/>
                     <constraint firstItem="hnV-8H-7Bm" firstAttribute="leading" secondItem="vnD-Pl-u0g" secondAttribute="trailing" constant="8" id="F7J-FT-Yj2"/>
                     <constraint firstItem="2s4-Qw-QPa" firstAttribute="centerY" secondItem="vnD-Pl-u0g" secondAttribute="centerY" multiplier="1.2" id="JC5-Ta-aOa"/>
+                    <constraint firstItem="Rjw-hE-RKC" firstAttribute="top" secondItem="UK0-XX-jFJ" secondAttribute="top" constant="16" id="KTd-Op-RXR"/>
                     <constraint firstItem="Q0Z-0p-7O5" firstAttribute="bottom" secondItem="KFG-Dw-DlN" secondAttribute="bottom" id="OcE-8C-lC8"/>
                     <constraint firstAttribute="trailing" secondItem="sC1-kJ-h8O" secondAttribute="trailing" constant="24" id="V6n-Mw-Clb"/>
+                    <constraint firstItem="bHb-M1-mCb" firstAttribute="centerX" secondItem="UK0-XX-jFJ" secondAttribute="centerX" id="ZQe-AC-Sd2"/>
                     <constraint firstItem="RWU-xw-4I6" firstAttribute="leading" secondItem="UK0-XX-jFJ" secondAttribute="leading" constant="16" id="d5C-sS-0VA"/>
                     <constraint firstItem="vnD-Pl-u0g" firstAttribute="leading" secondItem="UK0-XX-jFJ" secondAttribute="leading" constant="24" id="hZi-2o-xGp"/>
                     <constraint firstItem="sC1-kJ-h8O" firstAttribute="top" secondItem="KFG-Dw-DlN" secondAttribute="bottom" constant="2" id="iL4-Ca-a1j"/>
@@ -139,9 +162,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="activityIndicator" destination="bHb-M1-mCb" id="wos-69-ImI"/>
                 <outlet property="collectionView" destination="KFG-Dw-DlN" id="9fo-Q0-rTT"/>
-                <outlet property="collectionViewHeightAnchor" destination="0NZ-9l-UEO" id="5Pq-tb-bKi"/>
+                <outlet property="collectionViewHeightAnchor" destination="KaY-im-ero" id="wmq-TW-IJ8"/>
                 <outlet property="message" destination="wHt-PQ-VdW" id="69r-n5-JCk"/>
+                <outlet property="moreButton" destination="Rjw-hE-RKC" id="ghi-M1-DQ9"/>
                 <outlet property="pager" destination="Q0Z-0p-7O5" id="CmS-3D-HIf"/>
                 <outlet property="postedDate" destination="2s4-Qw-QPa" id="cih-2n-eFJ"/>
                 <outlet property="seenBy" destination="sC1-kJ-h8O" id="8JE-Ve-6mb"/>
@@ -149,10 +174,11 @@
                 <outlet property="userImage" destination="vnD-Pl-u0g" id="MS7-3I-rAq"/>
                 <outlet property="userName" destination="hnV-8H-7Bm" id="c5u-Rr-bUa"/>
             </connections>
-            <point key="canvasLocation" x="154.40000000000001" y="201.94902548725639"/>
+            <point key="canvasLocation" x="800.79999999999995" y="101.64917541229386"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="moreImage" width="24" height="24"/>
         <image name="profilePlaceholder" width="393" height="393"/>
     </resources>
 </document>

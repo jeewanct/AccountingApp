@@ -15,13 +15,11 @@ class ConversationPresenter: ViewToPresenterProtocol {
     var interector: PresentorToInterectorProtocol?;
     var router: PresenterToRouterProtocol?
     
-    func updateView<T>(body: T) where T : Decodable, T : Encodable {
-        interector?.fetchData(body: body)
+    func updateView<T: Codable>(body: T) {
+       interector?.fetchData(body: body)
     }
     
-    func updateView() {
-        
-    }
+    func updateView() { }
     
 }
 
@@ -29,10 +27,18 @@ extension ConversationPresenter: InterectorToPresenterProtocol {
     
     func dataFetched<T>(news: T) {
         
+        DispatchQueue.main.async {
+            self.view?.showContent(news: news)
+        }
+        
     }
     
     func dataFetchedFailed<T>(error: T) {
-        view?.showError(error: error)
+        
+        DispatchQueue.main.async {
+            self.view?.showError(error: error)
+        }
+        
     }
     
 }

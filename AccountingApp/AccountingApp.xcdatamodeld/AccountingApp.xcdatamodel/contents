@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D39a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.72" systemVersion="18E174f" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="GroupMessage" representedClassName="GroupMessage" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="commentDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="commentImage" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="[String]" syncable="YES"/>
+        <attribute name="conversation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isCollectionViewHidden" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="seenBy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="InvoiceDetails" representedClassName="InvoiceDetails" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cvr" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,6 +41,10 @@
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="ProjectAssignees" representedClassName="ProjectAssignees" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="ProjectDates" representedClassName="ProjectDates" syncable="YES">
         <attribute name="projectDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="projectDay" optional="YES" attributeType="String" syncable="YES"/>
@@ -50,6 +64,7 @@
         <attribute name="canEditProject" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="createdBy" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="noTaskShown" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="projectId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="serverEndDate" optional="YES" attributeType="String" syncable="YES"/>
@@ -65,15 +80,27 @@
         <attribute name="taskName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="taskProjectId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="SeenGroupMessage" representedClassName="SeenGroupMessage" syncable="YES">
+        <attribute name="isMoreDataAvailable" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="groupMessage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GroupMessage" syncable="YES"/>
+    </entity>
+    <entity name="UnseenGroupMessage" representedClassName="UnseenGroupMessage" syncable="YES">
+        <attribute name="isMoreDataAvailable" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="groupMessage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GroupMessage" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="InvoiceDetails" positionX="-36" positionY="54" width="128" height="135"/>
-        <element name="Invoices" positionX="-54" positionY="36" width="128" height="150"/>
-        <element name="InvoiceUpload" positionX="-45" positionY="72" width="128" height="75"/>
-        <element name="Profile" positionX="-63" positionY="-18" width="128" height="165"/>
-        <element name="ProjectList" positionX="-45" positionY="72" width="128" height="75"/>
-        <element name="Projects" positionX="-45" positionY="72" width="128" height="90"/>
-        <element name="ProjectsList" positionX="-36" positionY="81" width="128" height="210"/>
-        <element name="ProjectDates" positionX="-27" positionY="126" width="128" height="105"/>
-        <element name="ProjectTasks" positionX="-18" positionY="135" width="128" height="105"/>
+        <element name="GroupMessage" positionX="126" positionY="180" width="128" height="165"/>
+        <element name="InvoiceDetails" positionX="37.62109375" positionY="-57.91015625" width="128" height="135"/>
+        <element name="Invoices" positionX="-227.34375" positionY="-16.53125" width="128" height="150"/>
+        <element name="InvoiceUpload" positionX="-101.1328125" positionY="179.60546875" width="128" height="75"/>
+        <element name="Profile" positionX="-248.27734375" positionY="-290.671875" width="128" height="165"/>
+        <element name="ProjectDates" positionX="191.91796875" positionY="10.515625" width="128" height="105"/>
+        <element name="ProjectList" positionX="-208.125" positionY="331.58984375" width="128" height="75"/>
+        <element name="Projects" positionX="-292.28125" positionY="204.2578125" width="128" height="90"/>
+        <element name="ProjectsList" positionX="246.00390625" positionY="265.296875" width="128" height="225"/>
+        <element name="ProjectTasks" positionX="482.78515625" positionY="100.92578125" width="128" height="105"/>
+        <element name="SeenGroupMessage" positionX="108" positionY="162" width="128" height="75"/>
+        <element name="UnseenGroupMessage" positionX="117" positionY="171" width="128" height="75"/>
+        <element name="ProjectAssignees" positionX="-90" positionY="-135" width="128" height="75"/>
     </elements>
 </model>

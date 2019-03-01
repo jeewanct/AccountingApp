@@ -19,4 +19,6 @@ struct GlobalConstants{
     static let endDate = "&endDate="
     static let pageNumber = "&pageNo="
     static let projectId = "?projectId="
+    static let parentCommentId = "&parentCommentId="
+    static let subGroupId = "&SubGroupID="
 }

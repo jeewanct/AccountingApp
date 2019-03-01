@@ -18,8 +18,10 @@ class LoginController: UIViewController{
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var enterButton: UIButton!
     
+    @IBOutlet var keyboardToolbar: UIToolbar!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDelegates()
         checkIfBiometricisOn()
     }
     
@@ -28,6 +30,12 @@ class LoginController: UIViewController{
         userEmail.leftMargins()
         userPassword.leftMargins()
     }
+    
+    
+    
+    @IBAction func handleDismiss(_ sender: Any) {
+    }
+    
     
     @IBAction func forgotPassword(_ sender: Any) {
     
@@ -54,6 +62,27 @@ class LoginController: UIViewController{
     }
     
 }
+
+extension LoginController: UITextFieldDelegate{
+    
+    func setupDelegates(){
+        userEmail.delegate = self
+        userPassword.delegate = self
+        userEmail.inputAccessoryView = keyboardToolbar
+        userPassword.inputAccessoryView = keyboardToolbar
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case userEmail:
+            userPassword.becomeFirstResponder()
+        default:
+            view.endEditing(true)
+        }
+        return false
+    }
+}
+
 
 extension LoginController{
     

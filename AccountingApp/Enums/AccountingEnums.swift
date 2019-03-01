@@ -11,6 +11,7 @@ import Foundation
 
 enum ErrorCodeEnum: String{
     case logout = "401"
+    case noImagesFound = "No image found!"
 }
 
 
@@ -30,6 +31,10 @@ enum AlertMessage: String{
     case fetchError = "Cannot fetch invoices from database"
     case sessionExpired = "Session Expired! Log out of "
     case projectListFetchFailed = "Project List cannot be fetch at this time"
+    case startDateIsGreaterThanendDate = "Start date cannot be greater than end date."
+    case assigneeListFailed = "Could'nt fetch Assignee list"
+    
+    
 }
 
 enum KeysEnum: String{
