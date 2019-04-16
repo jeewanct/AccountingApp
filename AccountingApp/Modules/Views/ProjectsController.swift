@@ -13,11 +13,11 @@ class ProjectsController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addProjectBtn: UIButton!
     @IBOutlet weak var notTasks: UILabel!
+    @IBOutlet weak var reloadBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
        // navigationItem.largeTitleDisplayMode = .never
-        getProjects()
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.hideTranslucency()
     }
@@ -25,8 +25,7 @@ class ProjectsController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Projects"
-        
-        
+        clearData(startDate: 0, endDate: 0)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -36,22 +35,35 @@ class ProjectsController: UIViewController{
     
     
     @IBAction func handleAddTask(_ sender: Any) {
-        let addTask = TaskRoute.createModule()
-        navigationController?.pushViewController(addTask, animated: true)
+        let createTask = TaskCreateEntity(projectId: "", type: CreateProjectTypeEnum.create.rawValue)
+        createTask.selectedDate = Date()
+        addTask(task: createTask)
+    }
+    
+    @IBAction func handleProjectCalendar(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ProjectCalendar") as! ProjectCalendar
+        vc.modalTransitionStyle = .flipHorizontal
+        vc.delegate = self
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true, completion: nil)
     }
     
     
-    
     @IBAction func handleReload(_ sender: Any) {
-        
+        clearData(startDate: 0, endDate: 0)
     }
     
     @IBAction func handleAddProjects(_ sender: Any) {
         
-        let createProject = CreateProjectRoute.createModule()
+        let createProject = CreateProjectRoute.createModule() as! CreateProjectController
+        let createEntity = CreateProjectEntity(projectId: "", createdBy: "", type: CreateProjectTypeEnum.create.rawValue)
+        createProject.createProjectEntity = createEntity
         navigationController?.pushViewController(createProject, animated: true)
         
     }
+    
+    
     
     var presenter: ViewToPresenterProtocol?
     var projectEntity = PojectEntity()
@@ -112,27 +124,18 @@ extension ProjectsController{
             return true
         }
         
-        
-        
         return false
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteButton = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
-            
-            print("copy button tapped")
-            
+            self.deleteTask(item: indexPath)
         }
         deleteButton.backgroundColor = #colorLiteral(red: 0.4470588235, green: 0.568627451, blue: 0.9568627451, alpha: 1)
-        //deleteButton.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "deleteProject"))
-        
-        
         let editButton = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
-            
-            print("Access button tapped")
-            
+            self.editTask(item: indexPath)
         }
-        //editButton.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "editTask"))
+        
         editButton.backgroundColor = #colorLiteral(red: 0.4470588235, green: 0.568627451, blue: 0.9568627451, alpha: 1)
         
         return [deleteButton, editButton]
@@ -144,47 +147,128 @@ extension ProjectsController{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let allProjects = AllProjectsRoutes.createModule()
-        navigationController?.pushViewController(allProjects, animated: true)
+//        let allProjects = AllProjectsRoutes.createModule()
+//        navigationController?.pushViewController(allProjects, animated: true)
     }
 }
 
 
 extension ProjectsController{
     
-    func getProjects(){
-        self.showDataIndicator()
-        let projectDates = ProjectDate(startDate: 0, endDate: 0)
-        presenter?.updateView(body: projectDates)
-    }
-    
-    
-}
-
-extension ProjectsController: PresenterToViewProtocol {
-    
-    func showContent<T>(news: T) {
+    func deleteTask(item: IndexPath){
         
-        self.hideDataIndicator()
-        if let projects = news as? PojectEntity{
-            
-            self.projectEntity = projects
-            
-            if let isHidden = self.projectEntity.isCreateProjectHidden{
-                addProjectBtn.isHidden = isHidden
+        
+        if let task = projectEntity.currentDisplayTask?[item.item].editTaskName{
+            let alertController = UIAlertController(title: ProjectAlerts.delete.rawValue + task, message: "", preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: ProjectEnum.okAction.rawValue, style: .default) { (value) in
+                self.callDeleteTask(item: item)
             }
-            
-            tableView.isHidden = false
-            tableView.reloadData()
-            
-        }else{
-            tableView.isHidden = true
+            let cancelAction = UIAlertAction(title: ProjectEnum.cancelAction.rawValue, style: .cancel, handler: nil)
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true, completion: nil)
         }
         
     }
     
-    func showError<T>(error: T) {
+    func editTask(item: IndexPath){
+        let editTask = TaskCreateEntity(projectId: projectEntity.currentDisplayTask?[item.item].projectId, type: CreateProjectTypeEnum.edit.rawValue)
         
+        let (startDate, endDate, projectName) = Helper.getStartAndEndDate(projectEntity: projectEntity, projectId: projectEntity.currentDisplayTask?[item.item].projectId)
+        editTask.serverStartDate = startDate
+        editTask.serverEndDate = endDate
+        editTask.Hours = projectEntity.currentDisplayTask?[item.item].hours
+        editTask.projectName = projectName
+        editTask.Minutes = projectEntity.currentDisplayTask?[item.item].minute
+        editTask.Description = projectEntity.currentDisplayTask?[item.item].taskDescription
+        editTask.Tasks = projectEntity.currentDisplayTask?[item.item].editTaskName
+        editTask.TaskId = projectEntity.currentDisplayTask?[item.item].taskId
+        editTask.selectedDate = projectEntity.currentDisplayTask?[item.item].createdDate
+        addTask(task: editTask)
+    }
+    
+    func callDeleteTask(item: IndexPath){
+        let deleteTask = ProjectTaskDelete(taskId: projectEntity.currentDisplayTask?[item.item].taskId)
+        presenter?.updateView(body: deleteTask)
+        let cell = tableView.cellForRow(at: item) as? ProjectTaskCell
+        cell?.activityIndicator.isHidden = false
+        cell?.activityIndicator.startAnimating()
+    }
+    
+    func addTask(task: TaskCreateEntity){
+        let addTask = TaskRoute.createModule() as! TaskController
+        addTask.taskEntity = task
+        navigationController?.pushViewController(addTask, animated: true)
+    }
+    
+    func clearData(startDate: CLong, endDate: CLong){
+        reloadBtn.isEnabled = false
+        projectEntity = PojectEntity()
+        tableView.reloadData()
+        getProjects(startDate: startDate, endDate: endDate)
+    }
+    
+    func getProjects(startDate: CLong, endDate: CLong){
+        self.showDataIndicator()
+        let projectDates = ProjectDate(startDate: startDate, endDate: endDate)
+        presenter?.updateView(body: projectDates)
+    }
+    
+    func handleEditProjects(editProject: CreateProjectEntity){
+        let createProject = CreateProjectRoute.createModule() as! CreateProjectController
+//        let editProject = CreateProjectEntity(projectId: projectEntity.projectList?[atSection].projectId, createdBy: "", type: CreateProjectTypeEnum.edit.rawValue)
+        createProject.createProjectEntity = editProject
+        navigationController?.pushViewController(createProject, animated: true)
+    }
+}
+
+extension ProjectsController: CalendarDatesDelegate{
+    func setCalendarDates(startDate: Date?, endDate: Date?) {
+        if let startingDate = startDate, let endingDate = endDate{
+            let startDat = String(Helper.convertDateToTimeStamp(date: startingDate)) + "000"
+            let endDat = String(Helper.convertDateToTimeStamp(date: endingDate)) + "000"
+            
+            if let convertedStart = CLong(startDat), let convertedEnd = CLong(endDat){
+                clearData(startDate: convertedStart, endDate: convertedEnd)
+            }
+            
+        }
+    }
+}
+extension ProjectsController: PresenterToViewProtocol {
+    
+    func showContent<T>(news: T) {
+        reloadBtn.isEnabled = true
+        self.hideDataIndicator()
+        if let projects = news as? PojectEntity{
+            self.projectEntity = projects
+            if let isHidden = self.projectEntity.isCreateProjectHidden{
+                addProjectBtn.isHidden = !isHidden
+            }
+            
+            if let _ = projects.projectList {
+                tableView.isHidden = false
+                tableView.reloadData()
+            }else{
+                notTasks.isHidden = true
+                 tableView.isHidden = true
+            }
+            
+        }
+        
+        if let message  = news as?  (String?, Bool?){
+            if message.1 == true{
+                self.showAlert(message: message.0!)
+            }else{
+                clearData(startDate: 0, endDate: 0)
+            }
+        }
+        
+       
+    }
+    
+    func showError<T>(error: T) {
+        reloadBtn.isEnabled = true
         self.hideDataIndicator()
         if let errorMessage = error as? String{
             
@@ -198,7 +282,6 @@ extension ProjectsController: PresenterToViewProtocol {
                         
                         ChangeRootViewController.changeRootViewController(to: ChangeToControllerEnum.LoginController)
                     }
-                    
                     
                 }
                 

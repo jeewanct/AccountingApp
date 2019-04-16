@@ -13,13 +13,19 @@ class ProfileDatabase{
     
     class func saveUserProfile(userData: LoginData?, update: Bool){
         
+        
         if let token = userData?.Token, let companyId
-            = userData?.CompanyId, let userId = userData?.ID{
+            = userData?.CompanyId, let userId = userData?.ID, let userType = userData?.UserType{
             
+//            UserDefaults.standard.set(true, forKey: KeysEnum.isLogin.rawValue)
+//            UserDefaults.standard.set(token, forKey: KeysEnum.token.rawValue)
+//            UserDefaults.standard.set(String(companyId), forKey: KeysEnum.companyId.rawValue)
+//            UserDefaults.standard.set(String(userId), forKey: KeysEnum.userId.rawValue)
             UserDefaults.standard.set(true, forKey: KeysEnum.isLogin.rawValue)
             UserDefaults.standard.set(token, forKey: KeysEnum.token.rawValue)
             UserDefaults.standard.set(String(companyId), forKey: KeysEnum.companyId.rawValue)
             UserDefaults.standard.set(String(userId), forKey: KeysEnum.userId.rawValue)
+            UserDefaults.standard.set(String(userType), forKey: KeysEnum.userType.rawValue)
             
         }
         
@@ -63,9 +69,6 @@ class ProfileDatabase{
                     
                 }
                 
-                
-                
-                
                 if update == false{
                 if let userInformation = NSEntityDescription.insertNewObject(forEntityName: "Profile", into: appDelegate.persistentContainer.viewContext) as? Profile{
                 
@@ -106,21 +109,21 @@ class ProfileDatabase{
     
     class func deleteData(entityName: String, context: AppDelegate){
         
-        
-       // DispatchQueue.main.async {
-//            guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else{
-//                return
-//            }
             let userInfoRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+         let deleteRequest = NSBatchDeleteRequest(fetchRequest: userInfoRequest)
             userInfoRequest.returnsObjectsAsFaults = false
             do{
-                let userInfo = try context.persistentContainer.viewContext.fetch(userInfoRequest)
-                
+                try context.updateContext.execute(deleteRequest)
+                 context.saveContext()
+                let userInfo = try context.updateContext.fetch(userInfoRequest)
+
+                //userInfo.removeAll()
                 for info in userInfo{
                     guard let objectData = info as? NSManagedObject else {continue}
-                    context.persistentContainer.viewContext.delete(objectData)
+                    //context.cacheContext.delete(objectData)
+                    context.updateContext.delete(objectData)
                 }
-                
+                context.saveContext()
             }catch let error{
                 
             }

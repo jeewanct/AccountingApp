@@ -19,6 +19,8 @@ class ProjectInteractor: PresentorToInterectorProtocol, APIRequest {
     var errorMessage = ""
     var projectListModel: [ProjectListModel]?
     var appDelegate: AppDelegate!
+    var message: (String?, Bool?)
+    
     
     
     init() {
@@ -39,16 +41,45 @@ class ProjectInteractor: PresentorToInterectorProtocol, APIRequest {
 extension ProjectInteractor{
     func fetchData<T>(body: T) where T : Decodable, T : Encodable {
         
-        guard let projectDates = body as? ProjectDate else {return}
+        if let projectDates = body as? ProjectDate {
+            method = RequestType.GET
+            let (_, companyId) = UserHelper.companyID()
+            path = ProjectApis.projectUrl + GlobalConstants.companyId1 + "\(companyId)" + GlobalConstants.pageNumber + "1"
+            path.append(GlobalConstants.startDate + "\(projectDates.startDate)" + GlobalConstants.endDate + "\(projectDates.endDate)")
+            getProjects()
+        }
         
-        path.append(GlobalConstants.startDate + "\(projectDates.startDate)" + GlobalConstants.endDate + "\(projectDates.endDate)")
+        if let deleteTask = body as? ProjectTaskDelete{
+            method = RequestType.POST
+            path = ProjectApis.deleteTask
+            parameters = try? JSONEncoder().encode(deleteTask.self)
+            deleteTaskServer()
+            
+        }
+    }
+    
+    
+    func deleteTaskServer(){
         
+         let deleteTask:  Observable<CreateProjectResponseEntity> = Network.get(apiRequest: self)
+        deleteTask.subscribe(onNext: { (response) in
+            self.message = (response.message,response.error)
+        }, onError: { (error) in
+            self.presenter?.dataFetchedFailed(error: error.localizedDescription)
+        }, onCompleted: {
+            self.presenter?.dataFetched(news: self.message)
+            self.message = (nil, nil)
+        }) {
+            
+        }
+    }
+    
+    
+    func getProjects(){
         let projectList: Observable<ProjectListApiModel> = Network.get(apiRequest: self)
         
         projectList.subscribe(onNext: { (response) in
-          
             if response.error == true{
-                
                 if let message = response.message{
                     
                     if response.code == ErrorCodeEnum.logout.rawValue{
@@ -58,10 +89,9 @@ extension ProjectInteractor{
                     }
                 }
             }else{
-               
+                
                 if let projects = response.data{
                     self.projectListModel = projects
-                    
                 }
                 
             }
@@ -83,19 +113,16 @@ extension ProjectInteractor{
         }) {
             
         }
-        
     }
-    
     
     func getTasks(){
         
-        guard let projects = projectListModel else {
-            
+        guard let projects = projectListModel, projects.count > 0 else {
+            self.presenter?.dataFetched(news: PojectEntity())
+            errorMessage = ""
             return
         }
-        
         var count = 0
-        
         let projectList = projects.map { (projectList) in
             if let projectId = projectList.ProjectID{
                 self.path = ProjectApis.projectTaskUrl + GlobalConstants.projectId + "\(projectId)" + GlobalConstants.startDate + "0" + GlobalConstants.endDate + "0"
@@ -204,9 +231,10 @@ extension ProjectInteractor{
     func saveToDatabase(){
         
          if let projects = projectListModel{
-            
            let projectList =  ProjectDatabase.saveProjects(projects: projects, appdelegate: appDelegate)
             self.presenter?.dataFetched(news: projectList)
+         }else{
+            self.presenter?.dataFetched(news: PojectEntity())
         }
     
         

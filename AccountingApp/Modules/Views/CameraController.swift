@@ -53,7 +53,6 @@ class CameraController: UIViewController{
                
                     self.goToCameraReview()
                 
-                
             }else{
                 
                 

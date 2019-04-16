@@ -48,6 +48,7 @@ extension CameraReviewInteractor{
     
     func fetchData<T>(body: T) where T : Decodable, T : Encodable {
         
+        method = RequestType.POST
         guard let imageData = body as? [Data] else {
             presenter?.dataFetchedFailed(error: ErrorCodeEnum.noImagesFound.rawValue)
             return
@@ -63,8 +64,7 @@ extension CameraReviewInteractor{
         arrayofImages.map { (images)  in
             multiFormData.imageData = [images]
           
-            let invoiceDetails: Observable<MultiAiModel> = Network.get(apiRequest: self)
-            
+            let invoiceDetails: Observable<MultiAiModel> = Network.shared.multipartRequest(request: self)
             invoiceDetails.subscribe(onNext: { (response) in
                 invoiceInformation.append(response)
             }, onError: { (error) in
@@ -128,6 +128,7 @@ extension CameraReviewInteractor{
     
     func fetchData() {
         
+        method = RequestType.GET
         let projectList: Observable<CameraProjectEntity> = Network.get(apiRequest: self)
         
         projectList.subscribe(onNext: { (response) in
@@ -148,7 +149,6 @@ extension CameraReviewInteractor{
             
          let allProjectList = CamerReviewDatabase.saveToDatabase(appdelegate: appdelegate, projectLists: list)
             self.presenter?.dataFetched(news: allProjectList)
-            
         }else{
             self.presenter?.dataFetchedFailed(error: AlertMessage.projectListFetchFailed.rawValue)
         }

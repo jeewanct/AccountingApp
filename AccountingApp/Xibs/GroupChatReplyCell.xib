@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.43"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -60,24 +60,30 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLZ-Xm-R8F">
-                        <rect key="frame" x="58" y="8.5" width="32" height="15.5"/>
+                        <rect key="frame" x="58" y="8" width="34" height="16.5"/>
                         <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRy-58-uhN">
+                        <rect key="frame" x="94" y="10" width="25.5" height="12"/>
+                        <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="10"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhc-er-KGg">
-                        <rect key="frame" x="58" y="22" width="29.5" height="14"/>
+                        <rect key="frame" x="58" y="21.5" width="30.5" height="15"/>
                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSM-EZ-2El">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSM-EZ-2El">
                         <rect key="frame" x="24" y="43" width="319" height="17"/>
                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                         <color key="textColor" red="0.44705882349999998" green="0.56862745100000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gjU-et-5M9">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gjU-et-5M9">
                         <rect key="frame" x="24" y="64" width="319" height="100"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -92,16 +98,24 @@
                             <constraint firstAttribute="height" constant="0.5" id="LZC-kP-EEW"/>
                         </constraints>
                     </view>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Jyn-1G-7xr">
+                        <rect key="frame" x="169" y="66" width="37" height="37"/>
+                        <color key="color" red="0.45098039220000002" green="0.52941176469999995" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="gjU-et-5M9" firstAttribute="leading" secondItem="cSM-EZ-2El" secondAttribute="leading" id="1q8-r6-Z4r"/>
                     <constraint firstItem="Kl2-IB-iuR" firstAttribute="leading" secondItem="Tvm-Pk-0Pk" secondAttribute="leading" constant="24" id="2Ae-vg-o11"/>
                     <constraint firstItem="Kl2-IB-iuR" firstAttribute="top" secondItem="Tvm-Pk-0Pk" secondAttribute="top" constant="8" id="4ps-E4-g41"/>
+                    <constraint firstItem="oRy-58-uhN" firstAttribute="centerY" secondItem="CLZ-Xm-R8F" secondAttribute="centerY" id="5o7-Aa-1bK"/>
+                    <constraint firstItem="Jyn-1G-7xr" firstAttribute="centerY" secondItem="Tvm-Pk-0Pk" secondAttribute="centerY" id="6Bm-IV-Omz"/>
                     <constraint firstItem="qhc-er-KGg" firstAttribute="centerY" secondItem="Kl2-IB-iuR" secondAttribute="centerY" constant="6" id="99t-fQ-T6a"/>
+                    <constraint firstItem="Jyn-1G-7xr" firstAttribute="centerX" secondItem="Tvm-Pk-0Pk" secondAttribute="centerX" id="BKG-Jr-s7t"/>
                     <constraint firstItem="CLZ-Xm-R8F" firstAttribute="leading" secondItem="Kl2-IB-iuR" secondAttribute="trailing" constant="4" id="Bd3-Iv-WUp"/>
                     <constraint firstItem="UfG-c9-Fdk" firstAttribute="top" secondItem="Kl2-IB-iuR" secondAttribute="top" constant="-8" id="Kkd-BX-GvZ"/>
                     <constraint firstItem="gjU-et-5M9" firstAttribute="top" secondItem="cSM-EZ-2El" secondAttribute="bottom" constant="4" id="KwB-9Z-QJU"/>
                     <constraint firstItem="cII-5n-FGu" firstAttribute="top" secondItem="gjU-et-5M9" secondAttribute="bottom" constant="4" id="LxI-2B-H60"/>
+                    <constraint firstItem="oRy-58-uhN" firstAttribute="leading" secondItem="CLZ-Xm-R8F" secondAttribute="trailing" constant="2" id="T6M-ES-yFj"/>
                     <constraint firstItem="qhc-er-KGg" firstAttribute="leading" secondItem="Kl2-IB-iuR" secondAttribute="trailing" constant="4" id="Vh6-Gu-Lkm"/>
                     <constraint firstItem="cSM-EZ-2El" firstAttribute="leading" secondItem="Kl2-IB-iuR" secondAttribute="leading" id="Xb8-kN-QrO"/>
                     <constraint firstItem="gjU-et-5M9" firstAttribute="trailing" secondItem="cSM-EZ-2El" secondAttribute="trailing" id="Yk5-Hf-Vjh"/>
@@ -117,10 +131,12 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="activityIndicator" destination="Jyn-1G-7xr" id="qgg-aN-voQ"/>
                 <outlet property="collectionView" destination="gjU-et-5M9" id="F7c-KW-Zdg"/>
                 <outlet property="collectionViewHeightAnchor" destination="eYs-eb-ldQ" id="Odj-r7-mC5"/>
                 <outlet property="message" destination="cSM-EZ-2El" id="jF8-Pc-ZAG"/>
                 <outlet property="postedDate" destination="qhc-er-KGg" id="h0P-ay-4Mz"/>
+                <outlet property="replyTo" destination="oRy-58-uhN" id="5Mm-yv-CeS"/>
                 <outlet property="userImage" destination="Kl2-IB-iuR" id="iAW-eS-Np6"/>
                 <outlet property="userName" destination="CLZ-Xm-R8F" id="zvf-03-GCe"/>
             </connections>

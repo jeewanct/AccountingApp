@@ -25,6 +25,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>For taking photos</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>For taking photos</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Quicksand-Bold</string>
@@ -40,15 +44,9 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>For taking photos</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>For taking photos</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

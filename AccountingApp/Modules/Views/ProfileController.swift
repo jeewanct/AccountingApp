@@ -104,6 +104,9 @@ extension ProfileController{
         case 0:
             let groupController = GroupRoutes.createModule()
             navigationController?.pushViewController(groupController, animated: true)
+        case 1:
+            let storyBoard = UIStoryboard(name: "Notification", bundle: nil).instantiateViewController(withIdentifier: "NotificationController") as! NotificationController
+            navigationController?.pushViewController(storyBoard, animated: true)
         case 2:
             let storyBoard = InvoiceRoute.mainstoryboard
             let settingsController = storyBoard.instantiateViewController(withIdentifier: "SettingsController") as! SettingsController
@@ -168,7 +171,6 @@ extension ProfileController{
     func logoutSuccess(){
         showIndicator(value: false)
         
-       // let loginController = LoginRoute.createModule()
         ChangeRootViewController.changeRootViewController(to: ChangeToControllerEnum.LoginController)
         
     }

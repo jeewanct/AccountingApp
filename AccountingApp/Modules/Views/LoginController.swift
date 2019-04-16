@@ -17,8 +17,8 @@ class LoginController: UIViewController{
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var enterButton: UIButton!
-    
     @IBOutlet var keyboardToolbar: UIToolbar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegates()
@@ -34,6 +34,7 @@ class LoginController: UIViewController{
     
     
     @IBAction func handleDismiss(_ sender: Any) {
+        view.endEditing(true)
     }
     
     

@@ -17,12 +17,15 @@ class CamerReviewDatabase {
         
         for project in projectLists{
             
-            if let projectEntity = NSEntityDescription.insertNewObject(forEntityName: "ProjectList", into: appdelegate.persistentContainer.viewContext) as? ProjectList{
+            if let projectEntity = NSEntityDescription.insertNewObject(forEntityName: "ProjectList", into: appdelegate.updateContext) as? ProjectList{
                 
                 projectEntity.projectName = project.ProjectName
                 if let projectId = project.ProjectID{
                     projectEntity.projectId = String(projectId)
                 }
+
+                projectEntity.startDate = Helper.convertStringToDate(date: project.StartDate)
+                projectEntity.endDate = Helper.convertStringToDate(date: project.EndDate)
                 
             }
             
@@ -41,12 +44,12 @@ class CamerReviewDatabase {
         
         do{
             
-            let results = try appdelegate.persistentContainer.viewContext.fetch(projectList)
+            let results = try appdelegate.updateContext.fetch(projectList)
             
             var projectsList = [CameraProjectUIEntity]()
             
             for result in results{
-                projectsList.append(CameraProjectUIEntity(projectName: result.projectName, id: result.projectId))
+                projectsList.append(CameraProjectUIEntity(projectName: result.projectName, id: result.projectId, startDate: result.startDate, endDate: result.endDate))
             }
             
             return projectsList
@@ -54,8 +57,6 @@ class CamerReviewDatabase {
         }catch _{
             
         }
-        
-        
         
         return nil
     }

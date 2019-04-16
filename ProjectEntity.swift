@@ -31,17 +31,18 @@ class ProjectsEntity{
     var canEdit: Bool?
     var sort: Date?
     var dates: [ProjectDateEntity]?
-
+    var assigneeList: String?
+    var serverStartDate: Date?
+    var serverEndDate: Date?
+    var projectBudget: String?
+    
     
 }
 
 class ProjectDateEntity{
-    
     var day: String?
     var date: String?
     var taskList: [ProjectTaskEntity]?
-    
-    
 }
 
 class ProjectTaskEntity{
@@ -50,6 +51,12 @@ class ProjectTaskEntity{
     var taskDescription: String?
     var taskId: String?
     var projectId: String?
+    var hours: String?
+    var minute: String?
+    var taskName: String?
+    var editTaskName: String?
+    var createdDate: Date?
+    
 }
 
 class ProjectDate: Codable{
@@ -146,4 +153,16 @@ class CreateProjectDataModel: Codable{
     
     }
     
+}
+
+
+// Delete task
+
+class ProjectTaskDelete: Codable{
+    var TaskId: String?
+    var UserId: String?
+    init(taskId: String?) {
+        TaskId = taskId
+        UserId = CredentialsCheck.usersIdAndHisCompanyId().1
+    }
 }

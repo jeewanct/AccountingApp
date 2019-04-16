@@ -10,4 +10,6 @@ import Foundation
 
 enum DatabaseEntityName: String{
     case assigneeList = "ProjectAssignees"
+    case profile = "Profile"
+    case invoice = "Invoices"
 }

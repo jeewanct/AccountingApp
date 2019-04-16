@@ -21,7 +21,7 @@ class ConversationInteractor: PresentorToInterectorProtocol, APIMultipartRequest
     
     init(){
         url = ""
-        headers = url.getHeader()
+        headers = url.mulitpartHeader()
         multiFormData = MultipartEntity(parameters: [:], imageData: nil)
         
   //MultipartImageInfoEntity
@@ -48,7 +48,7 @@ class ConversationInteractor: PresentorToInterectorProtocol, APIMultipartRequest
             
             if let imageData = converstation.imageData{
                 
-                var multiImagesArray = [ MultipartImageInfoEntity]()
+                var multiImagesArray = [MultipartImageInfoEntity]()
                 
                 for image in imageData{
                     multiImagesArray.append(MultipartImageInfoEntity(imageData: image, withName: "file"))
@@ -58,9 +58,7 @@ class ConversationInteractor: PresentorToInterectorProtocol, APIMultipartRequest
             }else{
                 multiFormData = MultipartEntity(parameters: conversationParameter, imageData: nil)
             }
-            
             callCreateConversationServer()
-            
             
         }
         

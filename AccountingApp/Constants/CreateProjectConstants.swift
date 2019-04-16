@@ -24,5 +24,8 @@ enum CreateProjectContants: String{
     case startDate = "DD/MM/YY"
     case assigne = "Select"
     case createProject = "CREATE PROJECT"
+    case okAction = "Ok"
+    case editProject = "EDIT PROJECT"
+    
 
 }

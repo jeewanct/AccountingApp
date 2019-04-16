@@ -10,6 +10,7 @@ import Foundation
 
 class CreateProjectEntity: Codable{
     
+    var type: String?
     var ProjectId: String?
     var UserId: String?
     var CompanyId: String?
@@ -19,8 +20,10 @@ class CreateProjectEntity: Codable{
     var ProjectAssignTo: String?
     var ProjectName: String?
     var ProjectBudGet: String?
+    var serverStartDate: Date?
+    var serverEndDate: Date?
 
-    init(projectId: String?, createdBy: String?) {
+    init(projectId: String?, createdBy: String?, type: String) {
         self.ProjectId = projectId
         let (userId, companyId) = UserHelper.companyID()
         self.UserId = userId
@@ -32,6 +35,7 @@ class CreateProjectEntity: Codable{
             self.CreatedByName = createdBy
         }
         
+        self.type = type
     }
     
 }

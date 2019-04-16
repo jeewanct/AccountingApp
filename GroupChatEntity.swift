@@ -34,6 +34,7 @@ class GroupChatRequestEntity: Codable{
     var ParentCommentId: String?
     var CommentType: String? = ""
     var images: [Data]?
+    var taggedUser: String?
     
     init(projectId: String? = "", parentCommentId: String? = "") {
         let (userId, companyId) = UserHelper.companyID()
@@ -41,5 +42,20 @@ class GroupChatRequestEntity: Codable{
         CompanyId = companyId
         ProjectId = projectId
         ParentCommentId = parentCommentId
+    }
+}
+
+class GroupChatDelete: Codable{
+    var ParentCommentId: String?
+    var ProjectId: String?
+    var SubGroupId: String?
+    var CommentId : String?
+    
+    init(parentCommentId: String?, projectId: String?, subgroupId: String?, commentId: String? ) {
+        self.ParentCommentId = parentCommentId
+        self.ProjectId = projectId
+        self.SubGroupId = subgroupId
+        self.CommentId = commentId
+        
     }
 }

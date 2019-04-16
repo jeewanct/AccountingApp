@@ -21,5 +21,11 @@ extension ProjectTasks {
     @NSManaged public var taskDescription: String?
     @NSManaged public var taskId: String?
     @NSManaged public var taskProjectId: String?
-
+    @NSManaged public var hours: String?
+    @NSManaged public var minutes: String?
+    @NSManaged public var taskDate: Date?
+    @NSManaged public var projectStartDate: Date?
+    @NSManaged public var projectEndDate: Date?
+    @NSManaged public var editTaskName: String?
+    
 }

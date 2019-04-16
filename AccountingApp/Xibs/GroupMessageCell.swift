@@ -35,6 +35,7 @@ class GroupMessageCell: UITableViewCell{
    // var delegate: SelectedProjectDelegate?
     var messageDetail: GroupDetailEntity?{
         didSet{
+            //setup()
             setData()
         }
     }
@@ -50,8 +51,6 @@ class GroupMessageCell: UITableViewCell{
         collectionView.delegate = self
         collectionView.dataSource = self
         configureCell()
-        
-        
     }
     
     
@@ -61,8 +60,9 @@ class GroupMessageCell: UITableViewCell{
     }
     
     @IBAction func handleSeenBy(_ sender: Any) {
-        
-        
+        if let commentId = messageDetail?.commentId{
+            groupMessageInstance?.seenBy(commentId: commentId)
+        }
     }
     
     @IBAction func handleStartConv(_ sender: Any) {
@@ -70,6 +70,13 @@ class GroupMessageCell: UITableViewCell{
 //            groupMessageInstance?.startConversation(to: selected)
 //        }
 //
+        
+        if collectionIndex == 0 {
+            let seenBy = GroupMessageSeen(subGroupId: "", commentId: messageDetail?.commentId)
+            groupMessageInstance?.setSeenBy(seenEntity: seenBy)
+        }
+        
+        
         if let atSection = collectionIndex, let row = selectedMessage{
             groupMessageInstance?.startConversation(atSection: atSection, atItem: row)
         }
@@ -136,7 +143,8 @@ extension GroupMessageCell: UICollectionViewDelegate, UICollectionViewDataSource
 extension GroupMessageCell{
     
     func setData(){
-        
+        collectionView.reloadData()
+        activityIndicator.isHidden = true
         userImage.addImage(url: messageDetail?.userProfile)
         userName.text = messageDetail?.userName
         message.text = messageDetail?.comment

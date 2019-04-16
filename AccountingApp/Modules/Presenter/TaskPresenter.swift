@@ -9,8 +9,7 @@
 import Foundation
 
 class TaskPresenter: ViewToPresenterProtocol {
-    
-    
+
     var view: PresenterToViewProtocol?;
     var interector: PresentorToInterectorProtocol?;
     var router: PresenterToRouterProtocol?
@@ -20,6 +19,7 @@ class TaskPresenter: ViewToPresenterProtocol {
     }
     
     func updateView() {
+        interector?.fetchData()
         
     }
     
@@ -28,11 +28,16 @@ class TaskPresenter: ViewToPresenterProtocol {
 extension TaskPresenter: InterectorToPresenterProtocol {
     
     func dataFetched<T>(news: T) {
-        
+        DispatchQueue.main.async {
+            self.view?.showContent(news: news)
+        }
     }
     
     func dataFetchedFailed<T>(error: T) {
-        view?.showError(error: error)
+        DispatchQueue.main.async {
+            self.view?.showError(error: error)
+        }
+        
     }
     
 }

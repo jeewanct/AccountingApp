@@ -16,6 +16,11 @@ class InvoiceCollectionCell: UICollectionViewCell{
     var invoiceList: [InvoiceDetailEntity]?{
         didSet{
             tableView.reloadData()
+            if invoiceList?.count ?? 0 > 0{
+                tableView.isHidden = false
+            }else{
+                tableView.isHidden = true
+            }
         }
     }
     
@@ -40,9 +45,8 @@ extension InvoiceCollectionCell{
 
 extension InvoiceCollectionCell: UITableViewDelegate, UITableViewDataSource{
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return  UIScreen.main.bounds.height * 0.12
+        return  UIScreen.main.bounds.height * 0.15
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return invoiceList?.count ?? 0
@@ -59,6 +63,6 @@ extension InvoiceCollectionCell: UITableViewDelegate, UITableViewDataSource{
 extension InvoiceCollectionCell{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.cellClicked(data: invoiceList?[indexPath.item])
+        delegate?.cellClicked(data: invoiceList?[indexPath.item].invoiceDescription)
     }
 }

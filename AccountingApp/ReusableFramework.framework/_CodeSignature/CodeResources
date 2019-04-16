@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/ReusableFramework-Swift.h</key>
 		<data>
-		bO3pR1m7mHwa/mogTHvRFO17IGg=
+		WlNYGs1i8u/5vqsAIt+d750ESs4=
 		</data>
 		<key>Headers/ReusableFramework.h</key>
 		<data>
@@ -14,15 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ncRGx/cwZNfemyownfAj8qJgRJc=
+		jZFLSx34BbfyjDsfSlcSui8T5Io=
 		</data>
-		<key>Modules/ReusableFramework.swiftmodule/arm64.swiftdoc</key>
+		<key>Modules/ReusableFramework.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		f/9Z3kZyZ9nvwd98YcPAN5opc1o=
+		+n0nGmgNR4SXWqv/wzL56CdCEkg=
 		</data>
-		<key>Modules/ReusableFramework.swiftmodule/arm64.swiftmodule</key>
+		<key>Modules/ReusableFramework.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		rCkTlCxucDdtk6NWgujTKeDvcQE=
+		06JkL1yojvW7uvlndmWXf+EtTM0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -35,7 +35,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QBHkjUzqWXk5roCbE8DCKuQTrjmRxkOr5HX5fA5HvJU=
+			ayPXipTNvH+WyS5EdfqnmSZSFxVUbhssIghz9kjcOZY=
 			</data>
 		</dict>
 		<key>Headers/ReusableFramework.h</key>
@@ -45,18 +45,18 @@
 			RjTa7n7HsbAUeo+dUiNBtfMw80KMkFIE2rNd68nyqXA=
 			</data>
 		</dict>
-		<key>Modules/ReusableFramework.swiftmodule/arm64.swiftdoc</key>
+		<key>Modules/ReusableFramework.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			htLZeAXqtj1ac+vsCQGEqXchtItDI4FVvq/ehhnnMr4=
+			/eI221JAskopqiM9k1PYEl10zTc0ve46Tbk2TR5GOlU=
 			</data>
 		</dict>
-		<key>Modules/ReusableFramework.swiftmodule/arm64.swiftmodule</key>
+		<key>Modules/ReusableFramework.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/WWz/80AvkhoxVVh8phn2q0090bc/0PM6Hx0PgO5x9A=
+			ZLdHgsBahQYn8329xXa+SpAsYnmZSNS4qkWYqGoa9Dg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

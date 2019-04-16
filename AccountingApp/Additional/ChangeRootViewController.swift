@@ -14,27 +14,22 @@ enum ChangeToControllerEnum {
     case HomeController
     
 }
-
-
 class ChangeRootViewController{
     
     class func changeRootViewController(to controller: ChangeToControllerEnum){
-        
         var viewController = UIViewController()
-        
         switch controller {
         case .HomeController:
-           
             viewController = InvoiceRoute.mainstoryboard.instantiateViewController(withIdentifier: "HomeController")
         default:
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+                ProfileDatabase.deleteData(entityName: "Profile", context: appDelegate)
+            }
             viewController = LoginRoute.createModule()
         }
-        
         if let appdelegate = UIApplication.shared.delegate as? AppDelegate{
-            
             appdelegate.window?.rootViewController = viewController
         }
-        
     }
-    
 }

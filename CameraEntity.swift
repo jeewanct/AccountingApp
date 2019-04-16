@@ -37,12 +37,23 @@ class CameraDetailEntity{
     }
 }
 
-class MultiAiModel: Decodable{
+class UploadAiModel: Codable{
+    var data: [Data]?
+    var aiData: [MultiAiModel]?
     
+    init(aiData: [MultiAiModel]?) {
+        self.aiData = aiData
+    }
+}
+
+class MultiAiModel: Codable{
     var cvr: [String?]?
     var total_amount: Float?
     var date: [String?]?
     var tax: String?
+    var imageData: [Data]?
+    var selectedCvr: String?
+    var selectedDate: String?
 }
 
 

@@ -55,7 +55,6 @@ extension GroupMessageCollectionCell: UITableViewDataSource{
 extension GroupMessageCollectionCell: UITableViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         guard let indexNumber = cellNumber else {
             return
         }
@@ -80,6 +79,9 @@ extension GroupMessageCollectionCell: UITableViewDelegate{
         return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        groupMessageInstance?.openImages(imageList: groupMessage?[indexPath.item].imagesArray)
+    }
 }
 
 

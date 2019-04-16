@@ -19,5 +19,7 @@ extension ProjectList {
 
     @NSManaged public var projectId: String?
     @NSManaged public var projectName: String?
-
+    @NSManaged public var startDate: Date?
+    @NSManaged public var endDate: Date?
+    
 }

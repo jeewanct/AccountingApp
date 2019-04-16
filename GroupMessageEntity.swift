@@ -81,7 +81,7 @@ class GroupDetailEntity: Codable{
     var seenBy: String?
     var startConversation: String?
     var isEditButtonEnable: Bool = true
-    
+    var taggedPerson: String?
 }
 
 
@@ -154,3 +154,20 @@ class UserMessageDeleteEntity: Codable{
     }
 }
 
+
+// Group Seen
+
+class GroupMessageSeen: Codable{
+    var SubGroupId: String?
+    var CommentId: String?
+    var CommentType = "0"
+    var UserId : String?
+    var ProjectId: String?
+    
+    init(subGroupId: String?, commentId: String?) {
+        let (userId, _) = CredentialsCheck.usersIdAndHisCompanyId()
+        self.UserId = userId
+        SubGroupId = subGroupId
+        CommentId = commentId
+    }
+}

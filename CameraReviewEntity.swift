@@ -28,10 +28,14 @@ class CameraInvoiceEntity: Codable{
 class CameraProjectUIEntity{
     var name: String?
     var projectId: String?
+    var startDate: Date?
+    var endDate: Date?
     
-    init(projectName: String?, id: String?) {
+    init(projectName: String?, id: String?, startDate: Date?, endDate: Date?) {
         name = projectName
         projectId = id
+        self.startDate = startDate
+        self.endDate = endDate
     }
 
 }

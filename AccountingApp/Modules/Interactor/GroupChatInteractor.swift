@@ -45,13 +45,8 @@ class GroupChatInteractor: PresentorToInterectorProtocol, APIRequest, APIMultipa
         
         if let converstation = body as? CreateConversationEntity{
             method = RequestType.POST
-            if converstation.type == ConversationType.create.rawValue{
-                url  = GlobalConstants.base + GroupsControllerApi.createGroupMessage
-            }else{
-                url = GlobalConstants.base + GroupsControllerApi.updateConversation
-            }
             
-            let conversationParameter = [
+            var conversationParameter = [
                 "UserId" : converstation.userId ?? "",
                 "Comment" : converstation.comment ?? "",
                 "CompanyId" : converstation.companyId ?? "",
@@ -59,22 +54,55 @@ class GroupChatInteractor: PresentorToInterectorProtocol, APIRequest, APIMultipa
                 "ParentCommentId" : converstation.parentCommentId ?? "",
                 "CommentType" :  "1"
             ]
+            if let commentId = converstation.commentId{
+                conversationParameter.updateValue((converstation.commentId ?? ""), forKey: "CommentId")
+            }
+            if converstation.type == ConversationType.create.rawValue{
+                url  = GlobalConstants.base + GroupsControllerApi.createGroupMessage
+            }else{
+                url = GlobalConstants.base + GroupsControllerApi.updateConversation
+                
+            }
+            
+            
             
             if let imageData = converstation.imageData{
                 
-                var multiImagesArray = [ MultipartImageInfoEntity]()
+                var multiImagesArray = [MultipartImageInfoEntity]()
                 
                 for image in imageData{
                     multiImagesArray.append(MultipartImageInfoEntity(imageData: image, withName: "file"))
                 }
+                
                 multiFormData = MultipartEntity(parameters: conversationParameter, imageData: multiImagesArray)
                 
             }else{
                 multiFormData = MultipartEntity(parameters: conversationParameter, imageData: nil)
             }
-            
             callCreateConversationServer()
+        }
+        
+        if let deleteData = body as? GroupChatDelete{
             
+            method = RequestType.POST
+            path = GroupsControllerApi.deleteConversation
+            parameters = try? JSONEncoder().encode(deleteData.self)
+            deleteChat()
+        }
+        
+    }
+    
+    func deleteChat(){
+        let createProject:  Observable<CreateProjectResponseEntity> = Network.get(apiRequest: self)
+        
+        createProject.subscribe(onNext: { (response) in
+            self.error = (response.message,response.error)
+        }, onError: { (error) in
+            self.presenter?.dataFetchedFailed(error: error.localizedDescription)
+        }, onCompleted: {
+            self.presenter?.dataFetched(news: self.error)
+            self.error = (nil, nil)
+        }) {
             
         }
         
@@ -95,14 +123,21 @@ class GroupChatInteractor: PresentorToInterectorProtocol, APIRequest, APIMultipa
         }
         
     }
-    
-    
+
     func makeGroupList(){
         
         guard let unwrappedGroupMessage = groupMessage else {
             return
         }
         
+        unwrappedGroupMessage.data?.sort(by: { (value1, value2) -> Bool in
+            if let firstCreatedDate = value1.CreatedTime, let secondCreatedDate = value2.CreatedTime{
+                if firstCreatedDate < secondCreatedDate{
+                    return true
+                }
+            }
+            return false
+        })
         let uiGroupMessageList = GroupResponseEntity()
         
        // uiGroupMessageList.type = type
@@ -120,8 +155,11 @@ class GroupChatInteractor: PresentorToInterectorProtocol, APIRequest, APIMultipa
                 
                 messageDetail.commentDate = Helper.timeAgoSinceDate(Helper.convertStringToDate(date: message.CreatedTime), currentDate: Date(), numericDates: false)
                 
+                if let commentId = message.CommentId{
+                    messageDetail.commentId = String(commentId)
+                }
                 messageDetail.comment = message.Comment
-                
+                messageDetail.taggedPerson = message.TaggedUser
                 messageDetail.userProfile = message.UserProfile?.ImageUrl
                 
                 if let userId = message.UserProfile?.UserId{

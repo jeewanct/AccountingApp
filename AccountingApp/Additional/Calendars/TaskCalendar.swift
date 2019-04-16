@@ -40,12 +40,18 @@ class TaskCalendar: UIViewController{
         // cv.scrollingMode = .stopAtEachSection
         //cv.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 5)
         taskCalendar.showsHorizontalScrollIndicator = false
+        taskCalendar.layoutIfNeeded()
+        taskCalendar.cellSize = taskCalendar.frame.width / 7
+        taskCalendar.showsHorizontalScrollIndicator = false
         
-        
-        if let getStartDate = projectStartingDate{
-            
-            taskCalendar.selectDates([getStartDate])
+        if let getStartDate = startDate{
+          //  taskCalendar.selectDates([getDate])
         }
+        if let getDate = startDate{
+              taskCalendar.scrollToHeaderForDate(getDate)
+            taskCalendar.selectDates([getDate])
+        }
+       
         
     }
     
@@ -55,7 +61,7 @@ class TaskCalendar: UIViewController{
         
     }
     @IBAction func handleSubmit(_ sender: Any) {
-        if let _  = projectStartingDate {
+     
             
             if let startingDate = startDate{
                 
@@ -65,21 +71,14 @@ class TaskCalendar: UIViewController{
                 //dateFormatter.locale = Locale(identifier: "en_US_POSIX")
                 dateFormatter.timeZone =  TimeZone(abbreviation: "GMT")  //[NSTimeZone timeZoneWithName:@"GMT"];
                 dateFormatter.dateFormat = "dd/MM/yyyy"
-                
-                
                 let toDate = dateFormatter.date(from: startDating)
-                
-                
-                
-                
                 delegate?.setCalendarDates(startDate: toDate, endDate: nil)
-                
                 handleClose((Any).self)
             }
             
-            
-            
-        }
+ 
+        
+         handleClose((Any).self)
     }
     
     

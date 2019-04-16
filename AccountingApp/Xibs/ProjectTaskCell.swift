@@ -12,23 +12,27 @@ class ProjectTaskCell: UITableViewCell{
     
     @IBOutlet weak var taskName: UILabel!
     @IBOutlet weak var taskDescription: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var task: ProjectTaskEntity?
+    var task: ProjectTaskEntity?{
+        didSet{
+            setup()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        activityIndicator.isHidden = true
     }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        setup()
-        
+       // setup()
     }
+    
     func setup(){
         taskName.text = task?.taskAndHours
         taskDescription.text = task?.taskDescription
+        activityIndicator.isHidden = true
     }
-    
-    
 }

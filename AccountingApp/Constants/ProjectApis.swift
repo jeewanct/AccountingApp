@@ -7,10 +7,6 @@
 //
 
 import Foundation
-
-
-
-
 struct ProjectApis{
     
     let (userId, companyId) = UserHelper.companyID()
@@ -27,6 +23,8 @@ struct ProjectApis{
     static let viewAllProject = "/api/ProjectManagement/SearchProject"
     static let deleteTask = "/api/ProjectManagement/DeleteTask"
     static let projectById = "/api/ProjectManagement/GetProjectById"
+    static let addTaskUrl = "/api/ProjectManagement/AddNewTask"
+    static let updateTask = "/api/ProjectManagement/UpdateTask"
     
 }
 
@@ -34,4 +32,13 @@ enum ProjectEnum: String{
     
     case Tasktitle = "Task"
     case createProjectTitle = "Create Project"
+    case editProjectTitle = "Edit Project"
+    case okAction = "Ok"
+    case cancelAction = "Cancel"
+    
+}
+
+enum ProjectAlerts: String{
+    case delete = "You are deleting task "
+    
 }

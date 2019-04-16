@@ -205,8 +205,6 @@ class Helper{
             fullName = fullName + last
         }
         
-        
-        
         return  fullName
     }
     
@@ -215,20 +213,66 @@ class Helper{
         var finalKey = ""
         
         for (key, _) in list{
-            
             if let keyValue = key{
                 finalKey.append(keyValue)
                 finalKey.append(",")
             }
-            
-            
         }
-       
-  
         return String(finalKey.dropLast())
     }
     
+    class func createAssigneeList(list: [ProjectAssigneeEntity]) -> (String, String){
+        var titleString = ""
+        var serverString = ""
+        
+        for assignee in list{
+            if let assigneeName = assignee.name{
+                titleString.append(assigneeName)
+                titleString.append(",")
+            }
+            
+            if let assigneeId = assignee.id{
+                serverString.append(assigneeId)
+                serverString.append(",")
+            }
+        }
+        
+        return (String(titleString.dropLast()), String(serverString.dropLast()))
+        
+    }
+    
+    
+    class func getEmployeeIdFromString(assignIds: [ProjectAssigneeEntity] ,assignId: String?) -> [ProjectAssigneeEntity]? {
+        guard let complexAssignId = assignId else {
+            return nil
+        }
+        var assignArray = [ProjectAssigneeEntity]()
+        for id in assignIds{
+            if let getId = id.id{
+                if complexAssignId.contains(getId){
+                    assignArray.append(id)
+                }
+            }
+        }
+        return assignArray
+    }
 
+    
+    class func getStartAndEndDate(projectEntity: PojectEntity, projectId: String?) -> (Date?, Date?, String?){
+        
+        if let unwrappedProjects = projectEntity.projectList{
+            
+            for project in unwrappedProjects{
+                if projectId == project.projectId{
+                    return (project.serverStartDate, project.serverEndDate, project.projectName)
+                }
+                
+            }
+        }
+        return (nil, nil, nil)
+    }
+    
+    
     class func timeAgoSinceDate(_ date:Date,currentDate:Date, numericDates:Bool) -> String {
         let calendar = Calendar.current
         let now = currentDate

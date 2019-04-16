@@ -81,9 +81,25 @@ extension String{
             "client" : "iOS",
             "userId" : userId
         ]
-        
-        
         return header
+    }
+    
+    func mulitpartHeader() -> [String: String]{
+        
+        guard let token = UserDefaults.standard.value(forKey: KeysEnum.token.rawValue) as? String else{
+            let header = [
+                "Content-Type":"application/json",
+                "client" : "iOS"
+            ]
+            return header
+        }
+          let (userId, _) = UserHelper.companyID()
+        return [
+            "Content-Type":"multipart/form-data",
+            "token": token,
+            "client" : "iOS",
+            "userId" : userId
+        ]
     }
 }
 
@@ -133,11 +149,10 @@ extension UIImageView{
             return
         }
         if let imageUrl = URL(string: GlobalConstants.base + image){
-            self.pin_setImage(from: imageUrl)
+            self.pin_setImage(from: imageUrl, placeholderImage: #imageLiteral(resourceName: "profilePlaceholder"))
         }else{
             self.image = #imageLiteral(resourceName: "profilePlaceholder")
         }
-        
     }
 }
 

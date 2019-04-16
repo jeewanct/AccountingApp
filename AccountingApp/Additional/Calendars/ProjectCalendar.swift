@@ -23,7 +23,6 @@ class ProjectCalendar: UIViewController{
     
     @IBOutlet weak var taskCalendar: JTAppleCalendarView!
     @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var movingView: UIView!
     @IBOutlet weak var leftAnchor: NSLayoutConstraint!
     
@@ -37,29 +36,21 @@ class ProjectCalendar: UIViewController{
     }
     
     
-    
     func setCalendarView(){
-        
-        // taskCalendar.cellSize = 200
-        //taskCalendar.cellSize = 100
         
         taskCalendar.calendarDataSource = self
         taskCalendar.calendarDelegate = self
-        
-        
-        
+        taskCalendar.allowsMultipleSelection = false
         taskCalendar.scrollDirection = .horizontal
         //taskCalendar.isPagingEnabled = true
         taskCalendar.backgroundColor = .white
         //taskCalendar.isUserInteractionEnabled = true
         taskCalendar.register(CalendarViewCell.self, forCellWithReuseIdentifier: "CalendarViewCell")
         taskCalendar.register(CalendarViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CalendarViewHeader")
-        
         taskCalendar.layoutIfNeeded()
         taskCalendar.cellSize = taskCalendar.frame.width / 7
         taskCalendar.showsHorizontalScrollIndicator = false
-        
-        
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,12 +63,14 @@ class ProjectCalendar: UIViewController{
     
     
     @IBAction func handleStart(_ sender: Any) {
-        
+
         animateView(constant: false)
         selectedDate = DefaultSelectedDate.STARTDATE
-        taskCalendar.deselectAllDates()
-        taskCalendar.scrollToHeaderForDate(startDate)
+        //taskCalendar.deselectAllDates()
+        taskCalendar.deselect(dates: [endDate])
         taskCalendar.selectDates([startDate])
+        taskCalendar.scrollToHeaderForDate(startDate)
+        
         
         
     }
@@ -88,8 +81,10 @@ class ProjectCalendar: UIViewController{
         animateView(constant: true)
         selectedDate = DefaultSelectedDate.ENDDATE
         taskCalendar.deselectAllDates()
-        taskCalendar.scrollToHeaderForDate(endDate)
+        taskCalendar.deselect(dates: [startDate])
         taskCalendar.selectDates([endDate])
+        taskCalendar.scrollToHeaderForDate(endDate)
+        
         
         
     }
@@ -118,29 +113,19 @@ class ProjectCalendar: UIViewController{
         
         if endDate < startDate{
             self.showAlert(message: AlertMessage.startDateIsGreaterThanendDate.rawValue)
-            
-            
         }else{
             let startDating = Helper.convertDateToServerFormat(date: startDate)
-            
             let endDating = Helper.convertDateToServerFormat(date: endDate)
-            
             let dateFormatter = DateFormatter()
             //dateFormatter.locale = Locale(identifier: "en_US_POSIX")
             dateFormatter.timeZone =  TimeZone(abbreviation: "GMT")  //[NSTimeZone timeZoneWithName:@"GMT"];
             dateFormatter.dateFormat = "dd/MM/yyyy"
-            
-            
             let toDate = dateFormatter.date(from: startDating)
-            
             let fromDate = dateFormatter.date(from: endDating)
-            
-            
             delegate?.setCalendarDates(startDate: toDate, endDate: fromDate)
-            
-            handleClose((Any).self)
+           
         }
-        
+         handleClose("")
         
     }
     

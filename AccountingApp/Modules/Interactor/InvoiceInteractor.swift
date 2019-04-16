@@ -33,8 +33,7 @@ class InvoiceInteractor: PresentorToInterectorProtocol, APIRequest{
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
             context = appDelegate
         }
-        
-        
+
     }
     
     var presenter: InterectorToPresenterProtocol?
@@ -57,7 +56,6 @@ class InvoiceInteractor: PresentorToInterectorProtocol, APIRequest{
                     }else{
                         self.errorMessage = message
                     }
-                    
                 }
             }else{
                 self.invoiceData = response.data
@@ -85,32 +83,17 @@ class InvoiceInteractor: PresentorToInterectorProtocol, APIRequest{
     
     
     func removeInvoices(){
-        
-        
-    
+
         if let invoices = invoiceData{
             
-            InvoiceDatabase.saveInvoices(invoices: invoices, context: context)
-            
-           // DispatchQueue.main.async {
-                if let invoices = InvoiceDatabase.getInvoicesFromDatabase(appDelegate: context){
-                    self.presenter?.dataFetched(news: invoices)
-                }else{
-                    self.presenter?.dataFetchedFailed(error: AlertMessage.fetchError.rawValue)
-                }
+            if let invoices = InvoiceDatabase.saveInvoices(invoices: invoices, context: context){
+                self.presenter?.dataFetched(news: invoices)
                 
-               
-           // }
+            }else{
+                self.presenter?.dataFetchedFailed(error: AlertMessage.fetchError.rawValue)
+            }
             
-            
-//            if let invoiceEntity =  InvoiceDatabase.saveInvoices(invoices: invoices){
-//
-//                self.presenter?.dataFetched(news: invoiceEntity)
-//            }else{
-//                presenter?.dataFetchedFailed(error: AlertMessage.fetchError.rawValue)
-//            }
-            
-            
+
         }else{
             presenter?.dataFetchedFailed(error: AlertMessage.fetchError.rawValue)
         }

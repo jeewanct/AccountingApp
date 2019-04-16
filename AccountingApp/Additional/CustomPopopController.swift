@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProjectSelectedDelegate: class{
-    func didSelectedProject(withName name: String?, andProjectId is: String?)
+    func didSelectedProject(withName name: String?, andProjectId projectId: String? ,startDate: Date?, endDate: Date?)
 }
 
 
@@ -21,6 +21,12 @@ class CustomPopUpController: UIViewController{
     @IBOutlet var toolBarView: UIToolbar!
     
     var projectList: [CameraProjectUIEntity]?
+    {
+        didSet{
+            searchProjectList = projectList
+        }
+    }
+    var searchProjectList: [CameraProjectUIEntity]?
     weak var delegate: ProjectSelectedDelegate?
     
     override func viewDidLoad() {
@@ -71,16 +77,16 @@ extension CustomPopUpController: UITableViewDataSource, UITableViewDelegate{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return projectList?.count ?? 0
+        return searchProjectList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.main.bounds.height * 0.06
+        return UIScreen.main.bounds.height * 0.07
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
         cell.rightImageView.isHidden = true
-        cell.subGroupName.text = projectList?[indexPath.item].name
+        cell.subGroupName.text = searchProjectList?[indexPath.item].name
         return cell
     }
     
@@ -89,12 +95,24 @@ extension CustomPopUpController: UITableViewDataSource, UITableViewDelegate{
 extension CustomPopUpController{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didSelectedProject(withName: projectList?[indexPath.item].name, andProjectId: projectList?[indexPath.item].projectId)
+        delegate?.didSelectedProject(withName: projectList?[indexPath.item].name, andProjectId: searchProjectList?[indexPath.item].projectId, startDate: searchProjectList?[indexPath.item].startDate, endDate: searchProjectList?[indexPath.item].endDate)
         handleClose("")
     }
 }
 
 
 extension CustomPopUpController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        searchProjectList = searchText.isEmpty ? projectList : projectList?.filter({ (hotel) -> Bool in
+            return hotel.name?.range(of: searchText, options: .caseInsensitive) != nil
+        })
+        
+        tableView.reloadData()
+        
+    }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }

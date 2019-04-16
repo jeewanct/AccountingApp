@@ -163,8 +163,6 @@ extension CameraReviewController: UICollectionViewDelegate{
          
         }
         
-        
-        
     }
 }
 
@@ -175,8 +173,11 @@ extension CameraReviewController: ProjectSelectedDelegate{
     }
     
     
-    func didSelectedProject(withName name: String?, andProjectId is: String?) {
+    func didSelectedProject(withName name: String?, andProjectId projectId: String?, startDate: Date?, endDate: Date?) {
         selectProject.selectButton.setTitle(name, for: .normal)
+        if let getProjectId = projectId, let intProjectId = Int(getProjectId){
+            selectProject.tag = intProjectId
+        }
     }
     
     
@@ -195,7 +196,6 @@ extension CameraReviewController: ProjectSelectedDelegate{
             
         }
     
-        
     }
     
     func getInformationOfBills(){
@@ -214,11 +214,25 @@ extension CameraReviewController: ProjectSelectedDelegate{
         
     }
     
-    func goToserverUpload(){
-        let uploadController = UploadInvoiceRoute.createModule()
+    func goToserverUpload(data: [MultiAiModel]){
+        
+        let uploadController = UploadInvoiceRoute.createModule() as! UploadInvoiceController
+        let aiData = UploadAiModel(aiData: data)
+        
+        var imagesArray = [Data]()
+        if let getImagesData = images{
+            for image in getImagesData{
+                imagesArray.append(image.imageData)
+            }
+        }
+        aiData.data = imagesArray
+        uploadController.invoice  = aiData
+        
+        let uploadInvoice = UploadInvoiceEntity(projectId: String(selectProject.selectButton.tag), billTitle: titleForBill.inputTextField.text, image: imagesArray)
+        uploadController.uploadInvoice = uploadInvoice
         navigationController?.pushViewController(uploadController, animated: true)
+        
     }
-
 }
 
 extension CameraReviewController: PresenterToViewProtocol{
@@ -230,9 +244,8 @@ extension CameraReviewController: PresenterToViewProtocol{
         if let list = news as? [CameraProjectUIEntity]{
             self.projectList = list
         }
-        
         if let imageData = news as? [MultiAiModel] {
-            goToserverUpload()
+            goToserverUpload(data: imageData)
         }
     }
     

@@ -24,13 +24,8 @@ class TaskRoute: PresenterToRouterProtocol{
         interactor.presenter = presenter
         
         return view!
-        
-        //}
-        
-        //return UIViewController()
+     
     }
-    
-    
     
 }
 

@@ -9,9 +9,9 @@
 import UIKit
 import ReusableFramework
 
-enum CreateProjectTypeEnum{
-    case create
-    case edit
+enum CreateProjectTypeEnum: String{
+    case create = "create"
+    case edit = "edit"
 }
 
 class CreateProjectController: UIViewController{
@@ -24,12 +24,10 @@ class CreateProjectController: UIViewController{
     @IBOutlet weak var budgetPrice: UITextField!
     @IBOutlet weak var createProject: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegates()
-        navigationItem.title = ProjectEnum.createProjectTitle.rawValue
-        
+        updateTitles()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,21 +55,29 @@ class CreateProjectController: UIViewController{
     }
     
     @IBAction func handleAssignee(_ sender: Any) {
-        let assigneeController = InvoiceRoute.mainstoryboard.instantiateViewController(withIdentifier: "ProjectAssigneView")
+        view.endEditing(true)
+        let assigneeController = InvoiceRoute.mainstoryboard.instantiateViewController(withIdentifier: "ProjectAssigneView") as! ProjectAssigneView
         assigneeController.modalTransitionStyle = .crossDissolve
         assigneeController.modalPresentationStyle = .overCurrentContext
+        assigneeController.parentInstance = self
+        if let assignees = selectedAssignee{
+            assigneeController.selectedAssigneList = assignees
+        }
         present(assigneeController, animated: true, completion: nil)
     }
     
     @IBAction func handleCreateProject(_ sender: Any) {
-        
         checkForEmptyFields()
-        
     }
     
     var screenType: CreateProjectTypeEnum!
     var createProjectEntity: CreateProjectEntity!
     var presenter: ViewToPresenterProtocol?
+    var selectedAssignee: [ProjectAssigneeEntity]?{
+        didSet{
+            setupAssignees()
+        }
+    }
     
 }
 
@@ -84,7 +90,7 @@ extension CreateProjectController: UITextFieldDelegate{
         projectNameText.inputAccessoryView = keyboardToolbar
         budgetPrice.inputAccessoryView = keyboardToolbar
         
-        if screenType == CreateProjectTypeEnum.edit{
+        if createProjectEntity.type == CreateProjectTypeEnum.edit.rawValue{
             prefillFields()
         }
         
@@ -121,7 +127,7 @@ extension CreateProjectController: CalendarDatesDelegate{
     
     
      func openCalendar(){
-    
+    view.endEditing(true)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ProjectCalendar") as! ProjectCalendar
         vc.modalTransitionStyle = .flipHorizontal
@@ -136,13 +142,35 @@ extension CreateProjectController: CalendarDatesDelegate{
 extension CreateProjectController{
     
     func  prefillFields(){
-        
+        projectNameText.text = createProjectEntity.ProjectName
+        budgetPrice.text = createProjectEntity.ProjectBudGet
+        assigneButton.setTitle(createProjectEntity.ProjectAssignTo, for: .normal)
+        setCalendarDates(startDate: createProjectEntity.serverStartDate, endDate: createProjectEntity.serverEndDate)
+        updateTitles()
     }
     
+    func updateTitles(){
+        if createProjectEntity.type == CreateProjectTypeEnum.edit.rawValue{
+            navigationItem.title = ProjectEnum.editProjectTitle.rawValue
+            createProject.setTitle(ProjectEnum.editProjectTitle.rawValue, for: .normal)
+        }else{
+            navigationItem.title = ProjectEnum.createProjectTitle.rawValue
+            createProject.setTitle(ProjectEnum.createProjectTitle.rawValue, for: .normal)
+        }
+    }
+    
+    func setupAssignees(){
+        if let assigneeList = selectedAssignee{
+             let (assigneeTitle, assigneeServer) = Helper.createAssigneeList(list: assigneeList)
+            assigneButton.setTitle(assigneeTitle, for: .normal)
+            createProjectEntity.ProjectAssignTo = assigneeServer
+        }
+      
+    }
     
     func checkForEmptyFields()  {
         
-        if createProjectEntity?.ProjectName == nil{
+        if projectNameText.text == ""{
             self.showAlert(message: CreateProjectAlerts.projectName.rawValue)
         }else if createProjectEntity?.StartDate == CreateProjectContants.startDate.rawValue{
             self.showAlert(message: CreateProjectAlerts.startDate.rawValue)
@@ -150,7 +178,7 @@ extension CreateProjectController{
             self.showAlert(message: CreateProjectAlerts.endDate.rawValue)
         }else if  createProjectEntity?.ProjectAssignTo == CreateProjectAlerts.assignee.rawValue{
             self.showAlert(message: CreateProjectAlerts.assignee.rawValue)
-        }else if createProjectEntity?.ProjectBudGet == nil{
+        }else if budgetPrice.text == ""{
             self.showAlert(message: CreateProjectAlerts.budget.rawValue)
         }else{
             if Reachability.isConnectedToNetwork(){
@@ -165,6 +193,8 @@ extension CreateProjectController{
     
     func handleRetry(){
         
+        createProjectEntity.ProjectName = projectNameText.text
+        createProjectEntity.ProjectBudGet = budgetPrice.text
         if Reachability.isConnectedToNetwork(){
             showIndicator()
             presenter?.updateView(body: createProjectEntity)
@@ -174,11 +204,20 @@ extension CreateProjectController{
     
     func showIndicator(){
         self.view.isUserInteractionEnabled = false
+        
+        
+        
          createProject.showActvityIndicator()
     }
     func hideIndicator(){
         self.view.isUserInteractionEnabled = true
-        createProject.hideActivityIndicator(title: CreateProjectContants.createProject.rawValue)
+        
+        if createProjectEntity.type == CreateProjectTypeEnum.edit.rawValue{
+            createProject.hideActivityIndicator(title: CreateProjectContants.editProject.rawValue)
+        }else{
+            createProject.hideActivityIndicator(title: CreateProjectContants.createProject.rawValue)
+        }
+        
     }
     
 }
@@ -193,16 +232,30 @@ extension CreateProjectController: PresenterToViewProtocol{
     func showContent<T>(news: T) {
         hideIndicator()
         assigneButton.hideButtonIndicator(title: CreateProjectContants.assigne.rawValue)
+        
+        
         if let message  = news as?  (String?, Bool?){
             if message.1 == true{
                 self.showAlert(message: message.0!)
             }else{
-                self.navigationController?.popViewController(animated: true)
+                
+                let alertController = UIAlertController(title: "", message: message.0 ?? "", preferredStyle: .actionSheet)
+                let okAction = UIAlertAction(title: CreateProjectContants.okAction.rawValue, style: .default) { (action) in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                alertController.addAction(okAction)
+                present(alertController, animated: true, completion: nil)
+                
             }
         }
         
-        if let _ = news as? [ProjectAssigneeEntity]{
-            
+        if let list = news as? [ProjectAssigneeEntity]{
+            if createProjectEntity.type == CreateProjectTypeEnum.edit.rawValue{
+                if let assigneeList =  Helper.getEmployeeIdFromString(assignIds: list, assignId: createProjectEntity.ProjectAssignTo){
+                    selectedAssignee = assigneeList
+                }
+            }
+           
         }
         
     }

@@ -19,12 +19,14 @@ class ProjectAssigneView: UIViewController{
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet var keyboardToolbar: UIToolbar!
     
+    weak var parentInstance: CreateProjectController!
     var assigneeList: [ProjectAssigneeEntity]?{
         didSet{
             searchAssigneeList = assigneeList
         }
     }
     var searchAssigneeList: [ProjectAssigneeEntity]?
+    var selectedAssigneList: [ProjectAssigneeEntity]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,13 @@ class ProjectAssigneView: UIViewController{
     @IBAction func handleSubmit(sender: Any){
         if let indexPaths = tableView.indexPathsForSelectedRows{
             
+            var assignees = [ProjectAssigneeEntity]()
+            for index in indexPaths{
+                assignees.append(searchAssigneeList?[index.item] ?? ProjectAssigneeEntity())
+            }
+            parentInstance.selectedAssignee = assignees
         }
+        
         handleClose(sender: "")
     }
     
@@ -59,6 +67,24 @@ extension ProjectAssigneView: UITableViewDelegate, UITableViewDataSource{
         searchBar.inputAccessoryView = keyboardToolbar
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleClose(sender:)))
         dismissView.addGestureRecognizer(tapGesture)
+        
+        if let listOfAssignees = selectedAssigneList, let finalList = searchAssigneeList{
+            var indexPaths = [IndexPath]()
+            
+            for index in 0..<listOfAssignees.count{
+                
+                for index1 in 0..<finalList.count{
+                    if listOfAssignees[index].id == finalList[index1].id{
+                        tableView.deselectRow(at: IndexPath(item: index, section: 1), animated: false)
+                        tableView.selectRow(at: IndexPath(item: index1, section: 1), animated: false, scrollPosition: .none)
+                        self.tableView(tableView, didSelectRowAt: IndexPath(item: index1, section: 1))
+                    }
+                }
+            }
+            
+            
+        }
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -111,10 +137,6 @@ extension ProjectAssigneView{
             }
         default:
             print("")
-            
-//            tableView.deselectRow(at: IndexPath(item: 0, section: 0), animated: true)
-     //       self.tableView.deselectRow(at: IndexPath(item: 0, section: 0), animated: true)
-           // tableView(self.tableView, didSelectRowAt: IndexPath(item: 0, section: 0))
         }
     }
     
@@ -131,8 +153,6 @@ extension ProjectAssigneView{
             }
         default:
             print("")
-//            tableView.deselectRow(at: IndexPath(item: 0, section: 0), animated: false)
-//             self.tableView(tableView, didDeselectRowAt: IndexPath(item: 0, section: 0))
         }
     }
     

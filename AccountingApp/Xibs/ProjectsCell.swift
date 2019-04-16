@@ -13,16 +13,17 @@ class ProjectsCell: UITableViewCell{
     
     @IBOutlet weak var collectionView: UICollectionView!
     weak var projectInstance: ProjectsController?
-    
     var projects: [ProjectsEntity]?{
         didSet{
             collectionView.reloadData()
         }
     }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
+    }
+    @IBAction func editProject(_ sender: Any) {
+        
     }
     
 }
@@ -44,12 +45,16 @@ extension ProjectsCell: UICollectionViewDelegate, UICollectionViewDataSource{
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if (projects?.count ?? 0) > 5{
+            return 5
+        }
         return projects?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectDetailCell", for: indexPath) as! ProjectDetailCell
         cell.project = projects?[indexPath.item]
+        cell.parentInstance = projectInstance
         return cell
     }
     
@@ -79,9 +84,7 @@ extension ProjectsCell{
             //print(ip.row)
             
             projectInstance?.projectEntity.currentDisplayDate = projects?[ip.row].dates
-            
             if let taskDates = projects?[ip.row].dates{
-                
                 projectInstance?.notTasks.isHidden = true
                 if taskDates.count > 0 {
                     projectInstance?.projectEntity.currentDisplayTask = taskDates[0].taskList
@@ -93,7 +96,7 @@ extension ProjectsCell{
             }else{
                 projectInstance?.notTasks.isHidden = false
             }
-            
+           // projectInstance?.tableView.reloadData()
             let indexSet = IndexSet(arrayLiteral: 1,2)
             projectInstance?.tableView.reloadSections(indexSet, with: .automatic)
             

@@ -22,6 +22,7 @@ enum GroupMessageEnum: String{
     case delete = "Delete"
     case edit = "Edit"
     case cancel = "Cancel"
+    
 }
 
 
@@ -39,4 +40,11 @@ enum CreateSubGroupEnum: String{
     case subGroupCreated = "Subgroup created."
     case ok = "Ok"
     case createSubgroup = "CREATE SUBGROUP"
+}
+
+enum CreateReplyEnum: String{
+    case replyTo = "Replying to "
+    case delete = "Delete chat"
+    case ok = "Ok"
+    case cancel = "Cancel"
 }

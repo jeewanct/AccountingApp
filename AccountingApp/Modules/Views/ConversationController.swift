@@ -216,7 +216,12 @@ extension ConversationController{
         if selectedImages.count  > 0{
             conversationEntity?.imageData = selectedImages.convertImageToData(images: selectedImages)
         }
-        conversationEntity?.comment = conversationText.text
+        
+        
+        if conversationText.text != CreateConversationEnum.startConversation.rawValue{
+             conversationEntity?.comment = conversationText.text
+        }
+       
         if let createConversation = conversationEntity{
             self.showDataIndicator()
             self.presenter?.updateView(body: createConversation)

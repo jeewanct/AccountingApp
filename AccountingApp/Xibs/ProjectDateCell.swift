@@ -19,7 +19,6 @@ class ProjectDateCell: UITableViewCell{
         didSet{
            collectionView.reloadData()
         }
-        
     }
     
     override func awakeFromNib() {
@@ -65,19 +64,21 @@ extension ProjectDateCell: UICollectionViewDelegate, UICollectionViewDataSource,
 
 extension ProjectDateCell{
     
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        projectInstance?.projectEntity.currentDisplayTask = dateList?[indexPath.item].taskList
+//        let indexSet = IndexSet(arrayLiteral: 2)
+//        // projectInstance?.tableView.reloadData()
+//        projectInstance?.tableView.reloadSections(indexSet, with: .automatic)
+//    }
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let center = CGPoint(x: targetContentOffset.pointee.x + (scrollView.frame.width / 2), y: (scrollView.frame.height / 2))
         if let ip = self.collectionView!.indexPathForItem(at: center) {
-            //self.pageControl.currentPage = ip.row
-            //print(ip.row)
-            
             projectInstance?.projectEntity.currentDisplayTask = dateList?[ip.row].taskList
-            
             let indexSet = IndexSet(arrayLiteral: 2)
+           // projectInstance?.tableView.reloadData()
             projectInstance?.tableView.reloadSections(indexSet, with: .automatic)
-            
         }
-        
+
     }
     
    

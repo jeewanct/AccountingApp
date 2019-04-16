@@ -11,14 +11,12 @@ import CoreData
 
 class InvoiceDatabase{
     
-    class func saveInvoices(invoices: [InvoiceModel], context: AppDelegate) /*-> InvoiceEntity?*/{
-        
-       
+    class func saveInvoices(invoices: [InvoiceModel], context: AppDelegate) -> InvoiceEntity?{
         ProfileDatabase.deleteData(entityName: "Invoices", context: context)
         
         for invoice in invoices{
             
-            if let invoiceEntity = NSEntityDescription.insertNewObject(forEntityName: "Invoices", into: context.persistentContainer.viewContext) as? Invoices{
+            if let invoiceEntity = NSEntityDescription.insertNewObject(forEntityName: "Invoices", into: context.updateContext) as? Invoices{
                 invoiceEntity.createdDate = Helper.convertStringToDate(date: invoice.createdDate)
                
                 invoiceEntity.date = "\(Helper.getMonthShort(date: Helper.convertStringToDate(date: invoice.createdDate))) \(Helper.getDate(date: Helper.convertStringToDate(date: invoice.createdDate)))  \(Helper.getYear(date: Helper.convertStringToDate(date: invoice.createdDate)))"
@@ -26,6 +24,7 @@ class InvoiceDatabase{
                 if let cost = invoice.totalAmount{
                     invoiceEntity.cost = "$\(cost)"
                 }
+                invoiceEntity.projectName = invoice.ProjectName
                 
                 invoiceEntity.detail = invoice.billTitle
                 
@@ -34,7 +33,7 @@ class InvoiceDatabase{
                 if let details = invoice.invoiceDetails{
                     for detail in details{
                         
-                        if let invoiceDetailsEntity = NSEntityDescription.insertNewObject(forEntityName: "InvoiceDetails", into: context.persistentContainer.viewContext) as? InvoiceDetails{
+                        if let invoiceDetailsEntity = NSEntityDescription.insertNewObject(forEntityName: "InvoiceDetails", into: context.updateContext) as? InvoiceDetails{
                             
                             if let amount = detail.total_amount {
                                 invoiceDetailsEntity.amount = String(amount)
@@ -65,7 +64,8 @@ class InvoiceDatabase{
         //DispatchQueue.main.async {
            // if let appdelegate = UIApplication.shared.delegate as? AppDelegate{
                  context.saveContext()
-                
+        
+        return getInvoicesFromDatabase(appDelegate: context)
            // }
        // }
        
@@ -76,41 +76,31 @@ class InvoiceDatabase{
     
     class func getInvoicesFromDatabase(appDelegate: AppDelegate) -> InvoiceEntity?{
         
-        
-        
-//        guard let appDelate = UIApplication.shared.delegate as? AppDelegate else{
-//            return nil
-//        }
-        
         let fetchRequest = NSFetchRequest<Invoices>(entityName: "Invoices")
         let sortedDescription = NSSortDescriptor(key: #keyPath(Invoices.date), ascending: false)
         fetchRequest.sortDescriptors = [sortedDescription]
         
         do{
-            let invoices = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
-            
-            
+            let invoices = try appDelegate.updateContext.fetch(fetchRequest)
             var pendingInvoice = [InvoiceDetailEntity]()
             var scannedInvoice = [InvoiceDetailEntity]()
-            
-            
             for invoice in invoices{
-            
                 if let _ = invoice.invoiceId{
                     
-                    pendingInvoice.append(InvoiceDetailEntity(date: invoice.date, detail: invoice.detail, cost: invoice.cost, invoiceDescription: getInvoice(invoices: invoice)))
+                    pendingInvoice.append(InvoiceDetailEntity(date: invoice.date, detail: invoice.detail, cost: invoice.cost, invoiceDescription: getInvoice(invoices: invoice), serverDate: invoice.createdDate, projectName: invoice.projectName))
                     
                 }else{
-                    scannedInvoice.append(InvoiceDetailEntity(date: invoice.date, detail: invoice.detail, cost: invoice.cost, invoiceDescription: getInvoice(invoices: invoice)))
+                    scannedInvoice.append(InvoiceDetailEntity(date: invoice.date, detail: invoice.detail, cost: invoice.cost, invoiceDescription: getInvoice(invoices: invoice), serverDate: invoice.createdDate, projectName: invoice.projectName))
                 }
             }
+            
             
             return InvoiceEntity(scanned: scannedInvoice, unscanned: pendingInvoice)
             
             
             
         }catch let err{
-            
+            print(err)
         }
         
         return nil

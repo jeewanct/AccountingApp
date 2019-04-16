@@ -60,16 +60,22 @@ class GroupMessageInteractor: PresentorToInterectorProtocol, APIRequest {
         
         if let groupDeleteMessage = body as? GroupMessageDeleteEntity{
             
+            path = GroupsControllerApi.deleteConversation
+            
             parameters = try? JSONEncoder().encode(groupDeleteMessage)
             deleteGroupMessage()
-            
         }
         
+        
+        if let seenEntity = body as? GroupMessageSeen{
+            parameters = try? JSONEncoder().encode(seenEntity)
+            setSeenBy()
+        }
     }
     
     func getChatData(type: String?){
         
-        let groupMessageData: Observable<GroupChatModel> = Network.shared.post(apiRequest: self)
+        let groupMessageData: Observable<GroupChatModel> = Network.get(apiRequest: self)
         
         groupMessageData.subscribe(onNext: { (response) in
             self.groupMessage = response
@@ -104,18 +110,15 @@ class GroupMessageInteractor: PresentorToInterectorProtocol, APIRequest {
                 let messageDetail = GroupDetailEntity()
                 
                 messageDetail.userName = Helper.getFullName(firstName: message.UserProfile?.FirstName, lastName: message.UserProfile?.LastName)
-             
                 messageDetail.commentDate = Helper.timeAgoSinceDate(Helper.convertStringToDate(date: message.CreatedTime), currentDate: Date(), numericDates: false)
-                
                 messageDetail.comment = message.Comment
-                
                
                 if let userId = message.UserProfile?.UserId{
                     let (loginUserId, _)  = UserHelper.companyID()
                     if loginUserId == String(userId){
-                        messageDetail.isEditButtonEnable = true
-                    }else{
                         messageDetail.isEditButtonEnable = false
+                    }else{
+                        messageDetail.isEditButtonEnable = true
                     }
                 }
                 
@@ -198,7 +201,7 @@ class GroupMessageInteractor: PresentorToInterectorProtocol, APIRequest {
     
     func deleteGroupMessage(){
         method = RequestType.POST
-        
+       
         let deleteMessage: Observable<CreateSubGroupResponse> = Network.get(apiRequest: self)
         
         deleteMessage.subscribe(onNext: { (response) in
@@ -209,8 +212,23 @@ class GroupMessageInteractor: PresentorToInterectorProtocol, APIRequest {
             self.presenter?.dataFetched(news: self.error)
             self.error = nil
         }) {
+        }
+    }
+    
+    func setSeenBy(){
+        method = .POST
+        path = GroupsControllerApi.setSeenBy
+          let seenBy: Observable<CreateSubGroupResponse> = Network.get(apiRequest: self)
+        seenBy.subscribe(onNext: { (response) in
+            print(response)
+        }, onError: { (error) in
+         print(error)
+        }, onCompleted: {
+            
+        }) {
             
         }
+        
     }
     
     

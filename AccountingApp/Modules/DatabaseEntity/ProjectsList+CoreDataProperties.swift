@@ -22,13 +22,15 @@ extension ProjectsList {
     @NSManaged public var endDate: String?
     @NSManaged public var serverStartDate: String?
     @NSManaged public var serverEndDate: String?
-    @NSManaged public var sortingStartDate: NSDate?
-    @NSManaged public var sortingEndDate: NSDate?
+    @NSManaged public var sortingStartDate: Date?
+    @NSManaged public var sortingEndDate: Date?
     @NSManaged public var canEditProject: Bool
     @NSManaged public var createdBy: String?
     @NSManaged public var projectDatesList: NSSet?
     @NSManaged public var projectId: String?
     @NSManaged public var noTaskShown: Bool
+    @NSManaged public var assigneeName: String?
+    @NSManaged public var projectBudget: String?
 }
 
 // MARK: Generated accessors for projectDatesList

@@ -105,6 +105,7 @@
 		DB608E5921F79B1600E7F963 /* ProjectTasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB608E5121F79B1600E7F963 /* ProjectTasks+CoreDataProperties.swift */; };
 		DB639A1D21E0C086009F7C94 /* Pods_AccountingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF384BA81FF0E2EED436F83 /* Pods_AccountingApp.framework */; };
 		DB6475A12215B1AD0064B052 /* CreateConversationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6475A02215B1AD0064B052 /* CreateConversationEntity.swift */; };
+		DB653899223EA39D00D3D40C /* UploadINvoiceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB653898223EA39D00D3D40C /* UploadINvoiceEntity.swift */; };
 		DB65563321EE5D5B00DD8910 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB65563221EE5D5B00DD8910 /* ConversationView.swift */; };
 		DB65563521EE5DBD00DD8910 /* ConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB65563421EE5DBD00DD8910 /* ConversationController.swift */; };
 		DB65563721EE5F0700DD8910 /* ConversationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB65563621EE5F0700DD8910 /* ConversationPresenter.swift */; };
@@ -123,6 +124,11 @@
 		DB7BFF2921CD236D00C10B8E /* ProjectTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2821CD236D00C10B8E /* ProjectTaskCell.swift */; };
 		DB7BFF2B21CD272500C10B8E /* ProjectDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2A21CD272500C10B8E /* ProjectDetailCell.swift */; };
 		DB7BFF2D21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BFF2C21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift */; };
+		DB7F6ACD2266309B000236F4 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB7F6ACC2266309B000236F4 /* Notification.storyboard */; };
+		DB7F6AD02266315C000236F4 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F6ACE22663157000236F4 /* NotificationCell.swift */; };
+		DB7F6AD12266315C000236F4 /* NotificationDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F6ACF2266315B000236F4 /* NotificationDetailsCell.swift */; };
+		DB7F6AD42266317C000236F4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F6AD222663174000236F4 /* NotificationController.swift */; };
+		DB7F6AD52266317C000236F4 /* NotificationControllerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F6AD32266317B000236F4 /* NotificationControllerDetails.swift */; };
 		DB8513C2220F170C004041F0 /* ProjectAssigneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8513C1220F170C004041F0 /* ProjectAssigneView.swift */; };
 		DB8513C5220F1AC1004041F0 /* ProjectAssignees+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8513C3220F1AC1004041F0 /* ProjectAssignees+CoreDataClass.swift */; };
 		DB8513C6220F1AC1004041F0 /* ProjectAssignees+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8513C4220F1AC1004041F0 /* ProjectAssignees+CoreDataProperties.swift */; };
@@ -154,6 +160,7 @@
 		DB861A8421F312EC00083D35 /* TaskPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB861A8321F312EC00083D35 /* TaskPresenter.swift */; };
 		DB861A8621F312FD00083D35 /* TaskInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB861A8521F312FD00083D35 /* TaskInteractor.swift */; };
 		DB861A8821F3130C00083D35 /* TaskRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB861A8721F3130C00083D35 /* TaskRoute.swift */; };
+		DB9260B32233FAB000D44C81 /* SeenByEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9260B22233FAB000D44C81 /* SeenByEntity.swift */; };
 		DB976FE421E6D47A00A7E312 /* ImagePreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FE321E6D47A00A7E312 /* ImagePreviewController.swift */; };
 		DB976FE621E6D4DA00A7E312 /* ImagePreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976FE521E6D4DA00A7E312 /* ImagePreviewCell.swift */; };
 		DB976FE821E6D4EB00A7E312 /* ImagePreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB976FE721E6D4EB00A7E312 /* ImagePreviewCell.xib */; };
@@ -208,6 +215,22 @@
 		DB9D2AEC21FB54120021FBC4 /* ProjectCalendarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D2AEB21FB54120021FBC4 /* ProjectCalendarDelegate.swift */; };
 		DB9D2AEE21FB54600021FBC4 /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D2AED21FB54600021FBC4 /* CalendarViewCell.swift */; };
 		DB9D2AF021FB55290021FBC4 /* CalendarViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D2AEF21FB55290021FBC4 /* CalendarViewHeader.swift */; };
+		DBA3CAD3222A96D200850166 /* TaskConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CAD2222A96D200850166 /* TaskConstants.swift */; };
+		DBA3CAD5222A97D000850166 /* CommonPopupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CAD4222A97D000850166 /* CommonPopupEntity.swift */; };
+		DBA3CAD7222A980400850166 /* TaskEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CAD6222A980400850166 /* TaskEntity.swift */; };
+		DBA3CAD9222A997C00850166 /* GenericPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CAD8222A997C00850166 /* GenericPopUp.swift */; };
+		DBA3CADB222AEE1D00850166 /* InvoiceDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CADA222AEE1D00850166 /* InvoiceDetailInfoCell.swift */; };
+		DBA3CADD222AF62700850166 /* InvoiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CADC222AF62700850166 /* InvoiceConstants.swift */; };
+		DBA3CADF222AFB3800850166 /* InvoiceImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CADE222AFB3800850166 /* InvoiceImageCell.swift */; };
+		DBA3CAE1222BB1C300850166 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CAE0222BB1C300850166 /* DataManager.swift */; };
+		DBA3CAE3222C014C00850166 /* ReplyImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CAE2222C014C00850166 /* ReplyImagePreview.swift */; };
+		DBA3CAE5222C487200850166 /* UploadAiToServerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CAE4222C487200850166 /* UploadAiToServerCell.swift */; };
+		DBA3CAE8222C5A3400850166 /* SeenByCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CAE6222C5A3400850166 /* SeenByCell.swift */; };
+		DBA3CAE9222C5A3400850166 /* SeenByCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA3CAE7222C5A3400850166 /* SeenByCell.xib */; };
+		DBA3CAEB222C5BA500850166 /* SeenByController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CAEA222C5BA500850166 /* SeenByController.swift */; };
+		DBA3CAED222C5DB100850166 /* SeenByPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CAEC222C5DB100850166 /* SeenByPresenter.swift */; };
+		DBA3CAEF222C5DC200850166 /* SeenByInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CAEE222C5DC200850166 /* SeenByInteractor.swift */; };
+		DBA3CAF1222C5DD600850166 /* SeenByRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3CAF0222C5DD600850166 /* SeenByRoute.swift */; };
 		DBAE902621FD9B99008478D5 /* TaskCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE902521FD9B99008478D5 /* TaskCalendar.swift */; };
 		DBAE902821FD9BBD008478D5 /* TaskCalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE902721FD9BBD008478D5 /* TaskCalendarDelegates.swift */; };
 		DBAE902A21FD9D88008478D5 /* LoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBAE902921FD9D88008478D5 /* LoaderView.xib */; };
@@ -379,6 +402,7 @@
 		DB608E5121F79B1600E7F963 /* ProjectTasks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectTasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DB639A2321E0C4DF009F7C94 /* Pods_ReusableFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ReusableFramework.framework; path = /Users/jeevantiwari/Desktop/AccountingApp/AccountingApp/Pods_ReusableFramework.framework; sourceTree = "<absolute>"; };
 		DB6475A02215B1AD0064B052 /* CreateConversationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateConversationEntity.swift; sourceTree = "<group>"; };
+		DB653898223EA39D00D3D40C /* UploadINvoiceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadINvoiceEntity.swift; sourceTree = "<group>"; };
 		DB65563221EE5D5B00DD8910 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
 		DB65563421EE5DBD00DD8910 /* ConversationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationController.swift; sourceTree = "<group>"; };
 		DB65563621EE5F0700DD8910 /* ConversationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationPresenter.swift; sourceTree = "<group>"; };
@@ -397,6 +421,11 @@
 		DB7BFF2821CD236D00C10B8E /* ProjectTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTaskCell.swift; sourceTree = "<group>"; };
 		DB7BFF2A21CD272500C10B8E /* ProjectDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailCell.swift; sourceTree = "<group>"; };
 		DB7BFF2C21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDateCollectionCell.swift; sourceTree = "<group>"; };
+		DB7F6ACC2266309B000236F4 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		DB7F6ACE22663157000236F4 /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		DB7F6ACF2266315B000236F4 /* NotificationDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDetailsCell.swift; sourceTree = "<group>"; };
+		DB7F6AD222663174000236F4 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		DB7F6AD32266317B000236F4 /* NotificationControllerDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationControllerDetails.swift; sourceTree = "<group>"; };
 		DB8513C1220F170C004041F0 /* ProjectAssigneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAssigneView.swift; sourceTree = "<group>"; };
 		DB8513C3220F1AC1004041F0 /* ProjectAssignees+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectAssignees+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DB8513C4220F1AC1004041F0 /* ProjectAssignees+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectAssignees+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -428,6 +457,7 @@
 		DB861A8321F312EC00083D35 /* TaskPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPresenter.swift; sourceTree = "<group>"; };
 		DB861A8521F312FD00083D35 /* TaskInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInteractor.swift; sourceTree = "<group>"; };
 		DB861A8721F3130C00083D35 /* TaskRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRoute.swift; sourceTree = "<group>"; };
+		DB9260B22233FAB000D44C81 /* SeenByEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeenByEntity.swift; sourceTree = "<group>"; };
 		DB976FE321E6D47A00A7E312 /* ImagePreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewController.swift; sourceTree = "<group>"; };
 		DB976FE521E6D4DA00A7E312 /* ImagePreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewCell.swift; sourceTree = "<group>"; };
 		DB976FE721E6D4EB00A7E312 /* ImagePreviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePreviewCell.xib; sourceTree = "<group>"; };
@@ -482,6 +512,22 @@
 		DB9D2AEB21FB54120021FBC4 /* ProjectCalendarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCalendarDelegate.swift; sourceTree = "<group>"; };
 		DB9D2AED21FB54600021FBC4 /* CalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
 		DB9D2AEF21FB55290021FBC4 /* CalendarViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewHeader.swift; sourceTree = "<group>"; };
+		DBA3CAD2222A96D200850166 /* TaskConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskConstants.swift; sourceTree = "<group>"; };
+		DBA3CAD4222A97D000850166 /* CommonPopupEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPopupEntity.swift; sourceTree = "<group>"; };
+		DBA3CAD6222A980400850166 /* TaskEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEntity.swift; sourceTree = "<group>"; };
+		DBA3CAD8222A997C00850166 /* GenericPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPopUp.swift; sourceTree = "<group>"; };
+		DBA3CADA222AEE1D00850166 /* InvoiceDetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailInfoCell.swift; sourceTree = "<group>"; };
+		DBA3CADC222AF62700850166 /* InvoiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceConstants.swift; sourceTree = "<group>"; };
+		DBA3CADE222AFB3800850166 /* InvoiceImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceImageCell.swift; sourceTree = "<group>"; };
+		DBA3CAE0222BB1C300850166 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		DBA3CAE2222C014C00850166 /* ReplyImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyImagePreview.swift; sourceTree = "<group>"; };
+		DBA3CAE4222C487200850166 /* UploadAiToServerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadAiToServerCell.swift; sourceTree = "<group>"; };
+		DBA3CAE6222C5A3400850166 /* SeenByCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeenByCell.swift; sourceTree = "<group>"; };
+		DBA3CAE7222C5A3400850166 /* SeenByCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeenByCell.xib; sourceTree = "<group>"; };
+		DBA3CAEA222C5BA500850166 /* SeenByController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeenByController.swift; sourceTree = "<group>"; };
+		DBA3CAEC222C5DB100850166 /* SeenByPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeenByPresenter.swift; sourceTree = "<group>"; };
+		DBA3CAEE222C5DC200850166 /* SeenByInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeenByInteractor.swift; sourceTree = "<group>"; };
+		DBA3CAF0222C5DD600850166 /* SeenByRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeenByRoute.swift; sourceTree = "<group>"; };
 		DBAE902521FD9B99008478D5 /* TaskCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCalendar.swift; sourceTree = "<group>"; };
 		DBAE902721FD9BBD008478D5 /* TaskCalendarDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCalendarDelegates.swift; sourceTree = "<group>"; };
 		DBAE902921FD9D88008478D5 /* LoaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoaderView.xib; sourceTree = "<group>"; };
@@ -562,6 +608,7 @@
 				DB608E3021F64E4700E7F963 /* ProjectDatabase.swift */,
 				DB5AAC122209D68D00D425EF /* GroupChatDatabase.swift */,
 				DB8513C9220F1B63004041F0 /* ProjectAssigneeDatabase.swift */,
+				DBA3CAE0222BB1C300850166 /* DataManager.swift */,
 			);
 			path = DatabaseFetchAndSave;
 			sourceTree = "<group>";
@@ -609,6 +656,7 @@
 				DB39CA0421CB7DCD003A1303 /* Info.plist */,
 				DB39C9FC21CB7DC9003A1303 /* AccountingApp.xcdatamodeld */,
 				DB39CA6221CB8999003A1303 /* HomeController.swift */,
+				DB7F6ACC2266309B000236F4 /* Notification.storyboard */,
 			);
 			path = AccountingApp;
 			sourceTree = "<group>";
@@ -670,6 +718,9 @@
 				DB2D48A721F323EC00C901D1 /* CreateProjectController.swift */,
 				DB2D48C121F4F6C600C901D1 /* UploadInvoiceController.swift */,
 				DB8513C1220F170C004041F0 /* ProjectAssigneView.swift */,
+				DB7F6AD222663174000236F4 /* NotificationController.swift */,
+				DB7F6AD32266317B000236F4 /* NotificationControllerDetails.swift */,
+				DBA3CAEA222C5BA500850166 /* SeenByController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -695,6 +746,7 @@
 				DB861A8321F312EC00083D35 /* TaskPresenter.swift */,
 				DB2D48A921F3242B00C901D1 /* CreateProjectPresenter.swift */,
 				DB2D48C321F4F72600C901D1 /* UploadInvoicePresenter.swift */,
+				DBA3CAEC222C5DB100850166 /* SeenByPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -720,6 +772,7 @@
 				DB861A8521F312FD00083D35 /* TaskInteractor.swift */,
 				DB2D48AB21F3244C00C901D1 /* CreateProjectInteractor.swift */,
 				DB2D48C521F4F73900C901D1 /* UploadInvoiceInteractor.swift */,
+				DBA3CAEE222C5DC200850166 /* SeenByInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -745,6 +798,7 @@
 				DB861A8721F3130C00083D35 /* TaskRoute.swift */,
 				DB2D48AD21F3247E00C901D1 /* CreateProjectRoute.swift */,
 				DB2D48C721F4F74B00C901D1 /* UploadInvoiceRoute.swift */,
+				DBA3CAF0222C5DD600850166 /* SeenByRoute.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -863,6 +917,13 @@
 				DBAE902B21FD9F04008478D5 /* LoaderView.swift */,
 				DB8513CD220F53DB004041F0 /* ConversationCell.swift */,
 				DB8513CF220F5FDA004041F0 /* ConversationCell.xib */,
+				DBA3CADA222AEE1D00850166 /* InvoiceDetailInfoCell.swift */,
+				DBA3CADE222AFB3800850166 /* InvoiceImageCell.swift */,
+				DBA3CAE4222C487200850166 /* UploadAiToServerCell.swift */,
+				DBA3CAE6222C5A3400850166 /* SeenByCell.swift */,
+				DB7F6ACE22663157000236F4 /* NotificationCell.swift */,
+				DB7F6ACF2266315B000236F4 /* NotificationDetailsCell.swift */,
+				DBA3CAE7222C5A3400850166 /* SeenByCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -880,6 +941,8 @@
 				DB861A7D21F2C61000083D35 /* ProjectApis.swift */,
 				DBEE5EF6220EF14200AF991B /* CreateProjectConstants.swift */,
 				DB8513C7220F1AF2004041F0 /* DatabaseEntityName.swift */,
+				DBA3CAD2222A96D200850166 /* TaskConstants.swift */,
+				DBA3CADC222AF62700850166 /* InvoiceConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -920,6 +983,8 @@
 				DB65563C21EEB98D00DD8910 /* CredentialsCheck.swift */,
 				DB861A5921F0CEBD00083D35 /* ChangeRootViewController.swift */,
 				DB2D48C921F5520C00C901D1 /* CustomPopopController.swift */,
+				DBA3CAD8222A997C00850166 /* GenericPopUp.swift */,
+				DBA3CAE2222C014C00850166 /* ReplyImagePreview.swift */,
 			);
 			path = Additional;
 			sourceTree = "<group>";
@@ -951,6 +1016,10 @@
 				DB6475A02215B1AD0064B052 /* CreateConversationEntity.swift */,
 				DBEAEF94221756C10054F2CC /* SubGroupEntity.swift */,
 				DBB1B43F221DC4B6002F26BE /* CreateSubgroupEntity.swift */,
+				DBA3CAD4222A97D000850166 /* CommonPopupEntity.swift */,
+				DBA3CAD6222A980400850166 /* TaskEntity.swift */,
+				DB9260B22233FAB000D44C81 /* SeenByEntity.swift */,
+				DB653898223EA39D00D3D40C /* UploadINvoiceEntity.swift */,
 			);
 			name = Entity;
 			path = ../..;
@@ -1105,6 +1174,7 @@
 				DB976FEE21E786E400A7E312 /* GroupCell.xib in Resources */,
 				DB97703221EE4D4700A7E312 /* EditProfileImageCell.xib in Resources */,
 				DB39CA6821CB8CFF003A1303 /* ProfileCell.xib in Resources */,
+				DBA3CAE9222C5A3400850166 /* SeenByCell.xib in Resources */,
 				DB861A6821F218BD00083D35 /* CreateSubgroupCell.xib in Resources */,
 				DBAE902A21FD9D88008478D5 /* LoaderView.xib in Resources */,
 				DB39CA0021CB7DCD003A1303 /* Assets.xcassets in Resources */,
@@ -1121,6 +1191,7 @@
 				DB97700C21ECF5F900A7E312 /* GroupMessageReplyCell.xib in Resources */,
 				DB39CA3521CB821C003A1303 /* Quicksand-Bold.ttf in Resources */,
 				DB39CA3621CB821C003A1303 /* Quicksand-Medium.ttf in Resources */,
+				DB7F6ACD2266309B000236F4 /* Notification.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1249,9 +1320,12 @@
 				DB2D48C621F4F73900C901D1 /* UploadInvoiceInteractor.swift in Sources */,
 				DB608E3121F64E4700E7F963 /* ProjectDatabase.swift in Sources */,
 				DBC5A37C21E512CB00D615BF /* Extension.swift in Sources */,
+				DBA3CAEB222C5BA500850166 /* SeenByController.swift in Sources */,
 				DB2D48C421F4F72600C901D1 /* UploadInvoicePresenter.swift in Sources */,
+				DBA3CAF1222C5DD600850166 /* SeenByRoute.swift in Sources */,
 				DB65563721EE5F0700DD8910 /* ConversationPresenter.swift in Sources */,
 				DBAE903A2200B576008478D5 /* UnseenGroupMessage+CoreDataProperties.swift in Sources */,
+				DBA3CAD3222A96D200850166 /* TaskConstants.swift in Sources */,
 				DB7BFF2321CCEB7A00C10B8E /* InvoiceDetailCollectionCell.swift in Sources */,
 				DB8513C2220F170C004041F0 /* ProjectAssigneView.swift in Sources */,
 				DB97703E21EE505C00A7E312 /* ProfileEditPresenter.swift in Sources */,
@@ -1261,6 +1335,8 @@
 				DB39CA8121CBA181003A1303 /* ForgotPassPresenter.swift in Sources */,
 				DBEE5EF5220EEDB300AF991B /* CreateProjectEntity.swift in Sources */,
 				DB861A8021F2C6AB00083D35 /* CameraReviewEntity.swift in Sources */,
+				DBA3CAD7222A980400850166 /* TaskEntity.swift in Sources */,
+				DBA3CADF222AFB3800850166 /* InvoiceImageCell.swift in Sources */,
 				DB65563521EE5DBD00DD8910 /* ConversationController.swift in Sources */,
 				DB7BFF2D21CD2D8C00C10B8E /* ProjectDateCollectionCell.swift in Sources */,
 				DB97704221EE50BA00A7E312 /* ProfileEditRoute.swift in Sources */,
@@ -1269,8 +1345,10 @@
 				DB39CA4521CB83CE003A1303 /* ReportsPresenter.swift in Sources */,
 				DB976FE421E6D47A00A7E312 /* ImagePreviewController.swift in Sources */,
 				DB39CA5121CB841F003A1303 /* ProfileInteractor.swift in Sources */,
+				DBA3CADB222AEE1D00850166 /* InvoiceDetailInfoCell.swift in Sources */,
 				DB39CA5921CB8451003A1303 /* ReportsRoute.swift in Sources */,
 				DBC5A37E21E5147400D615BF /* CameraReviewController.swift in Sources */,
+				DB653899223EA39D00D3D40C /* UploadINvoiceEntity.swift in Sources */,
 				DB976FF621EC37EA00A7E312 /* GroupRoutes.swift in Sources */,
 				DB65563321EE5D5B00DD8910 /* ConversationView.swift in Sources */,
 				DB97700621ECE45300A7E312 /* GroupMessageInteractor.swift in Sources */,
@@ -1287,7 +1365,9 @@
 				DB39CAB021CBF3EC003A1303 /* Helper.swift in Sources */,
 				DB2D48A821F323EC00C901D1 /* CreateProjectController.swift in Sources */,
 				DB976FFC21EC3D2C00A7E312 /* CameraReviewRoutes.swift in Sources */,
+				DBA3CAE1222BB1C300850166 /* DataManager.swift in Sources */,
 				DBEE5EF7220EF14200AF991B /* CreateProjectConstants.swift in Sources */,
+				DBA3CADD222AF62700850166 /* InvoiceConstants.swift in Sources */,
 				DB2D48C821F4F74B00C901D1 /* UploadInvoiceRoute.swift in Sources */,
 				DB8513CA220F1B63004041F0 /* ProjectAssigneeDatabase.swift in Sources */,
 				DB7BFF1921CCDF2700C10B8E /* CollectionCellWithImage.swift in Sources */,
@@ -1298,11 +1378,14 @@
 				DBEAEF95221756C10054F2CC /* SubGroupEntity.swift in Sources */,
 				DB6475A12215B1AD0064B052 /* CreateConversationEntity.swift in Sources */,
 				DB8513C6220F1AC1004041F0 /* ProjectAssignees+CoreDataProperties.swift in Sources */,
+				DBA3CAE5222C487200850166 /* UploadAiToServerCell.swift in Sources */,
 				DB97703421EE4D6400A7E312 /* EditProfileImageCell.swift in Sources */,
 				DB9D2AF021FB55290021FBC4 /* CalendarViewHeader.swift in Sources */,
 				DBAE90362200B576008478D5 /* SeenGroupMessage+CoreDataProperties.swift in Sources */,
 				DB39CA7B21CB9D33003A1303 /* LoginApis.swift in Sources */,
 				DB2D48B821F4E6E700C901D1 /* CameraReviewDatabase.swift in Sources */,
+				DBA3CAE3222C014C00850166 /* ReplyImagePreview.swift in Sources */,
+				DBA3CAEF222C5DC200850166 /* SeenByInteractor.swift in Sources */,
 				DB39CA3D21CB839F003A1303 /* CameraController.swift in Sources */,
 				DB39CA5321CB842B003A1303 /* CameraInteractor.swift in Sources */,
 				DB39CA9921CBC293003A1303 /* LoginResponseEntity.swift in Sources */,
@@ -1327,16 +1410,22 @@
 				DB97702421ED6FF800A7E312 /* GroupChatController.swift in Sources */,
 				DB2D48CA21F5520C00C901D1 /* CustomPopopController.swift in Sources */,
 				DB39CA7321CB9580003A1303 /* LoginController.swift in Sources */,
+				DB9260B32233FAB000D44C81 /* SeenByEntity.swift in Sources */,
+				DBA3CAED222C5DB100850166 /* SeenByPresenter.swift in Sources */,
 				DBC5A38021E6501300D615BF /* UIConstants.swift in Sources */,
 				DB608E5621F79B1600E7F963 /* Projects+CoreDataClass.swift in Sources */,
+				DBA3CAE8222C5A3400850166 /* SeenByCell.swift in Sources */,
 				DB39CA8B21CBA62A003A1303 /* AccountingEnums.swift in Sources */,
 				DB2D48B621F4637700C901D1 /* InvoiceDatabase.swift in Sources */,
+				DBA3CAD5222A97D000850166 /* CommonPopupEntity.swift in Sources */,
 				DB608E5821F79B1600E7F963 /* ProjectTasks+CoreDataClass.swift in Sources */,
 				DB97701221ED0A9E00A7E312 /* AllProjectsPresenter.swift in Sources */,
 				DB39CAA421CBDEDC003A1303 /* InvoiceCollectionCell.swift in Sources */,
+				DB7F6AD02266315C000236F4 /* NotificationCell.swift in Sources */,
 				DB7BFF2121CCE9A200C10B8E /* InvoiceDetailsController.swift in Sources */,
 				DB9D2AE921FB53E10021FBC4 /* ProjectCalendar.swift in Sources */,
 				DBAE90382200B576008478D5 /* GroupMessage+CoreDataProperties.swift in Sources */,
+				DBA3CAD9222A997C00850166 /* GenericPopUp.swift in Sources */,
 				DB608E5921F79B1600E7F963 /* ProjectTasks+CoreDataProperties.swift in Sources */,
 				DB8513CC220F1BD9004041F0 /* ProjectAssigneeEntity.swift in Sources */,
 				DB8513C8220F1AF2004041F0 /* DatabaseEntityName.swift in Sources */,
@@ -1369,6 +1458,7 @@
 				DB2D48BF21F4EB3F00C901D1 /* ProjectList+CoreDataClass.swift in Sources */,
 				DB39CA6A21CB8D1A003A1303 /* ProfileCell.swift in Sources */,
 				DB97702C21EE43B800A7E312 /* GroupChatReplyCell.swift in Sources */,
+				DB7F6AD12266315C000236F4 /* NotificationDetailsCell.swift in Sources */,
 				DB608E5421F79B1600E7F963 /* ProjectDates+CoreDataClass.swift in Sources */,
 				DB976FEA21E7820000A7E312 /* GroupHeader.swift in Sources */,
 				DB5AAC132209D68D00D425EF /* GroupChatDatabase.swift in Sources */,
@@ -1405,6 +1495,7 @@
 				DB39CA5B21CB845A003A1303 /* ProfileRoute.swift in Sources */,
 				DB65563D21EEB98D00DD8910 /* CredentialsCheck.swift in Sources */,
 				DB2D48AC21F3244C00C901D1 /* CreateProjectInteractor.swift in Sources */,
+				DB7F6AD42266317C000236F4 /* NotificationController.swift in Sources */,
 				DB9D2AEC21FB54120021FBC4 /* ProjectCalendarDelegate.swift in Sources */,
 				DB22675921DE635A001F6D01 /* GroupController.swift in Sources */,
 				DB9D2AEE21FB54600021FBC4 /* CalendarViewCell.swift in Sources */,
@@ -1433,6 +1524,7 @@
 				DB8513CE220F53DB004041F0 /* ConversationCell.swift in Sources */,
 				DB2D48C021F4EB3F00C901D1 /* ProjectList+CoreDataProperties.swift in Sources */,
 				DB861A7421F224FF00083D35 /* CheckUncheckCell.swift in Sources */,
+				DB7F6AD52266317C000236F4 /* NotificationControllerDetails.swift in Sources */,
 				DB39CA5721CB8445003A1303 /* ProjectRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

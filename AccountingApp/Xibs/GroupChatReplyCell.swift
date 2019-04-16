@@ -13,12 +13,11 @@ class GroupChatReplyCell: UITableViewCell{
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var postedDate: UILabel!
-    
     @IBOutlet weak var message: UILabel!
-    
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var replyTo: UILabel!
     @IBOutlet weak var collectionViewHeightAnchor: NSLayoutConstraint!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var messageDetail: GroupDetailEntity?{
         didSet{
@@ -27,28 +26,26 @@ class GroupChatReplyCell: UITableViewCell{
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        activityIndicator.isHidden = true
         setup()
     }
     
     func setup(){
-        
+        activityIndicator.isHidden = true
         collectionView.register(UINib(nibName: "ImagePreviewCell", bundle: nil), forCellWithReuseIdentifier: "ImagePreviewCell")
         collectionView.delegate = self
         collectionView.dataSource = self
         configureCell()
-        
-        
     }
     
     func setData(){
-        
+        activityIndicator.isHidden = true
         userImage.addImage(url: messageDetail?.userProfile)
         userName.text = messageDetail?.userName
         message.text = messageDetail?.comment
         //  seenBy.setTitle(messageDetail?.seenBy, for: .normal)
         //startConversation.setTitle(messageDetail?.startConversation, for: .normal)
         postedDate.text = messageDetail?.commentDate
-        
         if messageDetail?.isCollectionHidden == true{
             collectionViewHeightAnchor.constant = 0
             //    pager.isHidden = true
@@ -56,6 +53,14 @@ class GroupChatReplyCell: UITableViewCell{
             collectionViewHeightAnchor.constant = UIScreen.main.bounds.width * 0.3
             //  pager.isHidden = false
         }
+        
+        if let taggedPerson = messageDetail?.taggedPerson{
+             replyTo.text = CreateReplyEnum.replyTo.rawValue + taggedPerson
+        }else{
+            replyTo.text = nil
+        }
+       
+        collectionView.reloadData()
         
     }
 }

@@ -38,7 +38,7 @@ class CreateProjectInteractor: PresentorToInterectorProtocol, APIRequest{
         
         if let project = body as? CreateProjectEntity{
             parameters = try? JSONEncoder().encode(project.self)
-            if let _ = project.ProjectId{
+            if CreateProjectTypeEnum.create.rawValue == project.type{
                 path  = ProjectApis.projectCreateUrl
             }else{
                 path = ProjectApis.updateProject
@@ -60,11 +60,13 @@ class CreateProjectInteractor: PresentorToInterectorProtocol, APIRequest{
             self.message = (nil, nil)
         }) {
             
-        }.dispose()
+        }
 
     }
     
     func fetchData() {
+        method = RequestType.GET
+        path =  LoginApis.getAssignIds + "/\(UserHelper.companyID().1)"
         
         let projectAssignees: Observable<AssigneResponseEntity> = Network.get(apiRequest: self)
         projectAssignees.subscribe(onNext: { (response) in

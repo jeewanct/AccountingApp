@@ -21,7 +21,7 @@ class LoginInteractor: PresentorToInterectorProtocol, APIRequest{
     var parameters: Data?
     var headers: [String : String]
     var presenter: InterectorToPresenterProtocol?
-    
+    var appDelegate: AppDelegate!
     var error = ""
     // Login Interactor initiliazers
     init() {
@@ -29,7 +29,9 @@ class LoginInteractor: PresentorToInterectorProtocol, APIRequest{
         path = LoginApis.loginUrl
         parameters = Data()
         headers = path.getHeader()
-        
+        if let appDelegateInstance = UIApplication.shared.delegate as? AppDelegate{
+            appDelegate = appDelegateInstance
+        }
     }
     
     func fetchData() {}
@@ -90,7 +92,6 @@ extension LoginInteractor{
     
     func saveUserProfile(userData: LoginData?){
         
-        
         if let token = userData?.Token, let companyId
             = userData?.CompanyId, let userId = userData?.ID, let userType = userData?.UserType{
             
@@ -102,10 +103,10 @@ extension LoginInteractor{
             
         }
         
-        DispatchQueue.main.async {
-            if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
-                
-                if let userInformation = NSEntityDescription.insertNewObject(forEntityName: "Profile", into: appDelegate.persistentContainer.viewContext) as? Profile{
+        
+           // if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+                ProfileDatabase.deleteData(entityName: "Profile", context: appDelegate)
+                if let userInformation = NSEntityDescription.insertNewObject(forEntityName: "Profile", into: appDelegate.updateContext) as? Profile{
                     
                     if let userId = userData?.ID{
                         userInformation.userId = String(userId)
@@ -143,11 +144,8 @@ extension LoginInteractor{
                     
                 }
                 
-            }
-        }
-        
-        
-        
+           // }
+      
     }
     
 }

@@ -24,7 +24,7 @@ class CreateConversationEntity: Codable{
     var parentCommentId: String?
     var commentType = "0"
     var imagePath: [String?]?
-    
+    var commentId: String?
     
     init(type: String){
         let (userId, companyId)  = UserHelper.companyID()

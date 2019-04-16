@@ -24,6 +24,7 @@ extension Invoices {
     @NSManaged public var createdDate: Date?
     @NSManaged public var invoiceId: String?
     @NSManaged public var invoiceDetail: NSSet?
+    @NSManaged public var projectName: String?
     
 }
 

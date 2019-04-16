@@ -9,20 +9,24 @@
 import UIKit
 import UPCarouselFlowLayout
 
+enum ImagePreviewEnum{
+    case camera
+    case image
+}
 
 class ImagePreviewController: UIViewController{
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var numberOfImages: UIPageControl!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
     }
     
+    var imagesString: [String?]?
     var images: [CameraImages]?
-    
+    var type: ImagePreviewEnum?
 }
 
 
@@ -38,6 +42,11 @@ extension ImagePreviewController: UICollectionViewDataSource{
             numberOfImages.numberOfPages = count
         }
         
+        if let count = imagesString?.count{
+            numberOfImages.numberOfPages = count
+        }
+        
+        
         collectionView.register(UINib(nibName: ProjectNibs.imagePreviewCell.rawValue, bundle: nil), forCellWithReuseIdentifier: ProjectNibs.imagePreviewCell.rawValue)
         
         if let layout = collectionView.collectionViewLayout as? UPCarouselFlowLayout{
@@ -50,18 +59,22 @@ extension ImagePreviewController: UICollectionViewDataSource{
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let _ = type{
+            return imagesString?.count ?? 0
+        }
         return images?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProjectNibs.imagePreviewCell.rawValue, for: indexPath) as! ImagePreviewCell
-        cell.imageView.image = images?[indexPath.item].image
+        if let _ = type{
+             cell.imageView.addImage(url: imagesString?[indexPath.item])
+        }else{
+             cell.imageView.image = images?[indexPath.item].image
+        }
+       
         return cell
     }
-    
-    
-    
-    
     
 }
 

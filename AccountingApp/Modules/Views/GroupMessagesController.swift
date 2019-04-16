@@ -68,6 +68,17 @@ class GroupMessagesController: UIViewController{
         
     }
     
+    func openImages(imageList: [String?]?){
+        let previewImage = InvoiceRoute.mainstoryboard.instantiateViewController(withIdentifier: "ImagePreviewController") as! ImagePreviewController
+        previewImage.type = .image
+        if let images = imageList{
+            if images.count > 0{
+                previewImage.imagesString = images
+                navigationController?.pushViewController(previewImage, animated: true)
+            }
+        }
+    }
+    
     var groupList: [GroupUIEntity]?
     var groupInformation: GroupInformationEntity!
     var presenter: ViewToPresenterProtocol?
@@ -137,7 +148,7 @@ extension GroupMessagesController: UICollectionViewDataSource, UICollectionViewD
         case 0:
             noDataImage.isHidden = groupList?[pageNumber].noData ?? false
         default:
-             noDataImage.isHidden = groupList?[pageNumber].noData ?? false
+            noDataImage.isHidden = groupList?[pageNumber].noData ?? false
         }
         
     }
@@ -200,6 +211,21 @@ extension GroupMessagesController: SelectedProjectDelegate{
         //let alertController = uialer
         let deleteModel = GroupMessageDeleteEntity(projectId: groupInformation.projectId, subGroupId: groupInformation.subGroupId, commentId: groupList?[atSection].groupChatList?[atItem].commentId)
         presenter?.updateView(body: deleteModel)
+    }
+    
+    func seenBy(commentId: String){
+        //let alertController = uialer
+        let seenController = SeenByRoute.createModule() as! SeenByController
+        seenController.modalTransitionStyle = .coverVertical
+        seenController.modalPresentationStyle = .overCurrentContext
+        seenController.commentId = SeenByRequest(commentId: commentId, subGroupId: groupInformation.subGroupId)
+        present(seenController, animated: true, completion: nil)
+    }
+    
+    func setSeenBy(seenEntity: GroupMessageSeen){
+        seenEntity.SubGroupId = groupInformation.subGroupId
+        seenEntity.ProjectId = groupInformation.projectId
+        presenter?.updateView(body: seenEntity)
     }
 }
 
